@@ -1,0 +1,145 @@
+
+// menu option inex
+#define OPTIONS_COUNT   10
+#define WAVEFORM_INDEX  0
+#define PWM_INDEX       1
+#define ATTACK_INDEX    2
+#define DECAY_INDEX     3
+#define SUSTAIN_INDEX   4
+#define RELEASE_INDEX   5
+#define DFREQ_INDEX     6
+#define DPWM_INDEX      7
+#define TIME1_INDEX     8
+#define TIME0_INDEX     9
+
+#define OPTION_NOOP     8
+#define OPTION_PREVIOUS 0
+#define OPTION_NEXT     2
+
+#define MENU_UP      -1
+#define MENU_DOWN     1
+
+// menu position
+#define MENU_X_START    11
+#define MENU_Y_START    0
+#define MENU_START_POS  (MENU_X_START + (40*MENU_Y_START))
+
+// menu positions
+#define WAVEFORM_POS  (MENU_START_POS + (40*WAVEFORM_INDEX))
+#define PWM_POS       (MENU_START_POS + (40*PWM_INDEX))
+#define DPWM_POS      (MENU_START_POS + (40*DPWM_INDEX))
+
+#define WAVEFORM_VALUE_POS WAVEFORM_POS + 11
+#define FREQ_DIGITS_POS    (40 * 16 + 31)
+#define PWM_DIGITS_POS     (MENU_START_POS + (40*PWM_INDEX)     + 13)
+#define ATTACK_DIGITS_POS  (MENU_START_POS + (40*ATTACK_INDEX)  + 15)
+#define DECAY_DIGITS_POS   (MENU_START_POS + (40*DECAY_INDEX)   + 15)
+#define SUSTAIN_DIGITS_POS (MENU_START_POS + (40*SUSTAIN_INDEX) + 15)
+#define RELEASE_DIGITS_POS (MENU_START_POS + (40*RELEASE_INDEX) + 15)
+
+#define DFREQ_DIGITS_POS   (MENU_START_POS + (40*DFREQ_INDEX)   + 12)
+#define DPWM_DIGITS_POS    (MENU_START_POS + (40*DPWM_INDEX)    + 13)
+#define TIME1_DIGITS_POS   (MENU_START_POS + (40*TIME1_INDEX)   + 14)
+#define TIME0_DIGITS_POS   (MENU_START_POS + (40*TIME0_INDEX)   + 14)
+
+// waveforms id's ( only WAVE_PULSE is used in code )
+#define WAVE_TRIANGLE   0
+#define WAVE_SAW        1
+#define WAVE_PULSE      2
+#define WAVE_NOISE      3
+
+// waveform name positions and length
+#define WAVE_NAMES_GAP       1
+#define TRIANGLE_NAME_LEN    3     // "TRI"
+#define SAW_NAME_LEN         3     // "SAW"
+#define PULSE_NAME_LEN       5     // "PULSE"
+#define NOISE_NAME_LEN       5     // "NOISE"
+#define TRIANGLE_NAME_POS_X  WAVEFORM_POS + 13
+#define SAW_NAME_POS_X       (TRIANGLE_NAME_POS_X+TRIANGLE_NAME_LEN+WAVE_NAMES_GAP)
+#define PULSE_NAME_POS_X     (SAW_NAME_POS_X+SAW_NAME_LEN+WAVE_NAMES_GAP)
+#define NOISE_NAME_POS_X     (PULSE_NAME_POS_X+PULSE_NAME_LEN+WAVE_NAMES_GAP)
+
+// octave keys color and digit position
+#define OCTAVE_MENU_POS_Y         17
+#define OCTAVE_MENU_POS_X         8
+#define OCTAVE_MENU_POS           ((40 * OCTAVE_MENU_POS_Y) + OCTAVE_MENU_POS_X)
+#define OCTAVE_MENU_DIGIT_ADDR    (CHAR_RAM + OCTAVE_MENU_POS + 7)
+#define OCTAVE_MENU_COLOR_ADDR    (COLOR_RAM + OCTAVE_MENU_POS + 16)
+#define OCTAVE_0_X_COLOR_POSITION    0
+#define OCTAVE_1_X_COLOR_POSITION    1
+#define OCTAVE_2_X_COLOR_POSITION    2
+#define OCTAVE_3_X_COLOR_POSITION    3
+#define OCTAVE_4_X_COLOR_POSITION    4
+#define OCTAVE_5_X_COLOR_POSITION    5
+#define OCTAVE_6_X_COLOR_POSITION    6
+#define OCTAVE_7_X_COLOR_POSITION    7
+
+#define NOTES_COLOR_POSITIONS_Y   19
+#define NOTES_COLOR_POSITIONS_X   9
+#define SEMINOTES_COLOR_POSITIONS (COLOR_RAM + 40 * NOTES_COLOR_POSITIONS_Y + NOTES_COLOR_POSITIONS_X )
+#define NOTES_COLOR_POSITIONS     (4*40)
+#define NOTES_COLOR_KEY_Q     NOTES_COLOR_POSITIONS + 0
+#define NOTES_COLOR_KEY_2     1
+#define NOTES_COLOR_KEY_W     NOTES_COLOR_POSITIONS + 2
+#define NOTES_COLOR_KEY_3     3
+#define NOTES_COLOR_KEY_E     NOTES_COLOR_POSITIONS + 4
+#define NOTES_COLOR_KEY_R     NOTES_COLOR_POSITIONS + 6
+#define NOTES_COLOR_KEY_5     7
+#define NOTES_COLOR_KEY_T     NOTES_COLOR_POSITIONS + 8
+#define NOTES_COLOR_KEY_6     9
+#define NOTES_COLOR_KEY_Y     NOTES_COLOR_POSITIONS + 10
+#define NOTES_COLOR_KEY_7     11
+#define NOTES_COLOR_KEY_U     NOTES_COLOR_POSITIONS + 12
+#define NOTES_COLOR_KEY_I     NOTES_COLOR_POSITIONS + 14
+#define NOTES_COLOR_KEY_9     15
+#define NOTES_COLOR_KEY_O     NOTES_COLOR_POSITIONS + 16
+#define NOTES_COLOR_KEY_0     17
+#define NOTES_COLOR_KEY_P     NOTES_COLOR_POSITIONS + 18
+#define NOTES_COLOR_KEY_AT    NOTES_COLOR_POSITIONS + 20
+#define NOTES_COLOR_KEY_MINUS       21
+#define NOTES_COLOR_KEY_ASTERISK    NOTES_COLOR_POSITIONS + 22
+
+struct OPTION_DETAILS {
+    void (*change_value) (byte);
+    void (*change_color) (byte);
+    void (*change_step)  ();
+    unsigned value;
+    unsigned step;
+    byte digit_index;
+};
+
+struct MENU_OPTIONS {
+    struct OPTION_DETAILS option[ OPTIONS_COUNT ];
+    byte index;
+};
+
+extern volatile struct MENU_OPTIONS menu;
+
+byte octaves_color_positions[] = {
+OCTAVE_0_X_COLOR_POSITION,
+OCTAVE_1_X_COLOR_POSITION,
+OCTAVE_2_X_COLOR_POSITION,
+OCTAVE_3_X_COLOR_POSITION,
+OCTAVE_4_X_COLOR_POSITION,
+OCTAVE_5_X_COLOR_POSITION,
+OCTAVE_6_X_COLOR_POSITION,
+OCTAVE_7_X_COLOR_POSITION
+}
+
+byte piano_notes_color_positions[] = {
+NOTES_COLOR_KEY_Q,
+NOTES_COLOR_KEY_2,
+NOTES_COLOR_KEY_W,
+NOTES_COLOR_KEY_3,
+NOTES_COLOR_KEY_E,
+NOTES_COLOR_KEY_R,
+NOTES_COLOR_KEY_5,
+NOTES_COLOR_KEY_T,
+NOTES_COLOR_KEY_6,
+NOTES_COLOR_KEY_Y,
+NOTES_COLOR_KEY_7,
+NOTES_COLOR_KEY_U
+}
+
+
+
