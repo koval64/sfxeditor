@@ -9,13 +9,13 @@ char sounds_process_keyboard_events( void ) {
         return true;      // exit main menu
     } else if(_key == 145 ) {   // cursor up
         go_up();
-    } else if(_key == 17 ) {    // cursor down
+    } else if(_key == 17 )  {    // cursor down
         go_down();
     } else if(_key == 157 ) {   // cursor left
         go_left();
-    } else if(_key == 29 ) {    // cursor right
+    } else if(_key == 29 )  {    // cursor right
         go_right();
-    } else if(_key == 13 ) {    // enter
+    } else if(_key == 13 )  {    // enter
         // enter
     }
 

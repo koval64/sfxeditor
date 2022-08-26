@@ -1,5 +1,5 @@
 
-void copy_to_screen(char * petscii_char_array) {
+void copy_to_screen(byte * petscii_char_array) {
 
     // put petscii editor data on screen
     for(int i=0; i<1000; i++)
@@ -7,7 +7,7 @@ void copy_to_screen(char * petscii_char_array) {
 
 }
 
-void clear_screen(char color) {
+void clear_screen(byte color) {
 
     // clear char and color RAM
     for(int i=0; i<1000; i++) {
@@ -17,7 +17,7 @@ void clear_screen(char color) {
 
 }
 
-void win_put_at(char * petscii_char_array, char pos_x, char pos_y, char width, char height) {
+void win_put_at(byte * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height) {
 
     // put petscii char array data on screen on specified coordinates
     // with given width and height

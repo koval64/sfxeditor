@@ -1,6 +1,5 @@
 
-// menu option inex
-#define OPTIONS_COUNT   10
+// menu option index
 #define WAVEFORM_INDEX  0
 #define PWM_INDEX       1
 #define ATTACK_INDEX    2
@@ -11,6 +10,7 @@
 #define DPWM_INDEX      7
 #define TIME1_INDEX     8
 #define TIME0_INDEX     9
+#define OPTIONS_COUNT   10
 
 #define OPTION_NOOP     8
 #define OPTION_PREVIOUS 0
@@ -77,7 +77,10 @@
 #define NOTES_COLOR_POSITIONS_Y   19
 #define NOTES_COLOR_POSITIONS_X   9
 #define SEMINOTES_COLOR_POSITIONS (COLOR_RAM + 40 * NOTES_COLOR_POSITIONS_Y + NOTES_COLOR_POSITIONS_X )
+
+// relative position on the screen
 #define NOTES_COLOR_POSITIONS     (4*40)
+
 #define NOTES_COLOR_KEY_Q     NOTES_COLOR_POSITIONS + 0
 #define NOTES_COLOR_KEY_2     1
 #define NOTES_COLOR_KEY_W     NOTES_COLOR_POSITIONS + 2

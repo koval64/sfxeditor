@@ -1,33 +1,4 @@
 
-void effect_info_show_view(void) {
-    /* screen_backup[13*26]; */
-    for(char y=0; y<13; y++) {
-        for(char x=0; x<26; x++) {
-
-            unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;
-
-            screen_char_backup[y][x]  = CHAR_RAM[pos];
-            screen_color_backup[y][x] = COLOR_RAM[pos];
-
-            CHAR_RAM[pos] = sound_effect_info_ascii[y][x];
-            COLOR_RAM[pos] = VCOL_LT_GREY;
-        }
-    }
-}
-
-void effect_info_hide_view(void) {
-    // restore screen
-    for(char y=0; y<13; y++) {
-        for(char x=0; x<26; x++) {
-
-            unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;
-
-            CHAR_RAM[pos]  = screen_char_backup[y][x];
-            COLOR_RAM[pos] = screen_color_backup[y][x];
-        }
-    }
-}
-
 // fill view
 void effect_info_fill_view(void) {
 
@@ -73,4 +44,40 @@ void effect_info_fill_view(void) {
     sound_effect_info_ascii[8][16] = int2hexpetscii[ (time0 >>  4) & 0x0f];
     sound_effect_info_ascii[8][17] = int2hexpetscii[ time0 & 0x0f];
 }
+
+void effect_info_show_view(void) {
+    /* screen_backup[13*26]; */
+    for(char y=0; y<13; y++) {
+        for(char x=0; x<26; x++) {
+
+            unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;
+
+            screen_char_backup[y][x]  = CHAR_RAM[pos];
+            screen_color_backup[y][x] = COLOR_RAM[pos];
+
+            CHAR_RAM[pos] = sound_effect_info_ascii[y][x];
+            COLOR_RAM[pos] = VCOL_LT_GREY;
+        }
+    }
+}
+
+void effect_info_hide_view(void) {
+    // restore screen
+    for(char y=0; y<13; y++) {
+        for(char x=0; x<26; x++) {
+
+            unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;
+
+            CHAR_RAM[pos]  = screen_char_backup[y][x];
+            COLOR_RAM[pos] = screen_color_backup[y][x];
+        }
+    }
+}
+
+
+
+
+
+
+
 

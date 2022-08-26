@@ -12,13 +12,13 @@
 #include "common/utils.c"
 #include "common/view_utils.c"
 #include "common/scene_utils.c"
-#include "common/inits.c"
 #include "info_window/main.h"
 #include "edit_window/main.h"
-#include "sounds_window/main.c"
+#include "sounds_window/scene.h"
 
 // maybe create struct VAULT ???
 
+// oscar64 init
 void init(void) {
 
     // Enable ROM
@@ -47,10 +47,15 @@ void scene_tree_init(void) {
     scene_tree.active_scene.mainloop  = null;
     scene_tree.active_scene.hide      = null;
 
-    scene_tree.scene[EDIT_WINDOW].init     = null;
+    scene_tree.scene[EDIT_WINDOW].init     = edit_window_init;
     scene_tree.scene[EDIT_WINDOW].show     = edit_window_show;
     scene_tree.scene[EDIT_WINDOW].mainloop = edit_window_mainloop;
     scene_tree.scene[EDIT_WINDOW].hide     = null;
+
+    scene_tree.scene[INFO_WINDOW].init     = null;
+    scene_tree.scene[INFO_WINDOW].show     = null;
+    scene_tree.scene[INFO_WINDOW].mainloop = null;
+    scene_tree.scene[INFO_WINDOW].hide     = null;
 
     scene_tree.scene[SOUNDS_WINDOW].init     = null;
     scene_tree.scene[SOUNDS_WINDOW].show     = sounds_window_show;
@@ -58,18 +63,20 @@ void scene_tree_init(void) {
     scene_tree.scene[SOUNDS_WINDOW].hide     = null;
 
     // necessary one time inits
-    edit_window_init();
+    for( int i=0; i<SCENES_COUNT; i++ )
+        scene_tree.scene[ i ].init();
 
-    // since active_scene pointers are initialized with null function
-    // it work as initial activation
-    // main scene
-    change_scene_to( EDIT_WINDOW );
-    
 }
 
 void project_init( void ) {
-    scene_tree_init();
+
     sound_bank_init();
+    scene_tree_init();
+
+    // since active_scene pointers are initialized with null function
+    // it works as main scene initial activation
+    change_scene_to( EDIT_WINDOW );
+    
 }
 
 int main(void) {

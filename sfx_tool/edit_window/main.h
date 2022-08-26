@@ -7,7 +7,7 @@
 #include "menu_actions.c"
 #include "menu_handling.c"
 
-#include "init.c"
+#include "inits.c"
 #include "events.c"
 #include "show.c"
 

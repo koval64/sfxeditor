@@ -74,14 +74,6 @@ void edit_window_init_options_struct( void ) {
 
 }
 
-// necessary one time inits
-void edit_window_init(void) {
-  
-    // init options menu
-    edit_window_init_options_struct();
-
-}
-
 
 
 

@@ -23,7 +23,7 @@ void select_option(char new_opt) {
 void update_vertical_menu( char direction ) {
     char new_opt = menu.index + direction;
 
-    // skip pwm and dpwm settings if not pulse waveform
+    // SKIP PWM AND DPWM SETTINGS IF NOT PULSE WAVEFORM
     if(new_opt == PWM_INDEX || new_opt == DPWM_INDEX) {
         if(menu.option[WAVEFORM_INDEX].value != WAVE_PULSE)
             new_opt += direction;
@@ -35,21 +35,21 @@ void update_vertical_menu( char direction ) {
     else if (new_opt > OPTIONS_COUNT)     // first option - 1 = go to last option
         new_opt = OPTIONS_COUNT-1;
 
-    // update
+    // UPDATE
     select_option(new_opt);
 
-    // remember choosen option
+    // REMEMBER CHOOSEN OPTION
     menu.index = new_opt
 }
 
 void update_horizontal_menu( char direction ) {
-    menu.option[menu.index].change_value (direction);     // 1 - left, 3 - right
-    sfx_update();
+    menu.option[menu.index].change_value (direction);     // direction = 1 - left, 3 - right
+    update_sidfx_struct();
     sidfx_play(1, SIDFXExplosion, 1);
 }
 
 void horizontal_menu_cycle_step(void) {
-    menu.option[menu.index].change_step ();         // 1 - left, 3 - right
+    menu.option[menu.index].change_step ();
 }
 
 // menu helpers - global variables used only here

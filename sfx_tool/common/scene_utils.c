@@ -7,15 +7,15 @@ struct SCENE {
 };
 
 struct SCENE_TREE {
-    char active_scene_id;
-    struct SCENE active_scene;
+    byte active_scene_id;
     struct SCENE scene[ SCENES_COUNT ];
+    struct SCENE active_scene;
 };
 
 extern volatile struct SCENE_TREE scene_tree;
 
 // scene_tree.change_scene( SOUNDS_WINDOW );
-void change_scene_to( char SCENE_ID ) {
+void change_scene_to( byte SCENE_ID ) {
 
     scene_tree.active_scene.hide();
 
@@ -25,6 +25,8 @@ void change_scene_to( char SCENE_ID ) {
     scene_tree.active_scene.hide      = scene_tree.scene[ SCENE_ID ].hide;
 
     scene_tree.active_scene_id = SCENE_ID;
+
+    scene_tree.active_scene.show();
 
 }
 

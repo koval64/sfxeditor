@@ -107,6 +107,7 @@ void (*waveform_menu_set_option[OPTIONS_COUNT]) (char) = {
 };
 
 void waveform_menu_change_option(char value) {
+
     // deselect pulse additional settings if PULSE wave selected
     if(menu.option[WAVEFORM_INDEX].value == WAVE_PULSE)
       (*waveform_menu_set_option[WAVE_PULSE]) (OPTION_ON_COLOR);
@@ -117,7 +118,7 @@ void waveform_menu_change_option(char value) {
     else if(value == OPTION_NEXT)
         menu.option[WAVEFORM_INDEX].value++;
 
-    // limit options
+    // keep in range(0, 3)
     menu.option[WAVEFORM_INDEX].value &= 0x3;
 
     // select new waveform

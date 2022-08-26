@@ -1,6 +1,6 @@
 
-#define CHAR_RAM  ((char *)0x0400)
-#define COLOR_RAM ((char *)0xd800)
+#define CHAR_RAM  ((byte *)0x0400)
+#define COLOR_RAM ((byte *)0xd800)
 
 // SCENES ID
 #define EDIT_WINDOW     0
@@ -31,24 +31,6 @@ SIDFX	SIDFXExplosion[1] = {{
     0, 0,
     8, 8
 }};
-
-struct SFX {
-    byte note;
-    unsigned pwm;
-    byte wave;
-    byte ad;
-    byte sr;
-    int dfreq;
-    int dpwm;
-    byte time1;
-    byte time0;
-};
-
-struct SOUND_BANK {
-    struct SFX sfx[ 48 ];
-};
-
-extern volatile struct SOUND_BANK sound_bank;
 
 // "0123456789abcdef"
 char int2hexpetscii[] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 1, 2, 3, 4, 5, 6};

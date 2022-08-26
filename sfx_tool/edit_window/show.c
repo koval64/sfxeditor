@@ -12,8 +12,8 @@ void edit_window_fill_menu_values_and_step(void) {
     CHAR_RAM[PWM_DIGITS_POS+2] = int2hexpetscii[ pwm & 0x0f];
 
     // a/d/s/r
-    CHAR_RAM[ATTACK_DIGITS_POS] = int2hexpetscii[menu.option[ATTACK_INDEX].value];
-    CHAR_RAM[DECAY_DIGITS_POS] = int2hexpetscii[menu.option[DECAY_INDEX].value];
+    CHAR_RAM[ATTACK_DIGITS_POS]  = int2hexpetscii[menu.option[ATTACK_INDEX].value];
+    CHAR_RAM[DECAY_DIGITS_POS]   = int2hexpetscii[menu.option[DECAY_INDEX].value];
     CHAR_RAM[SUSTAIN_DIGITS_POS] = int2hexpetscii[menu.option[SUSTAIN_INDEX].value];
     CHAR_RAM[RELEASE_DIGITS_POS] = int2hexpetscii[menu.option[RELEASE_INDEX].value];
 
@@ -83,25 +83,6 @@ void edit_window_select_default_menu_options() {
     SEMINOTES_COLOR_POSITIONS[ piano_notes_color_positions[ note ] ] = OPTION_ON_SELECTED_COLOR;
 
     octave *= 12;
-
-}
-
-void edit_window_show(void) {
-
-    // clear chars and set color
-    clear_screen(VCOL_DARK_GREY);
-
-    // put windows on screen ( char data in one dimensional array )
-    win_put_at(copyright, 26, 14, 14, 1);
-    win_put_at(edit_window_sfx_properties, 11, 0, 16, 10);
-    win_put_at(edit_window_info_bar, 0, 13, 40, 1);
-    win_put_at(edit_window_piano, 8, 17, 25, 8);
-
-    // default values
-    edit_window_fill_menu_values_and_step();
-
-    // default selections
-    edit_window_select_default_menu_options();
 
 }
 
