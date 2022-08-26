@@ -40,7 +40,7 @@ void init(void) {
 
 }
 
-void scene_tree_init(void) {
+void scene_tree_assign_pointers(void) {
 
     scene_tree.active_scene.init      = null;
     scene_tree.active_scene.show      = null;
@@ -57,21 +57,20 @@ void scene_tree_init(void) {
     scene_tree.scene[INFO_WINDOW].mainloop = null;
     scene_tree.scene[INFO_WINDOW].hide     = null;
 
-    scene_tree.scene[SOUNDS_WINDOW].init     = null;
+    scene_tree.scene[SOUNDS_WINDOW].init     = sounds_window_init;
     scene_tree.scene[SOUNDS_WINDOW].show     = sounds_window_show;
     scene_tree.scene[SOUNDS_WINDOW].mainloop = sounds_mainloop;
     scene_tree.scene[SOUNDS_WINDOW].hide     = null;
-
-    // necessary one time inits
-    for( int i=0; i<SCENES_COUNT; i++ )
-        scene_tree.scene[ i ].init();
 
 }
 
 void project_init( void ) {
 
-    sound_bank_init();
-    scene_tree_init();
+    scene_tree_assign_pointers();
+
+    // necessary one time inits
+    for( int i=0; i<SCENES_COUNT; i++ )
+        scene_tree.scene[ i ].init();
 
     // since active_scene pointers are initialized with null function
     // it works as main scene initial activation
@@ -81,7 +80,7 @@ void project_init( void ) {
 
 int main(void) {
 
-    // global inits
+    // global inits ( oscar )
     init();
 
     // project init

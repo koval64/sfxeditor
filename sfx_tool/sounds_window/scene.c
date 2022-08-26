@@ -1,4 +1,10 @@
 
+void sounds_window_init( void ) {
+
+    sound_bank_init();
+
+}
+
 void sounds_window_show( void ) {
 
     // clear chars and set color
@@ -7,10 +13,9 @@ void sounds_window_show( void ) {
     // import data from petscii editor ( whole screen )
     copy_to_screen(sounds_view);
 
-    // temporary workaround ( temporary fix ) START
+    // copy edit_menu sound into sound bank actual instrument
     byte index = column * 16 + row;
     store_sfx( index );
-    // temporary workaround ( temporary fix ) END
 
     // select default menu option
     sounds_select_option();
