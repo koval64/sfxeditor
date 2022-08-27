@@ -13,20 +13,23 @@ void edit_window_show(void) {
     // clear chars and set color
     clear_screen(VCOL_DARK_GREY);
 
+    // unpack SIDFX oscar structure into menu selections
+    update_menu_selections();
+
+    // fill windows buffers with values
+    edit_window_fill_buffers_with_values();
+
+    // default selections
+    edit_window_select_default_menu_options();
+
     // put windows on screen ( char data in one dimensional array )
-    win_put_at(copyright, 26, 14, 14, 1);
+    /* win_put_at(copyright, 26, 14, 14, 1); */
     win_put_at(edit_window_sfx_properties, 11, 0, 16, 10);
     win_put_at(edit_window_info_bar, 0, 13, 40, 1);
     win_put_at(edit_window_piano, 8, 17, 25, 8);
 
-    // unpack SIDFX oscar structure into menu selections
-    update_menu_selections();
-
-    // default values
-    edit_window_fill_menu_values_and_step();
-
-    // default selections
-    edit_window_select_default_menu_options();
+    // update wave name option
+    waveform_menu_change_option(OPTION_NOOP);
 
 }
 
