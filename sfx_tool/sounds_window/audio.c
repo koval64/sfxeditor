@@ -11,8 +11,6 @@ void restore_sfx( byte index ) {
     SIDFXExplosion[0].time1   = sound_bank.sfx[ index ].time1;
     SIDFXExplosion[0].time0   = sound_bank.sfx[ index ].time0;
 
-    debug_put_byte1( index );
-
 }
 
 void store_sfx( byte index ) {
@@ -29,6 +27,5 @@ void store_sfx( byte index ) {
     sound_bank.sfx[ index ].time1 = SIDFXExplosion[0].time1;
     sound_bank.sfx[ index ].time0 = SIDFXExplosion[0].time0;
 
-    debug_put_byte0( index );
 }
 

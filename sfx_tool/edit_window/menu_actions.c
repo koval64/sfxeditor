@@ -44,32 +44,29 @@ void waveform_menu_change_color(char color) {
     COLOR_RAM[WAVEFORM_VALUE_POS+4] = color;
 }
 
+void waveform_menu_option_put(char c0, char c1, char c2, char c3, char c4) {
+    // put chars on screen
+    CHAR_RAM[WAVEFORM_VALUE_POS+0] = c0;
+    CHAR_RAM[WAVEFORM_VALUE_POS+1] = c1;
+    CHAR_RAM[WAVEFORM_VALUE_POS+2] = c2;
+    CHAR_RAM[WAVEFORM_VALUE_POS+3] = c3;
+    CHAR_RAM[WAVEFORM_VALUE_POS+4] = c4;
+}
+
 void waveform_menu_option_triangle(char color) {
     // put on screen string '  tri'
-    CHAR_RAM[WAVEFORM_VALUE_POS+0] = ' ';
-    CHAR_RAM[WAVEFORM_VALUE_POS+1] = ' ';
-    CHAR_RAM[WAVEFORM_VALUE_POS+2] = 0x14;
-    CHAR_RAM[WAVEFORM_VALUE_POS+3] = 0x12;
-    CHAR_RAM[WAVEFORM_VALUE_POS+4] = 0x09;
+    waveform_menu_option_put(' ', ' ', 0x14, 0x12, 0x09);
 }
 
 void waveform_menu_option_saw(char color) {
-    // on screen string '  saw'
-    CHAR_RAM[WAVEFORM_VALUE_POS+0] = ' ';
-    CHAR_RAM[WAVEFORM_VALUE_POS+1] = ' ';
-    CHAR_RAM[WAVEFORM_VALUE_POS+2] = 0x13;
-    CHAR_RAM[WAVEFORM_VALUE_POS+3] = 0x01;
-    CHAR_RAM[WAVEFORM_VALUE_POS+4] = 0x17;
+    // put on screen string '  saw'
+    waveform_menu_option_put(' ', ' ', 0x13, 0x01, 0x17);
 }
 
 void waveform_menu_option_pulse(char color) {
     // put on screen string 'pulse'
     if(color == OPTION_ON_SELECTED_COLOR) {
-        CHAR_RAM[WAVEFORM_VALUE_POS+0] = 0x10;
-        CHAR_RAM[WAVEFORM_VALUE_POS+1] = 0x15;
-        CHAR_RAM[WAVEFORM_VALUE_POS+2] = 0x0c;
-        CHAR_RAM[WAVEFORM_VALUE_POS+3] = 0x13;
-        CHAR_RAM[WAVEFORM_VALUE_POS+4] = 0x05;
+        waveform_menu_option_put(0x10, 0x15, 0x0c, 0x13, 0x05);
     }
 
     // blackout or whitelist PWM options
@@ -91,12 +88,8 @@ void waveform_menu_option_pulse(char color) {
 }
 
 void waveform_menu_option_noise(char color) {
-    // put string 'noise' on screen
-    CHAR_RAM[WAVEFORM_VALUE_POS+0] = 0x0e;
-    CHAR_RAM[WAVEFORM_VALUE_POS+1] = 0x0f;
-    CHAR_RAM[WAVEFORM_VALUE_POS+2] = 0x09;
-    CHAR_RAM[WAVEFORM_VALUE_POS+3] = 0x13;
-    CHAR_RAM[WAVEFORM_VALUE_POS+4] = 0x05;
+    // put on screen string 'noise'
+    waveform_menu_option_put(0x0e, 0x0f, 0x09, 0x13, 0x05);
 }
 
 void (*waveform_menu_set_option[OPTIONS_COUNT]) (char) = {

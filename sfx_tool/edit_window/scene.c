@@ -29,7 +29,7 @@ void edit_window_show(void) {
     win_put_at(edit_window_piano, 8, 17, 25, 8);
 
     // update wave name option
-    waveform_menu_change_option(OPTION_NOOP);
+    /* waveform_menu_change_option(OPTION_NOOP); */
 
 }
 

@@ -1,10 +1,43 @@
 
+void edit_window_fill_wave_name(char c0, char c1, char c2, char c3, char c4) {
+    // put chars on screen
+    edit_window_sfx_properties[11] = c0;
+    edit_window_sfx_properties[12] = c1;
+    edit_window_sfx_properties[13] = c2;
+    edit_window_sfx_properties[14] = c3;
+    edit_window_sfx_properties[15] = c4;
+}
+
+void edit_window_update_buffer_wave_name(void) {
+
+    // fill wave name field
+
+    if(menu.option[WAVEFORM_INDEX].value == 0) {
+        // string '  tri'
+        edit_window_fill_wave_name(' ', ' ', 0x14, 0x12, 0x09);
+    } else if(menu.option[WAVEFORM_INDEX].value == 1) {
+        // string '  saw'
+        edit_window_fill_wave_name(' ', ' ', 0x13, 0x01, 0x17);
+    } else if(menu.option[WAVEFORM_INDEX].value == 2) {
+        // string 'pulse'
+        edit_window_fill_wave_name(0x10, 0x15, 0x0c, 0x13, 0x05);
+    } else if(menu.option[WAVEFORM_INDEX].value == 3) {
+        // string 'noise'
+        edit_window_fill_wave_name(0x0e, 0x0f, 0x09, 0x13, 0x05);
+    }
+
+}
+
 void edit_window_fill_buffers_with_values(void) {
 
     //
-    // VALUES
-    //
     // edit_window_sfx_properties[]
+    //
+    // width = 16 bytes
+    //
+
+    // update wave name
+    edit_window_update_buffer_wave_name();
 
     // pwm
     unsigned pwm = SIDFXExplosion[0].pwm;
@@ -91,6 +124,7 @@ void edit_window_select_default_menu_options() {
     // select default note key
     SEMINOTES_COLOR_POSITIONS[ prev_note_position ] = OPTION_ON_SELECTED_COLOR;
 
+    // project necessity
     octave *= 12;
 
 }
