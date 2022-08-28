@@ -7,5 +7,5 @@ char screen_char_backup[13][26];
 char screen_color_backup[13][26];
 
 // LOCAL VARIABLES
-char int2hexascii[] = "0123456789abcdef";
+/* char int2hexascii[] = "0123456789abcdef"; */
 

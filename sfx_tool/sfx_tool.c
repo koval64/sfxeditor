@@ -40,6 +40,21 @@ void init(void) {
 
 }
 
+void set_scene_pointers(
+    byte scene_id,
+    void (*init) (void),
+    void (*show) (void),
+    void (*mainloop) (void),
+    void (*hide) (void) )
+{
+
+    scene_tree.scene[scene_id].init     = init;
+    scene_tree.scene[scene_id].show     = show;
+    scene_tree.scene[scene_id].mainloop = mainloop;
+    scene_tree.scene[scene_id].hide     = hide;
+
+}
+
 void scene_tree_assign_pointers(void) {
 
     scene_tree.active_scene.init      = null;
@@ -47,20 +62,14 @@ void scene_tree_assign_pointers(void) {
     scene_tree.active_scene.mainloop  = null;
     scene_tree.active_scene.hide      = null;
 
-    scene_tree.scene[EDIT_WINDOW].init     = edit_window_init;
-    scene_tree.scene[EDIT_WINDOW].show     = edit_window_show;
-    scene_tree.scene[EDIT_WINDOW].mainloop = edit_window_mainloop;
-    scene_tree.scene[EDIT_WINDOW].hide     = null;
+    set_scene_pointers( EDIT_WINDOW,
+        edit_window_init, edit_window_show, edit_window_mainloop, null );
 
-    scene_tree.scene[INFO_WINDOW].init     = null;
-    scene_tree.scene[INFO_WINDOW].show     = null;
-    scene_tree.scene[INFO_WINDOW].mainloop = null;
-    scene_tree.scene[INFO_WINDOW].hide     = null;
+    set_scene_pointers( INFO_WINDOW,
+        null, null, null, null );
 
-    scene_tree.scene[SOUNDS_WINDOW].init     = sounds_window_init;
-    scene_tree.scene[SOUNDS_WINDOW].show     = sounds_window_show;
-    scene_tree.scene[SOUNDS_WINDOW].mainloop = sounds_mainloop;
-    scene_tree.scene[SOUNDS_WINDOW].hide     = null;
+    set_scene_pointers( SOUNDS_WINDOW,
+        sounds_window_init, sounds_window_show, sounds_mainloop, null );
 
 }
 
