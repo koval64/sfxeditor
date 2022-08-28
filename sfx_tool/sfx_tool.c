@@ -12,7 +12,7 @@
 #include "common/utils.c"
 #include "common/view_utils.c"
 #include "common/scene_utils.c"
-#include "info_window/main.h"
+#include "info_window/scene.h"
 #include "edit_window/scene.h"
 #include "sounds_window/scene.h"
 
