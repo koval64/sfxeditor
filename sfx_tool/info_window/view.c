@@ -46,15 +46,17 @@ void effect_info_fill_view(void) {
 }
 
 void effect_info_show_view(void) {
-    /* screen_backup[13*26]; */
+    /* backup screen part [ 13x26 ]; */
     for(char y=0; y<13; y++) {
         for(char x=0; x<26; x++) {
 
             unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;
 
+            // backup screen to buffer
             screen_char_backup[y][x]  = CHAR_RAM[pos];
             screen_color_backup[y][x] = COLOR_RAM[pos];
 
+            // copy to screen
             CHAR_RAM[pos] = sound_effect_info_ascii[y][x];
             COLOR_RAM[pos] = VCOL_LT_GREY;
         }
@@ -62,7 +64,7 @@ void effect_info_show_view(void) {
 }
 
 void effect_info_hide_view(void) {
-    // restore screen
+    // restore screen part
     for(char y=0; y<13; y++) {
         for(char x=0; x<26; x++) {
 
