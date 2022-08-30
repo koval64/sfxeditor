@@ -8,9 +8,9 @@ Main screen.
 ```
 cursor keys   - move and play sound
 space, enter  - play sound
-b             - go to load/save sound bank menu
 i             - show info about current sound
 e             - edit sound
+b             - go to load/save sound bank menu
 ```
 
 
@@ -19,8 +19,8 @@ e             - edit sound
 ![Screenshot](screenshots/sound_bank_load_save_view.png)
 
 ```
-l     - load sound bank file 'soundbank00.sbk' from disc drive 8
-s     - save sound bank file 'soundbank00.sbk' to disc drive 8
+l     - load file 'soundbank00.sbk' from disc drive 8
+s     - save file 'soundbank00.sbk' to disc drive 8
 space - close window
 ```
 
