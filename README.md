@@ -1,27 +1,20 @@
-# So far, only disc drive 8 is supported.
+# Only disc drive 8 is supported.
 
-# Sound Bank view
+### Sound Bank window
 
 ![Screenshot](screenshots/sound_bank_view.png)
 
-This is the main screen.
-
+Main screen.
 ```
 cursor keys   - move and play sound
-
 space, enter  - play sound
-
 b             - go to load/save sound bank menu
-
 i             - show info about current sound
-
 e             - edit sound
-
-On any screen pressing < SPACE > will take you back here, to the main screen.
 ```
 
 
-# Sound Bank load/save menu view
+### Sound Bank load/save menu window
 
 ![Screenshot](screenshots/sound_bank_load_save_view.png)
 
@@ -31,7 +24,7 @@ s     - save sound bank file 'soundbank00.sbk' to disc drive 8
 space - close window
 ```
 
-# Sound info view
+### Sound info window
 
 ![Screenshot](screenshots/sound_info_view.png)
 
@@ -41,7 +34,7 @@ d     - dump as txt file to disc drive 8
 space - close window
 ```
 
-# Edit menu view
+### Edit menu window
 
 ![Screenshot](screenshots/edit_menu_view.png)
 
@@ -51,5 +44,6 @@ cursor keys - up/down     - move
 enter       - change digit to edit
 asdfghjk    - change octave accordingly
 q2w3er5t... - piano ( set frequency for sound )
+space       - close window
 ```
 
