@@ -47,7 +47,7 @@ void effect_info_fill_view(void) {
 
 void effect_info_show_view(void) {
     /* backup screen part [ 13x26 ]; */
-    for(char y=0; y<13; y++) {
+    for(char y=0; y<15; y++) {
         for(char x=0; x<26; x++) {
 
             unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;
@@ -65,7 +65,7 @@ void effect_info_show_view(void) {
 
 void effect_info_hide_view(void) {
     // restore screen part
-    for(char y=0; y<13; y++) {
+    for(char y=0; y<15; y++) {
         for(char x=0; x<26; x++) {
 
             unsigned pos = SOUND_EFFECT_INFO_WINDOW_POS + ( y * 40 ) + x;

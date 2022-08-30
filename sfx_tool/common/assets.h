@@ -32,8 +32,29 @@ SIDFX	SIDFXExplosion[1] = {{
     8, 8
 }};
 
+struct SFX {
+    /* char name[12]; */
+    char note;
+    unsigned pwm;
+    char wave;
+    char ad;
+    char sr;
+    int dfreq;
+    int dpwm;
+    char time1;
+    char time0;
+};
+
+struct SOUND_BANK {
+    struct SFX sfx[ 48 ];
+};
+
+extern volatile struct SOUND_BANK sound_bank;
+
 // "0123456789abcdef"
 char int2hexpetscii[] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 1, 2, 3, 4, 5, 6};
+char int2hexascii[]   = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
+
 
 
 

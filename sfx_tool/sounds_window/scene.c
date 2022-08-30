@@ -31,6 +31,9 @@ void sounds_mainloop(void) {
         if(done)
             break;
 
+        // Update sound effects
+        sidfx_loop();
+
         // Wait for one frame iteration
         vic_waitFrame();
     }

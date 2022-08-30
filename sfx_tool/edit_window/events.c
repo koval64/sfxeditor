@@ -15,8 +15,7 @@ char edit_window_process_keyboard_events() {
     byte _key = keyb_codes[keyb_key & 0x7f];
     bool play = true;
 
-    if (_key == 32) {
-        // if KEY_SPACE pressed open(sound_effect_info_window())
+    if ( _key == 27 || _key == 32 || _key == 61 || _key == 95 ) {
         return true;
         /* play = false; */
     } else if (_key == 'q') {

@@ -23,13 +23,9 @@ void edit_window_show(void) {
     edit_window_select_default_menu_options();
 
     // put windows on screen ( char data in one dimensional array )
-    /* win_put_at(copyright, 26, 14, 14, 1); */
     win_put_at(edit_window_sfx_properties, 11, 0, 16, 10);
-    win_put_at(edit_window_info_bar, 0, 13, 40, 1);
-    win_put_at(edit_window_piano, 8, 17, 25, 8);
-
-    // update wave name option
-    /* waveform_menu_change_option(OPTION_NOOP); */
+    win_put_at(edit_window_info_bar, 0, 23, 40, 1);
+    win_put_at(edit_window_piano, 8, 12, 25, 8);
 
 }
 
