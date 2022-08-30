@@ -96,7 +96,7 @@ void project_init( void ) {
 
     // since active_scene pointers are initialized with null function
     // it works as main scene initial activation
-    change_scene_to( EDIT_WINDOW );
+    change_scene_to( SOUNDS_WINDOW );
     
 }
 
