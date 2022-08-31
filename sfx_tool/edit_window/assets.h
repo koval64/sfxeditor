@@ -116,7 +116,7 @@ struct MENU_OPTIONS {
     byte index;
 };
 
-extern volatile struct MENU_OPTIONS menu;
+extern struct MENU_OPTIONS menu;
 
 byte octaves_color_positions[] = {
 OCTAVE_0_X_COLOR_POSITION,

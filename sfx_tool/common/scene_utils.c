@@ -12,7 +12,7 @@ struct SCENE_TREE {
     struct SCENE active_scene;
 };
 
-extern volatile struct SCENE_TREE scene_tree;
+extern struct SCENE_TREE scene_tree;
 
 // scene_tree.change_scene( SOUNDS_WINDOW );
 void change_scene_to( byte SCENE_ID ) {
