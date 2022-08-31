@@ -17,11 +17,11 @@ void pwm_menu_cycle_step(void) {
     COLOR_RAM[ PWM_DIGITS_POS + menu.option[PWM_INDEX].digit_index ] = OPTION_ON_SELECTED_COLOR;
 }
 
-void pwm_menu_change_color(char color) {
+void pwm_menu_change_color(byte color) {
     COLOR_RAM[ PWM_DIGITS_POS + menu.option[PWM_INDEX].digit_index ] = color;
 }
 
-void pwm_menu_change_value(char direction) {
+void pwm_menu_change_value(byte direction) {
     // if pwm waveform is selected
     if(menu.option[WAVEFORM_INDEX].value == WAVE_PULSE) {
         if(direction == OPTION_PREVIOUS)
@@ -36,7 +36,7 @@ void pwm_menu_change_value(char direction) {
 }
 
 // WAVEFORM MENU
-void waveform_menu_change_color(char color) {
+void waveform_menu_change_color(byte color) {
     COLOR_RAM[WAVEFORM_VALUE_POS+0] = color;
     COLOR_RAM[WAVEFORM_VALUE_POS+1] = color;
     COLOR_RAM[WAVEFORM_VALUE_POS+2] = color;
@@ -80,14 +80,14 @@ void waveform_menu_option_pulse(char color) {
 
     // pwm option
     for(int i=0; i<28; i++)
-        COLOR_RAM[PWM_POS+i] = color
+        COLOR_RAM[PWM_POS+i] = color;
        
     // dpwm option
     for(int i=0; i<28; i++)
-        COLOR_RAM[DPWM_POS+i] = color
+        COLOR_RAM[DPWM_POS+i] = color;
 }
 
-void waveform_menu_option_noise(char color) {
+void waveform_menu_option_noise(byte color) {
     // put on screen string 'noise'
     waveform_menu_option_put(0x0e, 0x0f, 0x09, 0x13, 0x05);
 }
@@ -99,7 +99,7 @@ void (*waveform_menu_set_option[OPTIONS_COUNT]) (char) = {
     waveform_menu_option_noise
 };
 
-void waveform_menu_change_option(char value) {
+void waveform_menu_change_option(byte value) {
 
     // deselect pulse additional settings if PULSE wave selected
     if(menu.option[WAVEFORM_INDEX].value == WAVE_PULSE)
@@ -129,11 +129,11 @@ void attack_menu_cycle_step(void) {
     CHAR_RAM[ATTACK_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
 }
 
-void attack_menu_change_color(char color) {
+void attack_menu_change_color(byte color) {
     COLOR_RAM[ATTACK_DIGITS_POS] = color;
 }
 
-void attack_menu_change_value(char value) {
+void attack_menu_change_value(byte value) {
     if(value == OPTION_PREVIOUS) {
         menu.option[ATTACK_INDEX].value -= menu.option[ATTACK_INDEX].step;
     } else if(value == OPTION_NEXT) {
@@ -154,11 +154,11 @@ void decay_menu_cycle_step(void) {
     CHAR_RAM[DECAY_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
 }
 
-void decay_menu_change_color(char color) {
+void decay_menu_change_color(byte color) {
     COLOR_RAM[DECAY_DIGITS_POS] = color;
 }
 
-void decay_menu_change_value(char value) {
+void decay_menu_change_value(byte value) {
     if(value == OPTION_PREVIOUS) {
         menu.option[DECAY_INDEX].value -= menu.option[DECAY_INDEX].step;
     } else if(value == OPTION_NEXT) {
@@ -179,11 +179,11 @@ void sustain_menu_cycle_step(void) {
     CHAR_RAM[SUSTAIN_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
 }
 
-void sustain_menu_change_color(char color) {
+void sustain_menu_change_color(byte color) {
     COLOR_RAM[SUSTAIN_DIGITS_POS] = color;
 }
 
-void sustain_menu_change_value(char value) {
+void sustain_menu_change_value(byte value) {
     if(value == OPTION_PREVIOUS) {
         menu.option[SUSTAIN_INDEX].value -= menu.option[SUSTAIN_INDEX].step;
     } else if(value == OPTION_NEXT) {
@@ -204,11 +204,11 @@ void release_menu_cycle_step(void) {
     CHAR_RAM[RELEASE_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
 }
 
-void release_menu_change_color(char color) {
+void release_menu_change_color(byte color) {
     COLOR_RAM[RELEASE_DIGITS_POS] = color;
 }
 
-void release_menu_change_value(char value) {
+void release_menu_change_value(byte value) {
     if(value == OPTION_PREVIOUS) {
         menu.option[RELEASE_INDEX].value -= menu.option[RELEASE_INDEX].step;
     } else if(value == OPTION_NEXT) {
@@ -237,11 +237,11 @@ void dfreq_menu_cycle_step(void) {
     COLOR_RAM[ DFREQ_DIGITS_POS + menu.option[DFREQ_INDEX].digit_index ] = OPTION_ON_SELECTED_COLOR;
 }
 
-void dfreq_menu_change_color(char color) {
+void dfreq_menu_change_color(byte color) {
     COLOR_RAM[ DFREQ_DIGITS_POS + menu.option[DFREQ_INDEX].digit_index ] = color;
 }
 
-void dfreq_menu_change_value(char diff) {
+void dfreq_menu_change_value(byte diff) {
     if(diff == OPTION_PREVIOUS)
         menu.option[DFREQ_INDEX].value -= menu.option[DFREQ_INDEX].step;
     else if(diff == OPTION_NEXT)
@@ -271,11 +271,11 @@ void dpwm_menu_cycle_step(void) {
     COLOR_RAM[ DPWM_DIGITS_POS + menu.option[DPWM_INDEX].digit_index ] = OPTION_ON_SELECTED_COLOR;
 }
 
-void dpwm_menu_change_color(char color) {
+void dpwm_menu_change_color(byte color) {
     COLOR_RAM[ DPWM_DIGITS_POS + menu.option[DPWM_INDEX].digit_index ] = color;
 }
 
-void dpwm_menu_change_value(char diff) {
+void dpwm_menu_change_value(byte diff) {
     if(diff == OPTION_PREVIOUS)
         menu.option[DPWM_INDEX].value -= menu.option[DPWM_INDEX].step;
     else if(diff == OPTION_NEXT)
@@ -302,11 +302,11 @@ void time1_menu_cycle_step(void) {
     COLOR_RAM[ TIME1_DIGITS_POS + menu.option[TIME1_INDEX].digit_index ] = OPTION_ON_SELECTED_COLOR;
 }
 
-void time1_menu_change_color(char color) {
+void time1_menu_change_color(byte color) {
     COLOR_RAM[ TIME1_DIGITS_POS + menu.option[TIME1_INDEX].digit_index ] = color;
 }
 
-void time1_menu_change_value(char value) {
+void time1_menu_change_value(byte value) {
     if(value == OPTION_PREVIOUS)
         menu.option[TIME1_INDEX].value -= menu.option[TIME1_INDEX].step;
     else if(value == OPTION_NEXT)
@@ -331,11 +331,11 @@ void time0_menu_cycle_step(void) {
     COLOR_RAM[ TIME0_DIGITS_POS + menu.option[TIME0_INDEX].digit_index ] = OPTION_ON_SELECTED_COLOR;
 }
 
-void time0_menu_change_color(char color) {
+void time0_menu_change_color(byte color) {
     COLOR_RAM[ TIME0_DIGITS_POS + menu.option[TIME0_INDEX].digit_index ] = color;
 }
 
-void time0_menu_change_value(char value) {
+void time0_menu_change_value(byte value) {
     if(value == OPTION_PREVIOUS)
         menu.option[TIME0_INDEX].value -= menu.option[TIME0_INDEX].step;
     else if(value == OPTION_NEXT)

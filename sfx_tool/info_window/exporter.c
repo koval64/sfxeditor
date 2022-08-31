@@ -1,4 +1,5 @@
 
+
 void exporter_fill_txt_template(void) {
 
     int freq = SIDFXExplosion[0].freq;

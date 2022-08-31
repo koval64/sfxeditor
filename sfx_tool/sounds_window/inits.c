@@ -1,7 +1,7 @@
 
 void sound_bank_init( void ) {
     
-    byte counter = sizeof( sound_bank ) / sizeof( SFX );
+    byte counter = sizeof( sound_bank ) / sizeof( struct SFX );
 
     for(int i=0; i<counter; i++ ) {
 

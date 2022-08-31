@@ -19,6 +19,11 @@
 
 #include <stdlib.h>
 
+// HELPERS
+#define FALSE   0
+#define TRUE    1
+
+
 // PROJECT INCLUDES
 #include "common/assets.h"
 #include "common/utils.c"
@@ -109,7 +114,7 @@ int main(void) {
     project_init();
 
     for(;;) {
-        scene_tree.active_scene.mainloop()
+        scene_tree.active_scene.mainloop();
     }
 
     return 0;

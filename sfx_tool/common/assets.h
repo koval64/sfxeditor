@@ -23,7 +23,7 @@
 /* }; */
 
 // Sound effect for enemy explosion
-SIDFX	SIDFXExplosion[1] = {{
+struct SIDFX SIDFXExplosion[1] = {{
     0x0685, 0x100,
     SID_CTRL_GATE | SID_CTRL_RECT,
     SID_ATK_2 | SID_DKY_6,

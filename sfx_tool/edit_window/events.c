@@ -13,11 +13,11 @@ char edit_window_process_keyboard_events() {
     // get the key
     keyb_poll();
     byte _key = keyb_codes[keyb_key & 0x7f];
-    bool play = true;
+    byte play = TRUE;
 
     if ( _key == 27 || _key == 32 || _key == 61 || _key == 95 ) {
-        return true;
-        /* play = false; */
+        return TRUE;
+        /* play = FALSE; */
     } else if (_key == 'q') {
         note = 0;
         select_note(NOTES_COLOR_KEY_Q);
@@ -83,53 +83,53 @@ char edit_window_process_keyboard_events() {
     /* choose octave */
     else if (_key == 'a') {
         octave = 0;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '0'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '0';
         select_new_octave(OCTAVE_0_X_COLOR_POSITION);
     } else if(_key == 's') {
         octave = 12;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '1'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '1';
         select_new_octave(OCTAVE_1_X_COLOR_POSITION);
     } else if(_key == 'd') {
         octave = 24;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '2'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '2';
         select_new_octave(OCTAVE_2_X_COLOR_POSITION);
     } else if(_key == 'f') {
         octave = 36;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '3'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '3';
         select_new_octave(OCTAVE_3_X_COLOR_POSITION);
     } else if(_key == 'g') {
         octave = 48;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '4'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '4';
         select_new_octave(OCTAVE_4_X_COLOR_POSITION);
     } else if(_key == 'h') {
         octave = 60;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '5'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '5';
         select_new_octave(OCTAVE_5_X_COLOR_POSITION);
     } else if(_key == 'j') {
         octave = 72;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '6'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '6';
         select_new_octave(OCTAVE_6_X_COLOR_POSITION);
     } else if(_key == 'k') {
         octave = 84;
-        OCTAVE_MENU_DIGIT_ADDR[0] = '7'
+        OCTAVE_MENU_DIGIT_ADDR[0] = '7';
         select_new_octave(OCTAVE_7_X_COLOR_POSITION);
     } else if(_key == 145 ) {   // cursor up
         update_vertical_menu( MENU_UP );
-        play = false;
+        play = FALSE;
     } else if(_key == 17 ) {    // cursor down
         update_vertical_menu( MENU_DOWN );
-        play = false;
+        play = FALSE;
     } else if(_key == 157 ) {   // cursor left
         update_horizontal_menu( OPTION_PREVIOUS );
-        play = false;
+        play = FALSE;
     } else if(_key == 29 ) {    // cursor right
         update_horizontal_menu( OPTION_NEXT );
-        play = false;
+        play = FALSE;
     } else if(_key == 13 ) {    // enter
         menu.option[menu.index].change_step ();     // 1 - left, 3 - right
-        play = false;
+        play = FALSE;
     } else
-        play = false;
+        play = FALSE;
 
     if( play ) {
         int sum = octave + note;
@@ -139,7 +139,7 @@ char edit_window_process_keyboard_events() {
             sidfx_play(2, SIDFXExplosion, 1);
         }
     }
-    return false;
+    return FALSE;
 }
 
 void edit_window_process_joystick_events( void ) {

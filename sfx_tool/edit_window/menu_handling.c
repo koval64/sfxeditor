@@ -39,7 +39,7 @@ void update_vertical_menu( char direction ) {
     select_option(new_opt);
 
     // REMEMBER CHOOSEN OPTION
-    menu.index = new_opt
+    menu.index = new_opt;
 }
 
 void update_horizontal_menu( char direction ) {
@@ -59,7 +59,7 @@ unsigned prev_note_position   = NOTES_COLOR_KEY_T;
 void select_new_octave(char new_position) {
     OCTAVE_MENU_COLOR_ADDR[prev_octave_position]  = OPTION_ON_COLOR;
     OCTAVE_MENU_COLOR_ADDR[new_position]          = OPTION_ON_SELECTED_COLOR;
-    prev_octave_position = new_position
+    prev_octave_position = new_position;
 }
 
 void select_note(char new_position) {

@@ -21,7 +21,7 @@ void store_sfx( byte index ) {
     sound_bank.sfx[ index ].pwm   = SIDFXExplosion[0].pwm;
     sound_bank.sfx[ index ].wave  = SIDFXExplosion[0].ctrl;
     sound_bank.sfx[ index ].ad    = SIDFXExplosion[0].attdec;
-    sound_bank.sfx[ index ].sr    = SIDFXExplosion[0].susrel
+    sound_bank.sfx[ index ].sr    = SIDFXExplosion[0].susrel;
     sound_bank.sfx[ index ].dfreq = SIDFXExplosion[0].dfreq;
     sound_bank.sfx[ index ].dpwm  = SIDFXExplosion[0].dpwm;
     sound_bank.sfx[ index ].time1 = SIDFXExplosion[0].time1;
