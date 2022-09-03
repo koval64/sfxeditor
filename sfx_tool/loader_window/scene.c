@@ -1,5 +1,5 @@
 
-int loader_mainloop(void) {
+void loader_window_mainloop(void) {
 
     loader_show_view();
 
@@ -19,6 +19,5 @@ int loader_mainloop(void) {
 
     loader_hide_view();
 
-    return 0;
 }
 

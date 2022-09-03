@@ -1,38 +1,5 @@
-// OSCAR INCLUDES
-#include <c64/memmap.h>
-#include <c64/cia.h>
-#include <c64/vic.h>
-#include <c64/joystick.h>
-#include <c64/keyboard.h>
 
-#include <stdio.h>
-#include <c64/kernalio.h>
-    // krnio_setnam("@0:SIDFXEFFECT.TXT,P,W");
-    // krnio_open(2, 8, 2);
-    // krnio_write(2, (char*)exporter_txt_template, sizeof(exporter_txt_template) - 1);
-    // krnio_close(2);
-
-#include <audio/sidfx.h>
-
-#include <string.h>
-    // strcpy
-
-#include <stdlib.h>
-
-// HELPERS
-#define FALSE   0
-#define TRUE    1
-
-
-// PROJECT INCLUDES
-#include "common/assets.h"
-#include "common/utils.c"
-#include "common/view_utils.c"
-#include "common/scene_utils.c"
-#include "info_window/scene.h"
-#include "edit_window/scene.h"
-#include "loader_window/scene.h"
-#include "sounds_window/scene.h"
+#include "sfx_tool.h"
 
 // maybe create struct VAULT ???
 
@@ -58,21 +25,6 @@ void init(void) {
 
 }
 
-void set_scene_pointers(
-    byte scene_id,
-    void (*init) (void),
-    void (*show) (void),
-    void (*mainloop) (void),
-    void (*hide) (void) )
-{
-
-    scene_tree.scene[scene_id].init     = init;
-    scene_tree.scene[scene_id].show     = show;
-    scene_tree.scene[scene_id].mainloop = mainloop;
-    scene_tree.scene[scene_id].hide     = hide;
-
-}
-
 void scene_tree_assign_pointers(void) {
 
     scene_tree.active_scene.init      = null;
@@ -84,11 +36,13 @@ void scene_tree_assign_pointers(void) {
         edit_window_init, edit_window_show, edit_window_mainloop, null );
 
     set_scene_pointers( INFO_WINDOW,
-        null, null, null, null );
+        null, null, sound_effect_info_window_mainloop, null );
 
     set_scene_pointers( SOUNDS_WINDOW,
-        sounds_window_init, sounds_window_show, sounds_mainloop, null );
+        sounds_window_init, sounds_window_show, sounds_window_mainloop, null );
 
+    set_scene_pointers( LOADER_WINDOW,
+        null, null, loader_window_mainloop, null );
 }
 
 void project_init( void ) {
@@ -101,7 +55,7 @@ void project_init( void ) {
 
     // since active_scene pointers are initialized with null function
     // it works as main scene initial activation
-    change_scene_to( SOUNDS_WINDOW );
+    change_main_scene_to( SOUNDS_WINDOW );
     
 }
 

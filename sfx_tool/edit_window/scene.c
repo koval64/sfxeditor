@@ -49,7 +49,7 @@ void edit_window_mainloop(void) {
 
     // as well can be done in keyboard events loop
     // set next scene
-    change_scene_to( SOUNDS_WINDOW );
+    change_main_scene_to( SOUNDS_WINDOW );
 
 }
 

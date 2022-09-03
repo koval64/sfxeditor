@@ -23,7 +23,7 @@ void sounds_window_show( void ) {
 
 }
 
-void sounds_mainloop(void) {
+void sounds_window_mainloop(void) {
 
     for(;;) {
 
@@ -39,7 +39,7 @@ void sounds_mainloop(void) {
         vic_waitFrame();
     }
 
-    change_scene_to( EDIT_WINDOW );
+    change_main_scene_to( EDIT_WINDOW );
 
 }
 

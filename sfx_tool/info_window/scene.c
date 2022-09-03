@@ -1,5 +1,5 @@
 
-int sound_effect_info_window(void) {
+void sound_effect_info_window_mainloop(void) {
 
     effect_info_fill_view();
     effect_info_show_view();
@@ -20,6 +20,5 @@ int sound_effect_info_window(void) {
 
     effect_info_hide_view();
 
-    return 0;
 }
 

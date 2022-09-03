@@ -14,8 +14,23 @@ struct SCENE_TREE {
 
 extern struct SCENE_TREE scene_tree;
 
-// scene_tree.change_scene( SOUNDS_WINDOW );
-void change_scene_to( byte SCENE_ID ) {
+void set_scene_pointers(
+    byte scene_id,
+    void (*init) (void),
+    void (*show) (void),
+    void (*mainloop) (void),
+    void (*hide) (void) )
+{
+
+    scene_tree.scene[scene_id].init     = init;
+    scene_tree.scene[scene_id].show     = show;
+    scene_tree.scene[scene_id].mainloop = mainloop;
+    scene_tree.scene[scene_id].hide     = hide;
+
+}
+
+// new scene SCENE_ID is run after exitting current one
+void change_main_scene_to( byte SCENE_ID ) {
 
     scene_tree.active_scene.hide();
 
@@ -29,4 +44,17 @@ void change_scene_to( byte SCENE_ID ) {
     scene_tree.active_scene.show();
 
 }
+
+// immediately runs as subscene ( child )
+void run_as_child( byte SCENE_ID ) {
+
+    scene_tree.scene[ SCENE_ID ].mainloop();
+
+}
+
+
+
+
+
+
 

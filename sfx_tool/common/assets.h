@@ -6,7 +6,12 @@
 #define EDIT_WINDOW     0
 #define INFO_WINDOW     1
 #define SOUNDS_WINDOW   2
-#define SCENES_COUNT    3
+#define LOADER_WINDOW   3
+#define SCENES_COUNT    4
+
+// HELPERS
+#define FALSE   0
+#define TRUE    1
 
 // menu color settings
 #define OPTION_ON_COLOR             VCOL_DARK_GREY

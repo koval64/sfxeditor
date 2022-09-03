@@ -24,9 +24,9 @@ char sounds_process_keyboard_events( void ) {
     } else if( _key == 13 || _key == 32 )  {    // return
         play = TRUE;
     } else if( _key == 'i' ) {
-        sound_effect_info_window();
+        run_as_child( INFO_WINDOW );
     } else if( _key == 'b' ) {
-        loader_mainloop();
+        run_as_child( LOADER_WINDOW );
     }
 
     if ( play )
