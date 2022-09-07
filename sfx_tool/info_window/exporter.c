@@ -46,8 +46,8 @@ void exporter_fill_txt_template(void) {
 
 }
 
-int exporter_save_file(void)
-{
+void exporter_save_file(void) {
+
   // FILL SOUND EFFECT TXT TEMPLATE
   exporter_fill_txt_template();
 
@@ -61,6 +61,6 @@ int exporter_save_file(void)
 		// CLOSE THE FILE
 		krnio_close(2);
 	}
-	return 0;
+
 }
 

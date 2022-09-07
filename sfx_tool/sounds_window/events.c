@@ -35,6 +35,6 @@ char sounds_process_keyboard_events( void ) {
     return FALSE;
 }
 
-void sounds_process_joystick_events( void ) {
-}
+/* void sounds_process_joystick_events( void ) { */
+/* } */
 

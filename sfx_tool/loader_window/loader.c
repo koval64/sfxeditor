@@ -1,5 +1,5 @@
 
-int loader_save_file(void) {
+void loader_save_file(void) {
 
     // SET NAME FOR FILE AND OPEN IT WITH REPLACE ON DRIVE 8
     krnio_setnam("@0:SOUNDBANK00.SBK,P,W");
@@ -31,10 +31,9 @@ int loader_save_file(void) {
         krnio_close(2);
     }
 
-    return 0;
 }
 
-int loader_load_file(void) {
+void loader_load_file(void) {
 
     // SET NAME FOR FILE AND OPEN IT WITH REPLACE ON DRIVE 8
     krnio_setnam("SOUNDBANK00.SBK,P,R");
@@ -61,6 +60,5 @@ int loader_load_file(void) {
       krnio_close(2);
     }
 
-    return 0;
 }
 

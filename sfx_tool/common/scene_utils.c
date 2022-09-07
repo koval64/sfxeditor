@@ -45,7 +45,7 @@ void change_main_scene_to( byte SCENE_ID ) {
 
 }
 
-// immediately runs as subscene ( child )
+// immediately run as subscene ( child )
 void run_as_child( byte SCENE_ID ) {
 
     scene_tree.scene[ SCENE_ID ].mainloop();

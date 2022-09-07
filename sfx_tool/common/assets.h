@@ -27,7 +27,7 @@
 /* 	byte		priority; */
 /* }; */
 
-// Sound effect for enemy explosion
+// main sound effect structure to play sound by oscar64
 struct SIDFX SIDFXExplosion[1] = {{
     0x0685, 0x100,
     SID_CTRL_GATE | SID_CTRL_RECT,

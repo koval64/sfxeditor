@@ -78,7 +78,7 @@
 #define NOTES_COLOR_POSITIONS_X   9
 #define SEMINOTES_COLOR_POSITIONS (COLOR_RAM + 40 * NOTES_COLOR_POSITIONS_Y + NOTES_COLOR_POSITIONS_X )
 
-// relative position on the screen
+// piano relative position on the screen
 #define NOTES_COLOR_POSITIONS     (4*40)
 
 #define NOTES_COLOR_KEY_Q     NOTES_COLOR_POSITIONS + 0
