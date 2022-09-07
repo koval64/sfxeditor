@@ -53,21 +53,10 @@ void waveform_menu_option_put(char c0, char c1, char c2, char c3, char c4) {
     CHAR_RAM[WAVEFORM_VALUE_POS+4] = c4;
 }
 
-void waveform_menu_option_triangle(char color) {
-    // put on screen string '  tri'
-    waveform_menu_option_put(' ', ' ', 0x14, 0x12, 0x09);
-}
-
-void waveform_menu_option_saw(char color) {
-    // put on screen string '  saw'
-    waveform_menu_option_put(' ', ' ', 0x13, 0x01, 0x17);
-}
-
 void waveform_menu_option_pulse(char color) {
     // put on screen string 'pulse'
-    if(color == OPTION_ON_SELECTED_COLOR) {
+    if(color == OPTION_ON_SELECTED_COLOR)
         waveform_menu_option_put(0x10, 0x15, 0x0c, 0x13, 0x05);
-    }
 
     // blackout or whitelist PWM options
     // ( activate PWM options only when PWM waveform is choosen )
@@ -87,23 +76,31 @@ void waveform_menu_option_pulse(char color) {
         COLOR_RAM[DPWM_POS+i] = color;
 }
 
-void waveform_menu_option_noise(byte color) {
-    // put on screen string 'noise'
-    waveform_menu_option_put(0x0e, 0x0f, 0x09, 0x13, 0x05);
-}
+void waveform_menu_set_option( byte color ) {
+    byte wave = menu.option[ WAVEFORM_INDEX ].value;
 
-void (*waveform_menu_set_option[OPTIONS_COUNT]) (char) = {
-    waveform_menu_option_triangle,
-    waveform_menu_option_saw,
-    waveform_menu_option_pulse,
-    waveform_menu_option_noise
-};
+    if( wave == 0 )
+        // put on screen string '  tri'
+        waveform_menu_option_put(' ', ' ', 0x14, 0x12, 0x09);
+
+    else if( wave == 1 )
+        // put on screen string '  saw'
+        waveform_menu_option_put(' ', ' ', 0x13, 0x01, 0x17);
+
+    else if( wave == 2 )
+        waveform_menu_option_pulse( color );
+
+    else if( wave == 3 )
+        // put on screen string 'noise'
+        waveform_menu_option_put(0x0e, 0x0f, 0x09, 0x13, 0x05);
+
+}
 
 void waveform_menu_change_option(byte value) {
 
     // deselect pulse additional settings if PULSE wave selected
     if(menu.option[WAVEFORM_INDEX].value == WAVE_PULSE)
-      (*waveform_menu_set_option[WAVE_PULSE]) (OPTION_ON_COLOR);
+        waveform_menu_set_option( OPTION_ON_COLOR );
 
     // change waveform
     if(value == OPTION_PREVIOUS)
@@ -115,7 +112,8 @@ void waveform_menu_change_option(byte value) {
     menu.option[WAVEFORM_INDEX].value &= 0x3;
 
     // select new waveform
-    (*waveform_menu_set_option[menu.option[WAVEFORM_INDEX].value]) (OPTION_ON_SELECTED_COLOR);
+    waveform_menu_set_option( OPTION_ON_SELECTED_COLOR );
+
 }
 
 // ATTACK MENU
