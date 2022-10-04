@@ -17,12 +17,14 @@
     // strcpy
 
 // PROJECT INCLUDES
+#include "common/keys.h"
 #include "common/assets.h"
 #include "common/utils.c"
 #include "common/view_utils.c"
 #include "common/scene_utils.c"
 #include "info_window/scene.h"
 #include "edit_window/scene.h"
-#include "loader_window/scene.h"
-#include "sounds_window/scene.h"
+#include "sound_bank_window/scene.h"
+#include "sound_bank_loader_window/scene.h"
+#include "edit_label_window/scene.h"
 

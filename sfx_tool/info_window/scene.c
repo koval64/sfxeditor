@@ -1,8 +1,8 @@
 
 void sound_effect_info_window_mainloop(void) {
 
-    effect_info_fill_view();
-    effect_info_show_view();
+    sound_effect_info_fill_buffer();
+    sound_effect_info_show();
 
     for(;;) {
 
@@ -16,9 +16,9 @@ void sound_effect_info_window_mainloop(void) {
 
         // Wait for one frame iteration
         vic_waitFrame();
-    }
 
-    effect_info_hide_view();
+    }
+    sound_effect_info_hide();
 
 }
 

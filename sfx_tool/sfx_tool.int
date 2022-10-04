@@ -1,0 +1,4650 @@
+--------------------------------------------------------------------
+main: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sfx_tool.c:64
+$00 R0(P), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V1+0	{}
+0001		CALLN		<-	V5+0	{}
+0002		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LOADG2	R0(P)	<-	V9+23	{}
+0001		CALL		<-	R0(PF)	{}
+0002		JUMP		<-		{I}
+		==> 2
+--------------------------------------------------------------------
+init: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sfx_tool.c:7
+$00 R0(P), 
+L0: <= D-1: (1)  
+0000		STOREG1		<-	V4+0, CC:55	{V}
+0001		STOREA1		<-	V-1+1, CC:55	{}
+0002		CALLN		<-	V2+0	{}
+0003		STOREZ1		<-	V0+0, CC:0	{}
+0004		CONST	R0(P)	<-	CA0(-1:1024)	{S}
+0005		STOREZ2		<-	V1+0, R0(PF)	{}
+0006		CONST	R0(P)	<-	CA0(-1:6144)	{S}
+0007		STOREZ2		<-	V3+0, R0(PF)	{}
+0008		CALLN		<-	V3+0	{}
+0009		STOREA1		<-	V-1+53281, CC:0	{V}
+000a		STOREA1		<-	V-1+53280, CC:0	{V}
+000b		CALLN		<-	V4+0	{}
+000c		STOREA1		<-	V-1+54296, CC:15	{V}
+000d		RET		<-		{}
+--------------------------------------------------------------------
+cia_init: /home/marioc/apps/c64/oscar64/include/c64/cia.h:20
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		STOREA1		<-	V-1+56333, CC:127	{V}
+0001		STOREA1		<-	V-1+56589, CC:127	{V}
+0002		STOREA1		<-	V-1+56320, CC:127	{V}
+0003		STOREA1		<-	V-1+56334, CC:8	{V}
+0004		STOREA1		<-	V-1+56335, CC:8	{V}
+0005		STOREA1		<-	V-1+56590, CC:8	{V}
+0006		STOREA1		<-	V-1+56591, CC:8	{V}
+0007		STOREA1		<-	V-1+56323, CC:0	{V}
+0008		STOREA1		<-	V-1+56579, CC:0	{V}
+0009		STOREA1		<-	V-1+56322, CC:255	{V}
+000a		STOREA1		<-	V-1+56577, CC:7	{V}
+000b		STOREA1		<-	V-1+56578, CC:63	{V}
+000c		RET		<-		{}
+000d		LOADA1	R0(C)	<-	V-1+56333	{V}
+000e		LOADA1	R0(C)	<-	V-1+56589	{V}
+--------------------------------------------------------------------
+vic_setmode: /home/marioc/apps/c64/oscar64/include/c64/vic.h:94
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(P), $00 R4(I), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..4]	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C)[0..4], CC:3	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 8
+		==> 15
+L8: <= D-1: (1)  
+0000		STOREA1		<-	V-1+53265, CC:59	{V}
+0001		JUMP		<-		{}
+		==> 23
+L23: <= D-1: (3)  
+0000		STOREA1		<-	V-1+53270, CC:8	{V}
+0001		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2)  
+0000		LOADA1	R0(C)	<-	V-1+56576	{V}
+0001		CONV31	R2(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R2(I)[0..252]	<-	R2(IF)[0..255], CI:252	{}
+0003		LOADZ2	R3(P)	<-	V1+0	{S}
+0004		CAST	R3(I)	<-	R3(PF)	{S}
+0005		BINOP17	R4(I)	<-	R3(I), CI:14	{S}
+0006		BINOP10	R4(I)	<-	R4(IF), CI:3	{S}
+0007		BINOP8	R2(I)	<-	R4(IF), R2(IF)[0..252]	{}
+0008		STOREA1		<-	V-1+56576, R2(CF)	{V}
+0009		BINOP17	R2(I)	<-	R3(IF), CI:6	{S}
+000a		BINOP9	R2(I)[0..240]	<-	R2(IF), CI:240	{S}
+000b		LOADZ2	R3(P)	<-	V3+0	{S}
+000c		CAST	R3(I)	<-	R3(PF)	{S}
+000d		BINOP17	R3(I)	<-	R3(IF), CI:10	{S}
+000e		BINOP9	R3(I)[0..14]	<-	R3(IF), CI:14	{S}
+000f		BINOP8	R2(I)	<-	R3(IF)[0..14], R2(IF)[0..240]	{S}
+0010		STOREA1		<-	V-1+53272, R2(CF)	{V}
+0011		RET		<-		{}
+L15: <= D-1: (1)  
+0000		RELOP28	R1(B)	<-	R0(C)[0..4], CC:3	{S}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 17
+		==> 16
+L17: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(C)[0..2], CC:0	{S}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 2
+		==> 18
+L2: <= D-1: (1)  
+0000		STOREA1		<-	V-1+53265, CC:27	{V}
+0001		JUMP		<-		{}
+		==> 23
+L18: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF)[0..2], CC:1	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 19
+L4: <= D-1: (1)  
+0000		STOREA1		<-	V-1+53265, CC:27	{V}
+0001		JUMP		<-		{}
+		==> 24
+L24: <= D-1: (2)  
+0000		STOREA1		<-	V-1+53270, CC:24	{V}
+0001		JUMP		<-		{}
+		==> 1
+L19: <= D-1: (1)  
+0000		STOREA1		<-	V-1+53265, CC:91	{V}
+0001		JUMP		<-		{}
+		==> 23
+L16: <= D-1: (1)  
+0000		STOREA1		<-	V-1+53265, CC:59	{V}
+0001		JUMP		<-		{}
+		==> 24
+--------------------------------------------------------------------
+sidfx_init: /home/marioc/apps/c64/oscar64/include/audio/sidfx.h:15
+$00 R0(C), $00 R1(P), $00 R2(P), $00 R3(B), 
+L0: <= D-1: (1)  
+0000		CONST	R0(C)[0..0]	<-	CI:0	{}
+0001		CONST	R1(P)	<-	CG30(7:0)	{}
+0002		CONST	R2(P)	<-	CA0(-1:0)	{IS}
+0003		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		STOREI1		<-	R1(P)+4, CC:0	{}
+0001		STOREI1		<-	R1(P)+5, CC:0	{V}
+0002		STOREI2		<-	R1(P)+0, R2(P)	{}
+0003		LEAI	R1(P)	<-	R1(PF)+0, CI:10	{}
+0004		BINOP1	R0(C)[1..3]	<-	R0(CF)[0..2], CI:1	{}
+0005		RELOP28	R3(B)	<-	R0(C)[1..3], CC:3	{}
+0006		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+project_init: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sfx_tool.c:50
+$10 R0(I), $11 R1(P), $00 R2(P), $02 R3(B), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V6+0	{}
+0001		CONST	R0(I)[0..0]	<-	CI:0	{}
+0002		CONST	R1(P)	<-	CG20(9:1)	{}
+0003		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LOADI2	R2(P)	<-	R1(P)+0	{}
+0001		CALL		<-	R2(PF)	{}
+0002		LEAI	R1(P)	<-	R1(PF)+0, CI:4	{}
+0003		BINOP1	R0(I)[1..5]	<-	R0(IF)[0..4], CI:1	{}
+0004		RELOP28	R3(B)	<-	R0(I)[1..5], CI:5	{}
+0005		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:2	{}
+0001		CALLN		<-	V64+0	{}
+0002		RET		<-		{}
+--------------------------------------------------------------------
+scene_tree_assign_pointers: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sfx_tool.c:28
+$00 R0(P), $00 R1(P), 
+L0: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:0	{}
+0001		CONST	R0(P)	<-	CP0(7:0)	{S}
+0002		STOREG2		<-	V9+21, R0(P)	{}
+0003		STOREG2		<-	V9+23, R0(P)	{}
+0004		CONST	R1(P)	<-	CP0(9:0)	{S}
+0005		STOREZ2		<-	V1+0, R1(PF)	{}
+0006		CONST	R1(P)	<-	CP0(43:0)	{S}
+0007		STOREZ2		<-	V3+0, R1(PF)	{}
+0008		CALLN		<-	V8+0	{}
+0009		STOREZ1		<-	V0+0, CC:1	{}
+000a		STOREZ2		<-	V1+0, R0(P)	{}
+000b		CONST	R1(P)	<-	CP0(65:0)	{S}
+000c		STOREZ2		<-	V3+0, R1(PF)	{}
+000d		CALLN		<-	V8+0	{}
+000e		STOREZ1		<-	V0+0, CC:2	{}
+000f		CONST	R1(P)	<-	CP0(79:0)	{S}
+0010		STOREZ2		<-	V1+0, R1(PF)	{}
+0011		CONST	R1(P)	<-	CP0(81:0)	{S}
+0012		STOREZ2		<-	V3+0, R1(PF)	{}
+0013		CALLN		<-	V8+0	{}
+0014		STOREZ1		<-	V0+0, CC:3	{}
+0015		STOREZ2		<-	V1+0, R0(P)	{}
+0016		CONST	R1(P)	<-	CP0(95:0)	{S}
+0017		STOREZ2		<-	V3+0, R1(PF)	{}
+0018		CALLN		<-	V8+0	{}
+0019		STOREZ1		<-	V0+0, CC:4	{}
+001a		STOREZ2		<-	V1+0, R0(PF)	{}
+001b		CONST	R0(P)	<-	CP0(107:0)	{S}
+001c		STOREZ2		<-	V3+0, R0(PF)	{}
+001d		CALLN		<-	V8+0	{}
+001e		RET		<-		{}
+--------------------------------------------------------------------
+null: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/utils.c:2
+
+L0: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+set_scene_pointers: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/scene_utils.c:15
+$00 R0(C), $00 R1(I), $00 R2(P), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..5]	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..5]	<-	R0(CF)[0..5]	{S}
+0002		BINOP16	R1(I)[0..20]	<-	R1(IF)[0..5], CI:2	{S}
+0003		LEAG	R1(P)	<-	V9+1, R1(IF)[0..20]	{S}
+0004		LOADZ2	R2(P)	<-	V1+0	{S}
+0005		STOREI2		<-	R1(P)+0, R2(PF)	{}
+0006		LOADZ2	R2(P)	<-	V3+0	{S}
+0007		STOREI2		<-	R1(PF)+2, R2(PF)	{}
+0008		RET		<-		{}
+--------------------------------------------------------------------
+edit_window_init: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/scene.c:3
+
+L0: <= D-1: (1)  
+0000		CALLN		<-	V10+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+edit_window_init_options_struct: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/inits.c:2
+$00 R0(P), 
+L0: <= D-1: (1)  
+0000		STOREG2		<-	V10+6, CI:0	{}
+0001		STOREG2		<-	V10+8, CI:1	{}
+0002		STOREG1		<-	V10+110, CC:0	{}
+0003		CONST	R0(P)	<-	CP0(11:0)	{S}
+0004		STOREG2		<-	V10+0, R0(PF)	{}
+0005		CONST	R0(P)	<-	CP0(15:0)	{S}
+0006		STOREG2		<-	V10+2, R0(PF)	{}
+0007		CONST	R0(P)	<-	CP0(7:0)	{S}
+0008		STOREG2		<-	V10+4, R0(PF)	{}
+0009		STOREG2		<-	V10+17, CI:256	{}
+000a		STOREG2		<-	V10+19, CI:1	{}
+000b		STOREG1		<-	V10+21, CC:2	{}
+000c		CONST	R0(P)	<-	CP0(16:0)	{S}
+000d		STOREG2		<-	V10+11, R0(PF)	{}
+000e		CONST	R0(P)	<-	CP0(17:0)	{S}
+000f		STOREG2		<-	V10+13, R0(PF)	{}
+0010		CONST	R0(P)	<-	CP0(18:0)	{S}
+0011		STOREG2		<-	V10+15, R0(PF)	{}
+0012		STOREG2		<-	V10+28, CI:0	{}
+0013		STOREG2		<-	V10+30, CI:1	{}
+0014		STOREG1		<-	V10+32, CC:0	{}
+0015		CONST	R0(P)	<-	CP0(19:0)	{S}
+0016		STOREG2		<-	V10+22, R0(PF)	{}
+0017		CONST	R0(P)	<-	CP0(20:0)	{S}
+0018		STOREG2		<-	V10+24, R0(PF)	{}
+0019		CONST	R0(P)	<-	CP0(21:0)	{S}
+001a		STOREG2		<-	V10+26, R0(PF)	{}
+001b		STOREG2		<-	V10+39, CI:15	{}
+001c		STOREG2		<-	V10+41, CI:1	{}
+001d		STOREG1		<-	V10+43, CC:0	{}
+001e		CONST	R0(P)	<-	CP0(22:0)	{S}
+001f		STOREG2		<-	V10+33, R0(PF)	{}
+0020		CONST	R0(P)	<-	CP0(23:0)	{S}
+0021		STOREG2		<-	V10+35, R0(PF)	{}
+0022		CONST	R0(P)	<-	CP0(24:0)	{S}
+0023		STOREG2		<-	V10+37, R0(PF)	{}
+0024		STOREG2		<-	V10+50, CI:0	{}
+0025		STOREG2		<-	V10+52, CI:1	{}
+0026		STOREG1		<-	V10+54, CC:0	{}
+0027		CONST	R0(P)	<-	CP0(25:0)	{S}
+0028		STOREG2		<-	V10+44, R0(PF)	{}
+0029		CONST	R0(P)	<-	CP0(26:0)	{S}
+002a		STOREG2		<-	V10+46, R0(PF)	{}
+002b		CONST	R0(P)	<-	CP0(27:0)	{S}
+002c		STOREG2		<-	V10+48, R0(PF)	{}
+002d		STOREG2		<-	V10+61, CI:0	{}
+002e		STOREG2		<-	V10+63, CI:1	{}
+002f		STOREG1		<-	V10+65, CC:0	{}
+0030		CONST	R0(P)	<-	CP0(28:0)	{S}
+0031		STOREG2		<-	V10+55, R0(PF)	{}
+0032		CONST	R0(P)	<-	CP0(29:0)	{S}
+0033		STOREG2		<-	V10+57, R0(PF)	{}
+0034		CONST	R0(P)	<-	CP0(30:0)	{S}
+0035		STOREG2		<-	V10+59, R0(PF)	{}
+0036		STOREG2		<-	V10+72, CI:0	{}
+0037		STOREG2		<-	V10+74, CI:1	{}
+0038		STOREG1		<-	V10+76, CC:3	{}
+0039		CONST	R0(P)	<-	CP0(31:0)	{S}
+003a		STOREG2		<-	V10+66, R0(PF)	{}
+003b		CONST	R0(P)	<-	CP0(32:0)	{S}
+003c		STOREG2		<-	V10+68, R0(PF)	{}
+003d		CONST	R0(P)	<-	CP0(33:0)	{S}
+003e		STOREG2		<-	V10+70, R0(PF)	{}
+003f		STOREG2		<-	V10+83, CI:0	{}
+0040		STOREG2		<-	V10+85, CI:1	{}
+0041		STOREG1		<-	V10+87, CC:2	{}
+0042		CONST	R0(P)	<-	CP0(34:0)	{S}
+0043		STOREG2		<-	V10+77, R0(PF)	{}
+0044		CONST	R0(P)	<-	CP0(35:0)	{S}
+0045		STOREG2		<-	V10+79, R0(PF)	{}
+0046		CONST	R0(P)	<-	CP0(36:0)	{S}
+0047		STOREG2		<-	V10+81, R0(PF)	{}
+0048		STOREG2		<-	V10+94, CI:8	{}
+0049		STOREG2		<-	V10+96, CI:1	{}
+004a		STOREG1		<-	V10+98, CC:1	{}
+004b		CONST	R0(P)	<-	CP0(37:0)	{S}
+004c		STOREG2		<-	V10+88, R0(PF)	{}
+004d		CONST	R0(P)	<-	CP0(38:0)	{S}
+004e		STOREG2		<-	V10+90, R0(PF)	{}
+004f		CONST	R0(P)	<-	CP0(39:0)	{S}
+0050		STOREG2		<-	V10+92, R0(PF)	{}
+0051		STOREG2		<-	V10+105, CI:8	{}
+0052		STOREG2		<-	V10+107, CI:1	{}
+0053		STOREG1		<-	V10+109, CC:1	{}
+0054		CONST	R0(P)	<-	CP0(40:0)	{S}
+0055		STOREG2		<-	V10+99, R0(PF)	{}
+0056		CONST	R0(P)	<-	CP0(41:0)	{S}
+0057		STOREG2		<-	V10+101, R0(PF)	{}
+0058		CONST	R0(P)	<-	CP0(42:0)	{S}
+0059		STOREG2		<-	V10+103, R0(PF)	{}
+005a		RET		<-		{}
+--------------------------------------------------------------------
+waveform_menu_change_option: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:99
+$00 R0(I), $00 R1(B), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+6	{}
+0001		RELOP19	R1(B)	<-	R0(IF), CI:2	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 11
+L1: <= D-1: (1)  
+0000		STOREZ1		<-	V6+0, CC:11	{}
+0001		CALLN		<-	V12+0	{}
+0002		JUMP		<-		{}
+		==> 11
+L11: <= D-1: (2)  
+0000		LOADP1	R1(C)	<-	V0+0	{S}
+0001		RELOP19	R2(B)	<-	R1(C), CC:0	{S}
+0002		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+6	{}
+0001		BINOP1	R0(I)	<-	R0(IF), CI:-1	{}
+0002		STOREG2		<-	V10+6, R0(IF)	{}
+0003		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (3)  
+0000		STOREZ1		<-	V6+0, CC:15	{}
+0001		LOADG2	R0(I)	<-	V10+6	{}
+0002		BINOP9	R0(I)[0..3]	<-	R0(IF), CI:3	{}
+0003		STOREG2		<-	V10+6, R0(IF)[0..3]	{}
+0004		CALLN		<-	V12+0	{}
+0005		RET		<-		{}
+L5: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R1(CF), CC:2	{S}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 7
+		==> 6
+L7: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+6	{}
+0001		BINOP1	R0(I)	<-	R0(IF), CI:1	{}
+0002		STOREG2		<-	V10+6, R0(IF)	{}
+0003		JUMP		<-		{}
+		==> 6
+--------------------------------------------------------------------
+waveform_menu_set_option: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:79
+$00 R0(I), $00 R1(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+6	{}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:32	{}
+0001		STOREZ1		<-	V1+0, CC:32	{}
+0002		STOREZ1		<-	V2+0, CC:20	{}
+0003		STOREZ1		<-	V3+0, CC:18	{}
+0004		STOREZ1		<-	V4+0, CC:9	{}
+0005		CALLN		<-	V13+0	{}
+0006		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (5)  
+0000		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(C), CC:1	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:32	{}
+0001		STOREZ1		<-	V1+0, CC:32	{}
+0002		STOREZ1		<-	V2+0, CC:19	{}
+0003		STOREZ1		<-	V3+0, CC:1	{}
+0004		STOREZ1		<-	V4+0, CC:23	{}
+0005		CALLN		<-	V13+0	{}
+0006		JUMP		<-		{}
+		==> 3
+L5: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(C), CC:2	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  
+0000		LOADZ1	R1(C)	<-	V6+0	{S}
+0001		STOREZ1		<-	V5+0, R1(CF)	{}
+0002		CALLN		<-	V14+0	{}
+0003		JUMP		<-		{}
+		==> 3
+L8: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(CF), CC:3	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 10
+		==> 3
+L10: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:14	{}
+0001		STOREZ1		<-	V1+0, CC:15	{}
+0002		STOREZ1		<-	V2+0, CC:9	{}
+0003		STOREZ1		<-	V3+0, CC:19	{}
+0004		STOREZ1		<-	V4+0, CC:5	{}
+0005		CALLN		<-	V13+0	{}
+0006		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+waveform_menu_option_put: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:47
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V0+0	{S}
+0001		STOREA1		<-	V-1+1046, R0(CF)	{}
+0002		LOADZ1	R0(C)	<-	V1+0	{S}
+0003		STOREA1		<-	V-1+1047, R0(CF)	{}
+0004		LOADZ1	R0(C)	<-	V2+0	{S}
+0005		STOREA1		<-	V-1+1048, R0(CF)	{}
+0006		LOADZ1	R0(C)	<-	V3+0	{S}
+0007		STOREA1		<-	V-1+1049, R0(CF)	{}
+0008		LOADZ1	R0(C)	<-	V4+0	{S}
+0009		STOREA1		<-	V-1+1050, R0(CF)	{}
+000a		RET		<-		{}
+--------------------------------------------------------------------
+waveform_menu_option_pulse: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:56
+$00 R0(C), $00 R1(I), $00 R2(P), $00 R3(B), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V5+0	{}
+0001		RELOP19	R0(B)	<-	R0(CF), CC:15	{}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 5
+L1: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:16	{}
+0001		STOREZ1		<-	V1+0, CC:21	{}
+0002		STOREZ1		<-	V2+0, CC:12	{}
+0003		STOREZ1		<-	V3+0, CC:19	{}
+0004		STOREZ1		<-	V4+0, CC:5	{}
+0005		CALLN		<-	V13+0	{}
+0006		LOADZ1	R0(C)	<-	V5+0	{}
+0007		RELOP19	R0(B)	<-	R0(CF), CC:15	{}
+0008		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		STOREZ1		<-	V5+0, CC:11	{}
+0001		JUMP		<-	CB:0	{}
+		==> 16
+L16: <= D-1: (2)  
+0000		CONST	R1(I)[0..0]	<-	CI:0	{}
+0001		LOADZ1	R0(C)	<-	V5+0	{I}
+0002		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2) Head 
+0000		LEAA	R2(P)	<-	V-1+55347, R1(I)[0..27]	{}
+0001		STOREI1		<-	R2(PF)+0, R0(C)	{}
+0002		BINOP1	R1(I)[1..28]	<-	R1(IF)[0..27], CI:1	{}
+0003		RELOP28	R3(B)	<-	R1(I)[1..28], CI:28	{}
+0004		BRANCH		<-	R3(BF)	{}
+		==> 8
+		==> 10
+L10: <= D-1: (1)  
+0000		CONST	R1(I)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2) Head 
+0000		LEAA	R2(P)	<-	V-1+55587, R1(I)[0..27]	{}
+0001		STOREI1		<-	R2(PF)+0, R0(C)	{}
+0002		BINOP1	R1(I)[1..28]	<-	R1(IF)[0..27], CI:1	{}
+0003		RELOP28	R3(B)	<-	R1(I)[1..28], CI:28	{}
+0004		BRANCH		<-	R3(BF)	{}
+		==> 12
+		==> 14
+L14: <= D-1: (1)  
+0000		RET		<-		{}
+L5: <= D-1: (2)  
+0000		STOREZ1		<-	V5+0, CC:0	{}
+0001		JUMP		<-	CB:0	{}
+		==> 16
+--------------------------------------------------------------------
+waveform_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:39
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		STOREA1		<-	V-1+55318, R0(C)	{}
+0002		STOREA1		<-	V-1+55319, R0(C)	{}
+0003		STOREA1		<-	V-1+55320, R0(C)	{}
+0004		STOREA1		<-	V-1+55321, R0(C)	{}
+0005		STOREA1		<-	V-1+55322, R0(CF)	{}
+0006		RET		<-		{}
+--------------------------------------------------------------------
+pwm_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:24
+$00 R0(I), $00 R1(B), $00 R2(B), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+6	{}
+0001		RELOP19	R1(B)	<-	R0(IF), CI:2	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		LOADP1	R1(C)	<-	V0+0	{S}
+0001		RELOP19	R2(B)	<-	R1(C), CC:0	{S}
+0002		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+17	{}
+0001		LOADG2	R3(I)	<-	V10+19	{}
+0002		BINOP2	R0(I)	<-	R0(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+17, R0(IF)	{}
+0004		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (3)  
+0000		LOADG2	R0(I)	<-	V10+17	{}
+0001		BINOP17	R3(I)	<-	R0(I), CI:8	{}
+0002		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+0003		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0004		LOADI1	R1(C)	<-	R3(PF)+0	{}
+0005		STOREA1		<-	V-1+1088, R1(CF)	{}
+0006		BINOP17	R3(I)	<-	R0(I), CI:4	{}
+0007		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+0008		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0009		LOADI1	R1(C)	<-	R3(PF)+0	{}
+000a		STOREA1		<-	V-1+1089, R1(CF)	{}
+000b		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+000c		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+000d		LOADI1	R1(C)	<-	R0(PF)+0	{}
+000e		STOREA1		<-	V-1+1090, R1(CF)	{}
+000f		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  
+0000		RET		<-		{}
+L5: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R1(CF), CC:2	{S}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 7
+		==> 6
+L7: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+17	{}
+0001		LOADG2	R3(I)	<-	V10+19	{}
+0002		BINOP1	R0(I)	<-	R3(IF), R0(IF)	{}
+0003		STOREG2		<-	V10+17, R0(IF)	{}
+0004		JUMP		<-		{}
+		==> 6
+--------------------------------------------------------------------
+pwm_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:20
+$00 R0(C), $00 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+21	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55360, R1(IF)[0..255]	{}
+0003		LOADP1	R0(C)	<-	V0+0	{S}
+0004		STOREI1		<-	R1(PF)+0, R0(CF)	{}
+0005		RET		<-		{}
+--------------------------------------------------------------------
+pwm_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:3
+$00 R0(C), $00 R1(I), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+21	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		LEAA	R1(P)	<-	V-1+55360, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:11	{}
+0004		LOADG2	R1(I)	<-	V10+19	{}
+0005		RELOP19	R2(B)	<-	R1(I), CI:256	{}
+0006		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+19, CI:16	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (4)  
+0000		BINOP1	R0(C)	<-	R0(CF), CI:1	{}
+0001		STOREG1		<-	V10+21, R0(C)	{}
+0002		RELOP27	R0(B)	<-	R0(CF), CC:2	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 10
+		==> 12
+L10: <= D-1: (1)  
+0000		STOREG1		<-	V10+21, CC:0	{}
+0001		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2)  
+0000		LOADG1	R0(C)	<-	V10+21	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55360, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:15	{}
+0004		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(I), CI:16	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+19, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(IF), CI:1	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 7
+		==> 3
+L7: <= D-1: (1)  
+0000		STOREG2		<-	V10+19, CI:256	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+attack_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:134
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+28	{}
+0001		LOADG2	R3(I)	<-	V10+30	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+28, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+28	{}
+0001		BINOP9	R2(I)[0..15]	<-	R2(IF), CI:15	{}
+0002		STOREG2		<-	V10+28, R2(I)[0..15]	{}
+0003		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0005		STOREA1		<-	V-1+1130, R0(CF)	{}
+0006		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+28	{}
+0001		LOADG2	R3(I)	<-	V10+30	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+28, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+attack_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:130
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		STOREA1		<-	V-1+55402, R0(CF)	{}
+0002		RET		<-		{}
+--------------------------------------------------------------------
+attack_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:120
+$00 R0(I), $00 R1(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+30	{}
+0001		RELOP19	R1(B)	<-	R0(I), CI:1	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+30, CI:2	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R0(I)	<-	V10+30	{}
+0001		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0002		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0003		LOADI1	R1(C)	<-	R0(PF)+0	{}
+0004		STOREA1		<-	V-1+1141, R1(CF)	{}
+0005		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(IF), CI:2	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+30, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+decay_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:159
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+39	{}
+0001		LOADG2	R3(I)	<-	V10+41	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+39, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+39	{}
+0001		BINOP9	R2(I)[0..15]	<-	R2(IF), CI:15	{}
+0002		STOREG2		<-	V10+39, R2(I)[0..15]	{}
+0003		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0005		STOREA1		<-	V-1+1170, R0(CF)	{}
+0006		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+39	{}
+0001		LOADG2	R3(I)	<-	V10+41	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+39, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+decay_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:155
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		STOREA1		<-	V-1+55442, R0(CF)	{}
+0002		RET		<-		{}
+--------------------------------------------------------------------
+decay_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:145
+$00 R0(I), $00 R1(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+41	{}
+0001		RELOP19	R1(B)	<-	R0(I), CI:1	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+41, CI:2	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R0(I)	<-	V10+41	{}
+0001		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0002		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0003		LOADI1	R1(C)	<-	R0(PF)+0	{}
+0004		STOREA1		<-	V-1+1181, R1(CF)	{}
+0005		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(IF), CI:2	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+41, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+sustain_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:184
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+50	{}
+0001		LOADG2	R3(I)	<-	V10+52	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+50, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+50	{}
+0001		BINOP9	R2(I)[0..15]	<-	R2(IF), CI:15	{}
+0002		STOREG2		<-	V10+50, R2(I)[0..15]	{}
+0003		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0005		STOREA1		<-	V-1+1210, R0(CF)	{}
+0006		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+50	{}
+0001		LOADG2	R3(I)	<-	V10+52	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+50, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+sustain_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:180
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		STOREA1		<-	V-1+55482, R0(CF)	{}
+0002		RET		<-		{}
+--------------------------------------------------------------------
+sustain_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:170
+$00 R0(I), $00 R1(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+52	{}
+0001		RELOP19	R1(B)	<-	R0(I), CI:1	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+52, CI:2	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R0(I)	<-	V10+52	{}
+0001		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0002		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0003		LOADI1	R1(C)	<-	R0(PF)+0	{}
+0004		STOREA1		<-	V-1+1221, R1(CF)	{}
+0005		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(IF), CI:2	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+52, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+release_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:209
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+61	{}
+0001		LOADG2	R3(I)	<-	V10+63	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+61, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+61	{}
+0001		BINOP9	R2(I)[0..15]	<-	R2(IF), CI:15	{}
+0002		STOREG2		<-	V10+61, R2(I)[0..15]	{}
+0003		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0005		STOREA1		<-	V-1+1250, R0(CF)	{}
+0006		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+61	{}
+0001		LOADG2	R3(I)	<-	V10+63	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+61, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+release_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:205
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		STOREA1		<-	V-1+55522, R0(CF)	{}
+0002		RET		<-		{}
+--------------------------------------------------------------------
+release_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:195
+$00 R0(I), $00 R1(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+63	{}
+0001		RELOP19	R1(B)	<-	R0(I), CI:1	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+63, CI:2	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R0(I)	<-	V10+63	{}
+0001		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0002		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0003		LOADI1	R1(C)	<-	R0(PF)+0	{}
+0004		STOREA1		<-	V-1+1261, R1(CF)	{}
+0005		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(IF), CI:2	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+63, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+dfreq_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:242
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+72	{}
+0001		LOADG2	R3(I)	<-	V10+74	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+72, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+72	{}
+0001		BINOP18	R3(I)	<-	R2(I), CI:12	{}
+0002		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+0003		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R3(PF)+0	{}
+0005		STOREA1		<-	V-1+1287, R0(CF)	{}
+0006		BINOP18	R3(I)	<-	R2(I), CI:8	{}
+0007		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+0008		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0009		LOADI1	R0(C)	<-	R3(PF)+0	{}
+000a		STOREA1		<-	V-1+1288, R0(CF)	{}
+000b		BINOP18	R3(I)	<-	R2(I), CI:4	{}
+000c		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+000d		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+000e		LOADI1	R0(C)	<-	R3(PF)+0	{}
+000f		STOREA1		<-	V-1+1289, R0(CF)	{}
+0010		BINOP9	R2(I)[0..15]	<-	R2(IF), CI:15	{}
+0011		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0012		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0013		STOREA1		<-	V-1+1290, R0(CF)	{}
+0014		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+72	{}
+0001		LOADG2	R3(I)	<-	V10+74	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+72, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+dfreq_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:238
+$00 R0(C), $00 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+76	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55559, R1(IF)[0..255]	{}
+0003		LOADP1	R0(C)	<-	V0+0	{S}
+0004		STOREI1		<-	R1(PF)+0, R0(CF)	{}
+0005		RET		<-		{}
+--------------------------------------------------------------------
+dfreq_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:220
+$00 R0(C), $00 R1(I), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+76	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		LEAA	R1(P)	<-	V-1+55559, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:11	{}
+0004		LOADG2	R1(I)	<-	V10+74	{}
+0005		RELOP19	R2(B)	<-	R1(I), CI:4096	{}
+0006		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+74, CI:256	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (5)  
+0000		BINOP1	R0(C)	<-	R0(CF), CI:1	{}
+0001		STOREG1		<-	V10+76, R0(C)	{}
+0002		BINOP9	R0(C)[0..3]	<-	R0(CF), CC:3	{}
+0003		STOREG1		<-	V10+76, R0(C)[0..3]	{}
+0004		CONV31	R1(I)[0..3]	<-	R0(CF)[0..3]	{}
+0005		LEAA	R1(P)	<-	V-1+55559, R1(IF)[0..3]	{}
+0006		STOREI1		<-	R1(PF)+0, CC:15	{}
+0007		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(I), CI:256	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+74, CI:16	{}
+0001		JUMP		<-		{}
+		==> 3
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(I), CI:16	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  
+0000		STOREG2		<-	V10+74, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+L8: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(IF), CI:1	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 10
+		==> 3
+L10: <= D-1: (1)  
+0000		STOREG2		<-	V10+74, CI:4096	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+dpwm_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:276
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+83	{}
+0001		LOADG2	R3(I)	<-	V10+85	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+83, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+83	{}
+0001		BINOP18	R3(I)	<-	R2(I), CI:8	{}
+0002		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+0003		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R3(PF)+0	{}
+0005		STOREA1		<-	V-1+1328, R0(CF)	{}
+0006		BINOP18	R3(I)	<-	R2(I), CI:4	{}
+0007		BINOP9	R3(I)[0..15]	<-	R3(IF), CI:15	{}
+0008		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0009		LOADI1	R0(C)	<-	R3(PF)+0	{}
+000a		STOREA1		<-	V-1+1329, R0(CF)	{}
+000b		BINOP9	R2(I)[0..15]	<-	R2(IF), CI:15	{}
+000c		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+000d		LOADI1	R0(C)	<-	R2(PF)+0	{}
+000e		STOREA1		<-	V-1+1330, R0(CF)	{}
+000f		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+83	{}
+0001		LOADG2	R3(I)	<-	V10+85	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+83, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+dpwm_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:272
+$00 R0(C), $00 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+87	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55600, R1(IF)[0..255]	{}
+0003		LOADP1	R0(C)	<-	V0+0	{S}
+0004		STOREI1		<-	R1(PF)+0, R0(CF)	{}
+0005		RET		<-		{}
+--------------------------------------------------------------------
+dpwm_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:255
+$00 R0(C), $00 R1(I), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+87	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		LEAA	R1(P)	<-	V-1+55600, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:11	{}
+0004		LOADG2	R1(I)	<-	V10+85	{}
+0005		RELOP19	R2(B)	<-	R1(I), CI:256	{}
+0006		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+85, CI:16	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (4)  
+0000		BINOP1	R0(C)	<-	R0(CF), CI:1	{}
+0001		STOREG1		<-	V10+87, R0(C)	{}
+0002		RELOP27	R0(B)	<-	R0(CF), CC:2	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 10
+		==> 12
+L10: <= D-1: (1)  
+0000		STOREG1		<-	V10+87, CC:0	{}
+0001		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2)  
+0000		LOADG1	R0(C)	<-	V10+87	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55600, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:15	{}
+0004		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(I), CI:16	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+85, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(IF), CI:1	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 7
+		==> 3
+L7: <= D-1: (1)  
+0000		STOREG2		<-	V10+85, CI:256	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+time1_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:307
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+94	{}
+0001		LOADG2	R3(I)	<-	V10+96	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+94, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+94	{}
+0001		CONV31	R2(I)[0..255]	<-	R2(CF)	{}
+0002		BINOP17	R3(I)[0..15]	<-	R2(I)[0..255], CI:4	{}
+0003		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R3(PF)+0	{}
+0005		STOREA1		<-	V-1+1369, R0(CF)	{}
+0006		BINOP9	R2(I)[0..15]	<-	R2(IF)[0..255], CI:15	{}
+0007		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0008		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0009		STOREA1		<-	V-1+1370, R0(CF)	{}
+000a		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+94	{}
+0001		LOADG2	R3(I)	<-	V10+96	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+94, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+time1_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:303
+$00 R0(C), $00 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+98	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55641, R1(IF)[0..255]	{}
+0003		LOADP1	R0(C)	<-	V0+0	{S}
+0004		STOREI1		<-	R1(PF)+0, R0(CF)	{}
+0005		RET		<-		{}
+--------------------------------------------------------------------
+time1_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:288
+$00 R0(C), $00 R1(I), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+98	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		LEAA	R1(P)	<-	V-1+55641, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:11	{}
+0004		LOADG2	R1(I)	<-	V10+96	{}
+0005		RELOP19	R2(B)	<-	R1(I), CI:16	{}
+0006		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+96, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		BINOP1	R0(C)	<-	R0(CF), CI:1	{}
+0001		STOREG1		<-	V10+98, R0(C)	{}
+0002		BINOP9	R0(C)[0..1]	<-	R0(CF), CC:1	{}
+0003		STOREG1		<-	V10+98, R0(C)[0..1]	{}
+0004		CONV31	R1(I)[0..1]	<-	R0(CF)[0..1]	{}
+0005		LEAA	R1(P)	<-	V-1+55641, R1(IF)[0..1]	{}
+0006		STOREI1		<-	R1(PF)+0, CC:15	{}
+0007		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(IF), CI:1	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+96, CI:16	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+time0_menu_change_value: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:336
+$00 R0(C), $00 R1(B), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		RELOP19	R1(B)	<-	R0(C), CC:0	{S}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+105	{}
+0001		LOADG2	R3(I)	<-	V10+107	{}
+0002		BINOP2	R2(I)	<-	R2(IF), R3(IF)	{}
+0003		STOREG2		<-	V10+105, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		LOADG2	R2(I)	<-	V10+105	{}
+0001		CONV31	R2(I)[0..255]	<-	R2(CF)	{}
+0002		BINOP17	R3(I)[0..15]	<-	R2(I)[0..255], CI:4	{}
+0003		LEAG	R3(P)	<-	V12+0, R3(IF)[0..15]	{}
+0004		LOADI1	R0(C)	<-	R3(PF)+0	{}
+0005		STOREA1		<-	V-1+1409, R0(CF)	{}
+0006		BINOP9	R2(I)[0..15]	<-	R2(IF)[0..255], CI:15	{}
+0007		LEAG	R2(P)	<-	V12+0, R2(IF)[0..15]	{}
+0008		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0009		STOREA1		<-	V-1+1410, R0(CF)	{}
+000a		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:2	{S}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		LOADG2	R2(I)	<-	V10+105	{}
+0001		LOADG2	R3(I)	<-	V10+107	{}
+0002		BINOP1	R2(I)	<-	R3(IF), R2(IF)	{}
+0003		STOREG2		<-	V10+105, R2(IF)	{}
+0004		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+time0_menu_change_color: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:332
+$00 R0(C), $00 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+109	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LEAA	R1(P)	<-	V-1+55681, R1(IF)[0..255]	{}
+0003		LOADP1	R0(C)	<-	V0+0	{S}
+0004		STOREI1		<-	R1(PF)+0, R0(CF)	{}
+0005		RET		<-		{}
+--------------------------------------------------------------------
+time0_menu_cycle_step: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_actions.c:318
+$00 R0(C), $00 R1(I), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+109	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		LEAA	R1(P)	<-	V-1+55681, R1(IF)[0..255]	{}
+0003		STOREI1		<-	R1(PF)+0, CC:11	{}
+0004		LOADG2	R1(I)	<-	V10+107	{}
+0005		RELOP19	R2(B)	<-	R1(I), CI:16	{}
+0006		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREG2		<-	V10+107, CI:1	{}
+0001		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		BINOP1	R0(C)	<-	R0(CF), CI:1	{}
+0001		STOREG1		<-	V10+109, R0(C)	{}
+0002		BINOP9	R0(C)[0..1]	<-	R0(CF), CC:1	{}
+0003		STOREG1		<-	V10+109, R0(C)[0..1]	{}
+0004		CONV31	R1(I)[0..1]	<-	R0(CF)[0..1]	{}
+0005		LEAA	R1(P)	<-	V-1+55681, R1(IF)[0..1]	{}
+0006		STOREI1		<-	R1(PF)+0, CC:15	{}
+0007		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R1(IF), CI:1	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		STOREG2		<-	V10+107, CI:16	{}
+0001		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+edit_window_mainloop: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/scene.c:33
+$00 R0(C), $01 R1(I), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V44+0	{}
+0001		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CALLN		<-	V53+0	{}
+0001		CALLN	R0(C)	<-	V59+0	{}
+0002		BRANCH		<-	R0(CF)	{}
+		==> 4
+		==> 7
+L4: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:2	{}
+0001		CALLN		<-	V64+0	{}
+0002		RET		<-		{}
+L7: <= D-1: (1)  
+0000		CALLN		<-	V63+0	{}
+0001		JUMP		<-		{}
+		==> 32
+L32: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 32
+		==> 13
+L13: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 2
+		==> 13
+--------------------------------------------------------------------
+edit_window_show: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/scene.c:11
+$00 R0(P), 
+L0: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:11	{}
+0001		CALLN		<-	V45+0	{}
+0002		CALLN		<-	V46+0	{}
+0003		CALLN		<-	V47+0	{}
+0004		CALLN		<-	V50+0	{}
+0005		STOREZ1		<-	V2+0, CC:11	{}
+0006		STOREZ1		<-	V3+0, CC:0	{}
+0007		STOREZ1		<-	V4+0, CC:16	{}
+0008		STOREZ1		<-	V5+0, CC:10	{}
+0009		CONST	R0(P)	<-	CG160(29:0)	{S}
+000a		STOREZ2		<-	V0+0, R0(PF)	{}
+000b		CALLN		<-	V52+0	{}
+000c		STOREZ1		<-	V2+0, CC:0	{}
+000d		STOREZ1		<-	V3+0, CC:23	{}
+000e		STOREZ1		<-	V4+0, CC:40	{}
+000f		STOREZ1		<-	V5+0, CC:1	{}
+0010		CONST	R0(P)	<-	CG40(43:0)	{S}
+0011		STOREZ2		<-	V0+0, R0(PF)	{}
+0012		CALLN		<-	V52+0	{}
+0013		STOREZ1		<-	V2+0, CC:8	{}
+0014		STOREZ1		<-	V3+0, CC:12	{}
+0015		STOREZ1		<-	V4+0, CC:25	{}
+0016		STOREZ1		<-	V5+0, CC:8	{}
+0017		CONST	R0(P)	<-	CG200(38:0)	{S}
+0018		STOREZ2		<-	V0+0, R0(PF)	{}
+0019		CALLN		<-	V52+0	{}
+001a		RET		<-		{}
+--------------------------------------------------------------------
+clear_screen: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/view_utils.c:14
+$00 R0(I), $00 R1(C), $00 R2(P), $00 R3(B), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001		LOADZ1	R1(C)	<-	V0+0	{IS}
+0002		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAA	R2(P)	<-	V-1+1024, R0(I)[0..249]	{}
+0001		STOREI1		<-	R2(PF)+0, CC:32	{}
+0002		LEAA	R2(P)	<-	V-1+55296, R0(I)[0..249]	{}
+0003		STOREI1		<-	R2(PF)+0, R1(C)	{}
+0004		LEAA	R2(P)	<-	V-1+1274, R0(I)[0..249]	{}
+0005		STOREI1		<-	R2(PF)+0, CC:32	{}
+0006		LEAA	R2(P)	<-	V-1+55546, R0(I)[0..249]	{}
+0007		STOREI1		<-	R2(PF)+0, R1(C)	{}
+0008		LEAA	R2(P)	<-	V-1+1524, R0(I)[0..249]	{}
+0009		STOREI1		<-	R2(PF)+0, CC:32	{}
+000a		LEAA	R2(P)	<-	V-1+55796, R0(I)[0..249]	{}
+000b		STOREI1		<-	R2(PF)+0, R1(C)	{}
+000c		LEAA	R2(P)	<-	V-1+1774, R0(I)[0..249]	{}
+000d		STOREI1		<-	R2(PF)+0, CC:32	{}
+000e		LEAA	R2(P)	<-	V-1+56046, R0(I)[0..249]	{}
+000f		STOREI1		<-	R2(PF)+0, R1(C)	{}
+0010		BINOP1	R0(I)[1..250]	<-	R0(IF)[0..249], CI:1	{}
+0011		RELOP28	R3(B)	<-	R0(I)[1..250], CI:250	{}
+0012		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+update_menu_selections: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/audio.c:37
+$00 R0(C), $00 R1(I), $01 R2(C), $02 R3(I), $00 R4(P), $00 R5(C), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V27+4	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..240]	<-	R1(IF)[0..255], CI:240	{}
+0003		LOADG1	R0(C)	<-	V27+5	{}
+0004		LOADG1	R2(C)	<-	V27+6	{}
+0005		CONST	R3(I)[0..0]	<-	CI:0	{}
+0006		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAG	R4(P)	<-	V28+0, R3(I)[0..3]	{}
+0001		LOADI1	R5(C)	<-	R4(PF)+0	{}
+0002		RELOP19	R5(B)	<-	R1(C)[0..240], R5(CF)	{}
+0003		BRANCH		<-	R5(BF)	{}
+		==> 5
+		==> 3
+L5: <= D-1: (1)  
+0000		STOREG2		<-	V10+6, R3(IF)[0..3]	{}
+0001		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2)  
+0000		LOADG2	R1(I)	<-	V27+2	{}
+0001		STOREG2		<-	V10+17, R1(IF)	{}
+0002		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0003		BINOP17	R3(I)[0..15]	<-	R1(I)[0..255], CI:4	{}
+0004		BINOP9	R3(I)[0..15]	<-	R3(IF)[0..15], CI:15	{}
+0005		STOREG2		<-	V10+28, R3(IF)[0..15]	{}
+0006		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..255], CI:15	{}
+0007		STOREG2		<-	V10+39, R1(IF)[0..15]	{}
+0008		CONV31	R1(I)[0..255]	<-	R2(CF)	{}
+0009		BINOP17	R3(I)[0..15]	<-	R1(I)[0..255], CI:4	{}
+000a		BINOP9	R3(I)[0..15]	<-	R3(IF)[0..15], CI:15	{}
+000b		STOREG2		<-	V10+50, R3(IF)[0..15]	{}
+000c		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..255], CI:15	{}
+000d		STOREG2		<-	V10+61, R1(IF)[0..15]	{}
+000e		LOADG2	R1(I)	<-	V27+7	{}
+000f		STOREG2		<-	V10+72, R1(IF)	{}
+0010		LOADG2	R1(I)	<-	V27+9	{}
+0011		STOREG2		<-	V10+83, R1(IF)	{}
+0012		LOADG1	R0(C)	<-	V27+11	{}
+0013		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0014		STOREG2		<-	V10+94, R1(IF)[0..255]	{}
+0015		LOADG1	R0(C)	<-	V27+12	{}
+0016		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0017		STOREG2		<-	V10+105, R1(IF)[0..255]	{}
+0018		RET		<-		{}
+L3: <= D-1: (1)  
+0000		BINOP1	R3(I)[1..4]	<-	R3(IF)[0..3], CI:1	{}
+0001		RELOP26	R5(B)	<-	R3(I)[1..4], CI:3	{}
+0002		BRANCH		<-	R5(BF)	{}
+		==> 2
+		==> 4
+--------------------------------------------------------------------
+edit_window_fill_buffers_with_values: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/view.c:31
+$00 R0(I), $01 R1(I), $00 R2(C), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V48+0	{}
+0001		LOADG2	R0(I)	<-	V27+2	{}
+0002		BINOP17	R1(I)	<-	R0(I), CI:8	{}
+0003		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0004		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0005		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0006		STOREG1		<-	V29+29, R2(CF)	{}
+0007		BINOP17	R1(I)	<-	R0(I), CI:4	{}
+0008		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0009		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+000a		LOADI1	R2(C)	<-	R1(PF)+0	{}
+000b		STOREG1		<-	V29+30, R2(CF)	{}
+000c		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+000d		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+000e		LOADI1	R2(C)	<-	R0(PF)+0	{}
+000f		STOREG1		<-	V29+31, R2(CF)	{}
+0010		LOADG2	R0(I)	<-	V10+28	{}
+0011		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0012		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0013		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0014		STOREG1		<-	V29+47, R2(CF)	{}
+0015		LOADG2	R0(I)	<-	V10+39	{}
+0016		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0017		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0018		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0019		STOREG1		<-	V29+63, R2(CF)	{}
+001a		LOADG2	R0(I)	<-	V10+50	{}
+001b		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+001c		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+001d		LOADI1	R2(C)	<-	R0(PF)+0	{}
+001e		STOREG1		<-	V29+79, R2(CF)	{}
+001f		LOADG2	R0(I)	<-	V10+61	{}
+0020		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0021		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0022		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0023		STOREG1		<-	V29+95, R2(CF)	{}
+0024		LOADG2	R0(I)	<-	V10+72	{}
+0025		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+0026		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0027		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0028		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0029		STOREG1		<-	V29+108, R2(CF)	{}
+002a		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+002b		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+002c		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+002d		LOADI1	R2(C)	<-	R1(PF)+0	{}
+002e		STOREG1		<-	V29+109, R2(CF)	{}
+002f		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+0030		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0031		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0032		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0033		STOREG1		<-	V29+110, R2(CF)	{}
+0034		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0035		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0036		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0037		STOREG1		<-	V29+111, R2(CF)	{}
+0038		LOADG2	R0(I)	<-	V10+83	{}
+0039		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+003a		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+003b		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+003c		LOADI1	R2(C)	<-	R1(PF)+0	{}
+003d		STOREG1		<-	V29+125, R2(CF)	{}
+003e		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+003f		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0040		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0041		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0042		STOREG1		<-	V29+126, R2(CF)	{}
+0043		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0044		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0045		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0046		STOREG1		<-	V29+127, R2(CF)	{}
+0047		LOADG2	R0(I)	<-	V10+94	{}
+0048		CONV31	R0(I)[0..255]	<-	R0(CF)	{}
+0049		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+004a		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+004b		LOADI1	R2(C)	<-	R1(PF)+0	{}
+004c		STOREG1		<-	V29+142, R2(CF)	{}
+004d		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+004e		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+004f		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0050		STOREG1		<-	V29+143, R2(CF)	{}
+0051		LOADG2	R0(I)	<-	V10+105	{}
+0052		CONV31	R0(I)[0..255]	<-	R0(CF)	{}
+0053		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+0054		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0055		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0056		STOREG1		<-	V29+158, R2(CF)	{}
+0057		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0058		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0059		LOADI1	R2(C)	<-	R0(PF)+0	{}
+005a		STOREG1		<-	V29+159, R2(CF)	{}
+005b		RET		<-		{}
+--------------------------------------------------------------------
+edit_window_update_buffer_wave_name: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/view.c:11
+$00 R0(I), $00 R1(B), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V10+6	{}
+0001		RELOP19	R1(B)	<-	R0(I), CI:0	{}
+0002		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:32	{}
+0001		STOREZ1		<-	V1+0, CC:32	{}
+0002		STOREZ1		<-	V2+0, CC:20	{}
+0003		STOREZ1		<-	V3+0, CC:18	{}
+0004		STOREZ1		<-	V4+0, CC:9	{}
+0005		CALLN		<-	V49+0	{}
+0006		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (5)  
+0000		RET		<-		{}
+L2: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(I), CI:1	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:32	{}
+0001		STOREZ1		<-	V1+0, CC:32	{}
+0002		STOREZ1		<-	V2+0, CC:19	{}
+0003		STOREZ1		<-	V3+0, CC:1	{}
+0004		STOREZ1		<-	V4+0, CC:23	{}
+0005		CALLN		<-	V49+0	{}
+0006		JUMP		<-		{}
+		==> 3
+L5: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(I), CI:2	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:16	{}
+0001		STOREZ1		<-	V1+0, CC:21	{}
+0002		STOREZ1		<-	V2+0, CC:12	{}
+0003		STOREZ1		<-	V3+0, CC:19	{}
+0004		STOREZ1		<-	V4+0, CC:5	{}
+0005		CALLN		<-	V49+0	{}
+0006		JUMP		<-		{}
+		==> 3
+L8: <= D-1: (1)  
+0000		RELOP19	R1(B)	<-	R0(IF), CI:3	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 10
+		==> 3
+L10: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:14	{}
+0001		STOREZ1		<-	V1+0, CC:15	{}
+0002		STOREZ1		<-	V2+0, CC:9	{}
+0003		STOREZ1		<-	V3+0, CC:19	{}
+0004		STOREZ1		<-	V4+0, CC:5	{}
+0005		CALLN		<-	V49+0	{}
+0006		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+edit_window_fill_wave_name: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/view.c:2
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V0+0	{S}
+0001		STOREG1		<-	V29+11, R0(CF)	{}
+0002		LOADZ1	R0(C)	<-	V1+0	{S}
+0003		STOREG1		<-	V29+12, R0(CF)	{}
+0004		LOADZ1	R0(C)	<-	V2+0	{S}
+0005		STOREG1		<-	V29+13, R0(CF)	{}
+0006		LOADZ1	R0(C)	<-	V3+0	{S}
+0007		STOREG1		<-	V29+14, R0(CF)	{}
+0008		LOADZ1	R0(C)	<-	V4+0	{S}
+0009		STOREG1		<-	V29+15, R0(CF)	{}
+000a		RET		<-		{}
+--------------------------------------------------------------------
+edit_window_select_default_menu_options: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/view.c:79
+$00 R0(C), $01 R1(I), $03 R2(P), $05 R3(B), $06 R4(I), $08 R5(P), 
+L0: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:8	{}
+0001		CALLN		<-	V11+0	{}
+0002		LOADG1	R0(C)	<-	V10+110	{}
+0003		RELOP19	R0(B)	<-	R0(CF), CC:0	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:15	{}
+0001		CALLN		<-	V15+0	{}
+0002		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  
+0000		LOADG2	R1(I)	<-	V10+6	{}
+0001		RELOP20	R0(B)	<-	R1(IF), CI:2	{}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 23
+L4: <= D-1: (1)  
+0000		CONST	R1(I)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2) Head 
+0000		LEAA	R2(P)	<-	V-1+55347, R1(I)[0..27]	{}
+0001		STOREI1		<-	R2(PF)+0, CC:0	{}
+0002		BINOP1	R1(I)[1..28]	<-	R1(IF)[0..27], CI:1	{}
+0003		RELOP28	R0(B)	<-	R1(I)[1..28], CI:28	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 8
+		==> 10
+L10: <= D-1: (1)  
+0000		CONST	R1(I)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2) Head 
+0000		LEAA	R2(P)	<-	V-1+55587, R1(I)[0..27]	{}
+0001		STOREI1		<-	R2(PF)+0, CC:0	{}
+0002		BINOP1	R1(I)[1..28]	<-	R1(IF)[0..27], CI:1	{}
+0003		RELOP28	R0(B)	<-	R1(I)[1..28], CI:28	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 12
+		==> 14
+L14: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+110	{}
+0001		RELOP19	R3(B)	<-	R0(C), CC:1	{}
+0002		BRANCH		<-	R3(BF)	{}
+		==> 15
+		==> 18
+L15: <= D-1: (2)  
+0000		BINOP1	R0(C)[2..8]	<-	R0(CF)[1..7], CI:1	{}
+0001		STOREG1		<-	V10+110, R0(CF)[2..8]	{}
+0002		JUMP		<-	CB:0	{}
+		==> 23
+L23: <= D-1: (3)  
+0000		LOADG1	R0(C)	<-	V10+110	{I}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{I}
+0002		BINOP3	R2(I)[0..10200]	<-	R1(I)[0..255], CI:40	{I}
+0003		LEAA	R2(P)	<-	V-1+55307, R2(IF)[0..10200]	{I}
+0004		CONST	R4(I)[0..0]	<-	CI:0	{}
+0005		JUMP		<-		{}
+		==> 20
+L20: <= D-1: (2) Head 
+0000		LEAI	R5(P)	<-	R2(P)+0, R4(I)[0..8]	{}
+0001		STOREI1		<-	R5(PF)+0, CC:15	{}
+0002		BINOP1	R4(I)[1..9]	<-	R4(IF)[0..8], CI:1	{}
+0003		RELOP28	R0(B)	<-	R4(I)[1..9], CI:9	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 20
+		==> 22
+L22: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:15	{}
+0001		BINOP3	R1(I)[0..109]	<-	R1(IF)[0..9], CI:11	{}
+0002		LEAG	R1(P)	<-	V10+2, R1(IF)[0..109]	{}
+0003		LOADI2	R1(P)	<-	R1(PF)+0	{}
+0004		CALL		<-	R1(PF)	{}
+0005		LOADG2	R1(I)	<-	V27+0	{}
+0006		STOREZ2		<-	V0+0, R1(IF)	{}
+0007		CALLN	R0(C)	<-	V51+0	{}
+0008		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0009		BINOP6	R2(I)[0..11]	<-	R1(I)[0..255], CI:12	{}
+000a		STOREG2		<-	V37+0, R2(I)[0..11]	{}
+000b		BINOP4	R1(I)[0..7]	<-	R1(IF)[0..255], CI:12	{}
+000c		LEAG	R4(P)	<-	V12+0, R1(I)[0..7]	{}
+000d		LOADI1	R0(C)	<-	R4(PF)+0	{}
+000e		STOREG1		<-	V38+7, R0(CF)	{}
+000f		LEAG	R4(P)	<-	V39+0, R1(I)[0..7]	{}
+0010		LOADI1	R0(C)	<-	R4(PF)+0	{}
+0011		CONV31	R4(I)[0..255]	<-	R0(CF)	{}
+0012		STOREG2		<-	V40+0, R4(I)[0..255]	{}
+0013		LEAG	R2(P)	<-	V41+0, R2(IF)[0..11]	{}
+0014		LOADI1	R0(C)	<-	R2(PF)+0	{}
+0015		CONV31	R2(I)[0..255]	<-	R0(CF)	{}
+0016		STOREG2		<-	V42+0, R2(I)[0..255]	{}
+0017		LEAA	R4(P)	<-	V-1+55800, R4(IF)[0..255]	{}
+0018		STOREI1		<-	R4(PF)+0, CC:15	{}
+0019		LEAA	R2(P)	<-	V-1+55865, R2(IF)[0..255]	{}
+001a		STOREI1		<-	R2(PF)+0, CC:15	{}
+001b		BINOP3	R1(I)	<-	R1(IF), CI:12	{}
+001c		STOREG2		<-	V36+0, R1(IF)	{}
+001d		RET		<-		{}
+L18: <= D-1: (1)  
+0000		RELOP19	R3(B)	<-	R0(C), CC:7	{}
+0001		BRANCH		<-	R3(BF)	{}
+		==> 15
+		==> 23
+--------------------------------------------------------------------
+find_note: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/utils.c:2
+$00 R0(I), $00 R1(I), $00 R2(I), $00 R3(B), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001		LOADZ2	R1(I)	<-	V0+0	{IS}
+0002		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		BINOP16	R2(I)[0..190]	<-	R0(I)[0..95], CI:1	{}
+0001		LEAG	R2(P)	<-	V35+0, R2(IF)[0..190]	{}
+0002		LOADI2	R2(I)	<-	R2(PF)+0	{}
+0003		RELOP19	R3(B)	<-	R2(IF), R1(I)	{}
+0004		BRANCH		<-	R3(BF)	{}
+		==> 5
+		==> 3
+L5: <= D-1: (1)  
+0000		RETV		<-	R0(CF)[0..95]	{}
+L3: <= D-1: (1)  
+0000		BINOP1	R0(I)[1..96]	<-	R0(IF)[0..95], CI:1	{}
+0001		RELOP28	R3(B)	<-	R0(I)[1..96], CI:96	{}
+0002		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RETV		<-	CC:0	{}
+--------------------------------------------------------------------
+win_put_at: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/view_utils.c:26
+$00 R0(C), $00 R1(I), $02 R2(I), $04 R3(I), $05 R4(B), $00 R5(I), $00 R6(I), $00 R7(P), $06 R8(P), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V5+0	{S}
+0001		RELOP28	R0(B)	<-	CC:0, R0(CF)	{S}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 10
+		==> 4
+L10: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V3+0	{S}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{S}
+0002		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{S}
+0003		LOADZ1	R0(C)	<-	V2+0	{S}
+0004		CONV31	R2(I)[0..255]	<-	R0(CF)	{S}
+0005		BINOP1	R1(I)[0..10455]	<-	R2(IF)[0..255], R1(IF)[0..10200]	{}
+0006		CONST	R2(I)[0..0]	<-	CI:0	{}
+0007		CONST	R3(I)[0..0]	<-	CI:0	{}
+0008		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LOADZ1	R0(C)	<-	V4+0	{S}
+0001		RELOP28	R4(B)	<-	CC:0, R0(C)	{S}
+0002		BRANCH		<-	R4(BF)	{}
+		==> 9
+		==> 8
+L9: <= D-1: (1)  
+0000		CONV31	R5(I)[0..255]	<-	R0(C)	{IS}
+0001		CONST	R6(I)[0..0]	<-	CI:0	{}
+0002		LOADZ2	R7(P)	<-	V0+0	{IS}
+0003		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head 
+0000		LEAI	R8(P)	<-	R7(P)+0, R2(I)[0..]	{}
+0001		LOADI1	R4(C)	<-	R8(PF)+0	{}
+0002		LEAA	R8(P)	<-	V-1+1024, R1(I)	{}
+0003		STOREI1		<-	R8(PF)+0, R4(CF)	{}
+0004		BINOP1	R1(I)	<-	R1(IF), CI:1	{}
+0005		BINOP1	R2(I)[1..]	<-	R2(IF)[0..], CI:1	{}
+0006		BINOP1	R6(I)[1..255]	<-	R6(IF)[0..254], CI:1	{}
+0007		RELOP28	R4(B)	<-	R6(I)[1..255], R5(I)[0..255]	{}
+0008		BRANCH		<-	R4(BF)	{}
+		==> 6
+		==> 8
+L8: <= D-1: (2)  
+0000		CONV31	R5(I)[0..255]	<-	R0(CF)	{S}
+0001		BINOP2	R5(I)[-215..40]	<-	CI:40, R5(IF)[0..255]	{S}
+0002		BINOP1	R1(I)	<-	R5(IF)[-215..40], R1(IF)	{}
+0003		LOADZ1	R0(C)	<-	V5+0	{S}
+0004		CONV31	R5(I)[0..255]	<-	R0(CF)	{S}
+0005		BINOP1	R3(I)[1..255]	<-	R3(IF)[0..254], CI:1	{}
+0006		RELOP28	R0(B)	<-	R3(I)[1..255], R5(IF)[0..255]	{}
+0007		BRANCH		<-	R0(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (2)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+edit_window_process_joystick_events: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/events.c:145
+$00 R0(C), $01 R1(I), $03 R2(I), $05 R3(B), 
+L0: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:0	{}
+0001		CALLN		<-	V54+0	{}
+0002		LOADG1	R0(C)	<-	V44+0	{}
+0003		CONV34	R1(I)[-128..127]	<-	R0(C)	{}
+0004		LOADG2	R2(I)	<-	V48+0	{}
+0005		RELOP20	R3(B)	<-	R1(IF)[-128..127], R2(IF)	{}
+0006		BRANCH		<-	R3(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		RELOP20	R3(B)	<-	R0(C), CC:0	{}
+0001		BRANCH		<-	R3(BF)	{}
+		==> 4
+		==> 6
+L4: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, R0(CF)	{}
+0001		CALLN		<-	V55+0	{}
+0002		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2)  
+0000		LOADG1	R0(C)	<-	V44+0	{}
+0001		CONV34	R1(I)[-128..127]	<-	R0(CF)	{}
+0002		STOREG2		<-	V48+0, R1(IF)[-128..127]	{}
+0003		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  
+0000		LOADG1	R0(C)	<-	V45+0	{}
+0001		CONV34	R1(I)[-128..127]	<-	R0(C)	{}
+0002		LOADG2	R2(I)	<-	V49+0	{}
+0003		RELOP20	R3(B)	<-	R1(I)[-128..127], R2(IF)	{}
+0004		BRANCH		<-	R3(BF)	{}
+		==> 7
+		==> 9
+L7: <= D-1: (1)  
+0000		RELOP20	R0(B)	<-	R0(CF), CC:0	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 10
+		==> 12
+L10: <= D-1: (1)  
+0000		BINOP1	R1(I)[-127..128]	<-	R1(IF)[-128..127], CI:1	{}
+0001		STOREF1		<-	V0+0, R1(CF)[-127..128]	{}
+0002		CALLN		<-	V57+0	{}
+0003		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2)  
+0000		LOADG1	R0(C)	<-	V45+0	{}
+0001		CONV34	R1(I)[-128..127]	<-	R0(CF)	{}
+0002		STOREG2		<-	V49+0, R1(IF)[-128..127]	{}
+0003		JUMP		<-		{}
+		==> 9
+L9: <= D-1: (2)  
+0000		LOADG1	R0(B)	<-	V46+0	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		LOADG2	R2(I)	<-	V52+0	{}
+0003		RELOP20	R3(B)	<-	R1(I)[0..255], R2(IF)	{}
+0004		BRANCH		<-	R3(BF)	{}
+		==> 13
+		==> 15
+L13: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF), CC:1	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 16
+		==> 18
+L16: <= D-1: (1)  
+0000		CONST	R2(P)	<-	CG14(27:0)	{S}
+0001		LOADG1	R0(C)[-2147483648..2147483647]	<-	V7+5	{V}
+0002		RELOP19	R0(B)	<-	R0(CF)[-2147483648..2147483647], CC:0	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 20
+		==> 21
+L20: <= D-1: (1)  
+0000		CONST	R0(C)[3..3]	<-	CI:3	{}
+0001		JUMP		<-		{}
+		==> 22
+L22: <= D-1: (2)  
+0000		STOREG1		<-	V7+5, CC:0	{V}
+0001		STOREG2		<-	V7+0, R2(PF)	{}
+0002		STOREG1		<-	V7+3, CC:0	{}
+0003		LOADG1	R3(C)	<-	V27+13	{}
+0004		STOREG1		<-	V7+4, R3(CF)	{}
+0005		STOREG1		<-	V7+5, R0(CF)[1..3]	{V}
+0006		JUMP		<-		{}
+		==> 18
+L18: <= D-1: (3)  
+0000		STOREG2		<-	V52+0, R1(IF)[0..255]	{}
+0001		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (2)  
+0000		RET		<-		{}
+L21: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V7+4	{}
+0001		LOADG1	R3(C)	<-	V27+13	{}
+0002		RELOP26	R0(B)	<-	R0(CF), R3(CF)	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 23
+		==> 18
+L23: <= D-1: (1)  
+0000		CONST	R0(C)[1..1]	<-	CI:1	{}
+0001		JUMP		<-		{}
+		==> 22
+--------------------------------------------------------------------
+joy_poll: /home/marioc/apps/c64/oscar64/include/c64/joystick.h:13
+$00 R0(C), $00 R1(I), $00 R2(P), $00 R3(I), $00 R4(I), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..1]	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..1]	<-	R0(CF)[0..1]	{S}
+0002		LEAA	R2(P)	<-	V-1+56320, R1(I)[0..1]	{S}
+0003		LOADI1	R0(C)	<-	R2(PF)+0	{V}
+0004		CONV31	R2(I)[0..255]	<-	R0(CF)	{}
+0005		BINOP9	R3(I)[0..16]	<-	R2(I)[0..255], CI:16	{}
+0006		RELOP19	R0(B)	<-	R3(IF)[0..16], CI:0	{}
+0007		LEAG	R3(P)	<-	V46+0, R1(I)[0..1]	{S}
+0008		STOREI1		<-	R3(PF)+0, R0(BF)	{}
+0009		LEAG	R3(P)	<-	V44+0, R1(I)[0..255]	{S}
+000a		BINOP9	R4(I)[0..1]	<-	R2(I)[0..255], CI:1	{}
+000b		BRANCH		<-	R4(IF)[0..1]	{}
+		==> 2
+		==> 1
+L2: <= D-1: (1)  
+0000		BINOP9	R4(I)[0..2]	<-	R2(I)[0..255], CI:2	{}
+0001		BRANCH		<-	R4(IF)[0..2]	{}
+		==> 5
+		==> 4
+L5: <= D-1: (1)  
+0000		STOREI1		<-	R3(PF)+0, CC:0	{}
+0001		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (3)  
+0000		LEAG	R1(P)	<-	V45+0, R1(IF)[0..255]	{S}
+0001		BINOP9	R3(I)[0..4]	<-	R2(I)[0..255], CI:4	{}
+0002		BRANCH		<-	R3(IF)[0..4]	{}
+		==> 8
+		==> 7
+L8: <= D-1: (1)  
+0000		BINOP9	R2(I)[0..8]	<-	R2(IF)[0..255], CI:8	{}
+0001		BRANCH		<-	R2(IF)[0..8]	{}
+		==> 11
+		==> 10
+L11: <= D-1: (1)  
+0000		STOREI1		<-	R1(PF)+0, CC:0	{}
+0001		JUMP		<-		{}
+		==> 9
+L9: <= D-1: (3)  
+0000		RET		<-		{}
+L10: <= D-1: (1)  
+0000		STOREI1		<-	R1(PF)+0, CC:1	{}
+0001		JUMP		<-		{}
+		==> 9
+L7: <= D-1: (1)  
+0000		STOREI1		<-	R1(PF)+0, CC:-1	{}
+0001		JUMP		<-		{}
+		==> 9
+L4: <= D-1: (1)  
+0000		STOREI1		<-	R3(PF)+0, CC:1	{}
+0001		JUMP		<-		{}
+		==> 15
+L1: <= D-1: (1)  
+0000		STOREI1		<-	R3(PF)+0, CC:-1	{}
+0001		JUMP		<-		{}
+		==> 15
+--------------------------------------------------------------------
+update_vertical_menu: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_handling.c:23
+$00 R0(C), $01 R1(I), $03 R2(I), $10 R3(I), $05 R4(I), $07 R5(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V10+110	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		LOADP1	R0(C)	<-	V0+0	{S}
+0003		CONV31	R2(I)[0..255]	<-	R0(CF)	{S}
+0004		BINOP1	R1(I)[0..510]	<-	R2(I)[0..255], R1(IF)[0..255]	{}
+0005		MOVE	R3(C)[0..510]	<-	R1(C)[0..510]	{}
+0006		CONV31	R4(I)[0..255]	<-	R1(C)[0..510]	{}
+0007		RELOP19	R0(B)	<-	R1(C)[0..510], CC:1	{}
+0008		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 4
+L1: <= D-1: (2)  
+0000		LOADG2	R5(I)	<-	V10+6	{}
+0001		RELOP20	R0(B)	<-	R5(IF), CI:2	{}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 5
+		==> 3
+L5: <= D-1: (1)  
+0000		BINOP1	R3(I)[0..510]	<-	R4(IF)[0..255], R2(IF)[0..255]	{}
+0001		RELOP19	R0(B)	<-	R3(C)[0..510], CC:10	{}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 8
+		==> 9
+L8: <= D-1: (2)  
+0000		CONST	R3(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 10
+L10: <= D-1: (3)  
+0000		STOREF1		<-	V0+0, R3(C)[0..10]	{}
+0001		CALLN		<-	V56+0	{}
+0002		STOREG1		<-	V10+110, R3(CF)[0..10]	{}
+0003		RET		<-		{}
+L9: <= D-1: (2)  
+0000		RELOP27	R0(B)	<-	R3(C)[0..510], CC:10	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 11
+		==> 10
+L11: <= D-1: (1)  
+0000		CONST	R3(C)[9..9]	<-	CI:9	{}
+0001		JUMP		<-		{}
+		==> 10
+L3: <= D-1: (2)  
+0000		RELOP19	R0(B)	<-	R1(CF)[0..510], CC:10	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 8
+		==> 9
+L4: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R1(C)[0..510], CC:7	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+--------------------------------------------------------------------
+select_option: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_handling.c:3
+$00 R0(C), $10 R1(I), $01 R2(I), $03 R3(I), $05 R4(I), $07 R5(P), $09 R6(B), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{S}
+0002		BINOP3	R2(I)[0..10200]	<-	R1(I)[0..255], CI:40	{S}
+0003		LEAA	R2(P)	<-	V-1+55307, R2(IF)[0..10200]	{I}
+0004		LOADG1	R0(C)	<-	V10+110	{}
+0005		CONV31	R3(I)[0..255]	<-	R0(C)	{}
+0006		BINOP3	R3(I)[0..10200]	<-	R3(IF)[0..255], CI:40	{}
+0007		LEAA	R3(P)	<-	V-1+55307, R3(IF)[0..10200]	{I}
+0008		CONST	R4(I)[0..0]	<-	CI:0	{}
+0009		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAI	R5(P)	<-	R3(P)+0, R4(I)[0..8]	{}
+0001		STOREI1		<-	R5(PF)+0, CC:11	{}
+0002		LEAI	R5(P)	<-	R2(P)+0, R4(I)[0..8]	{}
+0003		STOREI1		<-	R5(PF)+0, CC:15	{}
+0004		BINOP1	R4(I)[1..9]	<-	R4(IF)[0..8], CI:1	{}
+0005		RELOP28	R6(B)	<-	R4(I)[1..9], CI:9	{}
+0006		BRANCH		<-	R6(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:11	{}
+0001		CONV31	R2(I)[0..9]	<-	R0(CF)[0..9]	{}
+0002		BINOP3	R2(I)[0..109]	<-	R2(IF)[0..9], CI:11	{}
+0003		LEAG	R2(P)	<-	V10+2, R2(IF)[0..109]	{}
+0004		LOADI2	R2(P)	<-	R2(PF)+0	{}
+0005		CALL		<-	R2(PF)	{}
+0006		STOREF1		<-	V0+0, CC:15	{}
+0007		BINOP3	R1(I)[0..109]	<-	R1(IF)[0..9], CI:11	{S}
+0008		LEAG	R1(P)	<-	V10+2, R1(IF)[0..109]	{}
+0009		LOADI2	R1(P)	<-	R1(PF)+0	{}
+000a		CALL		<-	R1(PF)	{}
+000b		RET		<-		{}
+--------------------------------------------------------------------
+update_horizontal_menu: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_handling.c:45
+$00 R0(C), $01 R1(I), $03 R2(C), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)	<-	V0+0	{S}
+0001		STOREF1		<-	V0+0, R0(CF)	{}
+0002		LOADG1	R0(C)[0..9]	<-	V10+110	{}
+0003		CONV31	R1(I)[0..9]	<-	R0(CF)[0..9]	{}
+0004		BINOP3	R1(I)[0..99]	<-	R1(IF)[0..9], CI:11	{}
+0005		LEAG	R1(P)	<-	V10+0, R1(IF)[0..99]	{}
+0006		LOADI2	R1(P)	<-	R1(PF)+0	{}
+0007		CALL		<-	R1(PF)	{}
+0008		CALLN		<-	V58+0	{}
+0009		CONST	R1(P)	<-	CG14(27:0)	{S}
+000a		LOADG1	R0(C)[-2147483648..2147483647]	<-	V7+15	{V}
+000b		RELOP19	R0(B)	<-	R0(CF)[-2147483648..2147483647], CC:0	{}
+000c		BRANCH		<-	R0(BF)	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  
+0000		CONST	R0(C)[3..3]	<-	CI:3	{}
+0001		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2)  
+0000		STOREG1		<-	V7+15, CC:0	{V}
+0001		STOREG2		<-	V7+10, R1(PF)	{}
+0002		STOREG1		<-	V7+13, CC:0	{}
+0003		LOADG1	R2(C)	<-	V27+13	{}
+0004		STOREG1		<-	V7+14, R2(CF)	{}
+0005		STOREG1		<-	V7+15, R0(CF)[1..3]	{V}
+0006		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2)  
+0000		RET		<-		{}
+L3: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V27+13	{}
+0001		LOADG1	R2(C)	<-	V7+14	{}
+0002		RELOP26	R0(B)	<-	R2(CF), R0(CF)	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 5
+		==> 1
+L5: <= D-1: (1)  
+0000		CONST	R0(C)[1..1]	<-	CI:1	{}
+0001		JUMP		<-		{}
+		==> 4
+--------------------------------------------------------------------
+update_sidfx_struct: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/audio.c:18
+$00 R0(I), $00 R1(C), $00 R2(I), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)[0..3]	<-	V10+6	{}
+0001		LEAG	R0(P)	<-	V28+0, R0(IF)[0..3]	{}
+0002		LOADI1	R1(C)	<-	R0(PF)+0	{}
+0003		CONV31	R0(I)[0..255]	<-	R1(CF)	{}
+0004		BINOP8	R0(I)[0..255]	<-	R0(IF)[0..255], CI:1	{}
+0005		STOREG1		<-	V27+4, R0(CF)[0..255]	{}
+0006		LOADG2	R0(I)	<-	V10+17	{}
+0007		STOREG2		<-	V27+2, R0(IF)	{}
+0008		LOADG2	R0(I)	<-	V10+28	{}
+0009		BINOP16	R0(I)	<-	R0(IF), CI:4	{}
+000a		LOADG2	R2(I)	<-	V10+39	{}
+000b		BINOP8	R0(I)	<-	R2(IF), R0(IF)	{}
+000c		STOREG1		<-	V27+5, R0(CF)	{}
+000d		LOADG2	R0(I)	<-	V10+50	{}
+000e		BINOP16	R0(I)	<-	R0(IF), CI:4	{}
+000f		LOADG2	R2(I)	<-	V10+61	{}
+0010		BINOP8	R0(I)	<-	R2(IF), R0(IF)	{}
+0011		STOREG1		<-	V27+6, R0(CF)	{}
+0012		LOADG2	R0(I)	<-	V10+72	{}
+0013		STOREG2		<-	V27+7, R0(IF)	{}
+0014		LOADG2	R0(I)	<-	V10+83	{}
+0015		STOREG2		<-	V27+9, R0(IF)	{}
+0016		LOADG2	R0(I)	<-	V10+94	{}
+0017		STOREG1		<-	V27+11, R0(CF)	{}
+0018		LOADG2	R0(I)	<-	V10+105	{}
+0019		STOREG1		<-	V27+12, R0(CF)	{}
+001a		RET		<-		{}
+--------------------------------------------------------------------
+edit_window_process_keyboard_events: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/events.c:11
+$00 R0(C), $01 R1(I), $03 R2(B), $04 R3(I), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V60+0	{}
+0001		LOADG1	R0(C)[0..128]	<-	V53+0	{}
+0002		CONV31	R1(I)[0..128]	<-	R0(CF)[0..128]	{}
+0003		BINOP9	R1(I)[0..127]	<-	R1(IF)[0..128], CI:127	{}
+0004		LEAG	R1(P)	<-	V57+0, R1(IF)[0..127]	{}
+0005		LOADI1	R0(C)[-128..157]	<-	R1(PF)+0	{}
+0006		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:27	{}
+0007		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 6
+L1: <= D-1: (4)  
+0000		RETV		<-	CC:1	{}
+L6: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:32	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 5
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:61	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 4
+L4: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:95	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:113	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 8
+		==> 9
+L8: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:160	{}
+0001		STOREG2		<-	V37+0, CI:0	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L126: <= D-1: (20)  
+0000		CALLN		<-	V61+0	{}
+0001		JUMP		<-		{}
+		==> 107
+L107: <= D-1: (2)  
+0000		LOADG2	R1(I)	<-	V37+0	{}
+0001		LOADG2	R3(I)	<-	V36+0	{}
+0002		BINOP1	R1(I)	<-	R3(IF), R1(IF)	{}
+0003		RELOP24	R0(B)	<-	R1(I), CI:96	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 110
+		==> 109
+L110: <= D-1: (1)  
+0000		BINOP16	R1(I)[0..190]	<-	R1(IF)[0..95], CI:1	{}
+0001		LEAG	R1(P)	<-	V35+0, R1(IF)[0..190]	{}
+0002		LOADI2	R1(I)	<-	R1(PF)+0	{}
+0003		STOREG2		<-	V27+0, R1(IF)	{}
+0004		CONST	R1(P)	<-	CG14(27:0)	{S}
+0005		LOADG1	R0(C)[-2147483648..2147483647]	<-	V7+25	{V}
+0006		RELOP19	R0(B)	<-	R0(CF)[-2147483648..2147483647], CC:0	{}
+0007		BRANCH		<-	R0(BF)	{}
+		==> 114
+		==> 115
+L114: <= D-1: (1)  
+0000		CONST	R0(C)[3..3]	<-	CI:3	{}
+0001		JUMP		<-		{}
+		==> 116
+L116: <= D-1: (2)  
+0000		STOREG1		<-	V7+25, CC:0	{V}
+0001		STOREG2		<-	V7+20, R1(PF)	{}
+0002		STOREG1		<-	V7+23, CC:0	{}
+0003		LOADG1	R2(C)	<-	V27+13	{}
+0004		STOREG1		<-	V7+24, R2(CF)	{}
+0005		STOREG1		<-	V7+25, R0(CF)[1..3]	{V}
+0006		RETV		<-	CC:0	{}
+L115: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V27+13	{}
+0001		LOADG1	R2(C)	<-	V7+24	{}
+0002		RELOP26	R0(B)	<-	R2(CF), R0(CF)	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 117
+		==> 109
+L117: <= D-1: (1)  
+0000		CONST	R0(C)[1..1]	<-	CI:1	{}
+0001		JUMP		<-		{}
+		==> 116
+L109: <= D-1: (8)  
+0000		RETV		<-	CC:0	{}
+L9: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:50	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 11
+		==> 12
+L11: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:41	{}
+0001		STOREG2		<-	V37+0, CI:1	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L12: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:119	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 14
+		==> 15
+L14: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:162	{}
+0001		STOREG2		<-	V37+0, CI:2	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L15: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:51	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 17
+		==> 18
+L17: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:43	{}
+0001		STOREG2		<-	V37+0, CI:3	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L18: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:101	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 20
+		==> 21
+L20: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:164	{}
+0001		STOREG2		<-	V37+0, CI:4	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L21: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:114	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 23
+		==> 24
+L23: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:166	{}
+0001		STOREG2		<-	V37+0, CI:5	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L24: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:53	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:47	{}
+0001		STOREG2		<-	V37+0, CI:6	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L27: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:116	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 29
+		==> 30
+L29: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:168	{}
+0001		STOREG2		<-	V37+0, CI:7	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L30: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:54	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 32
+		==> 33
+L32: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:49	{}
+0001		STOREG2		<-	V37+0, CI:8	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L33: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:121	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 35
+		==> 36
+L35: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:170	{}
+0001		STOREG2		<-	V37+0, CI:9	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L36: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:55	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 38
+		==> 39
+L38: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:51	{}
+0001		STOREG2		<-	V37+0, CI:10	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L39: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:117	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 41
+		==> 42
+L41: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:172	{}
+0001		STOREG2		<-	V37+0, CI:11	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L42: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:105	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 44
+		==> 45
+L44: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:174	{}
+0001		STOREG2		<-	V37+0, CI:12	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L45: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:57	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 47
+		==> 48
+L47: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:55	{}
+0001		STOREG2		<-	V37+0, CI:13	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L48: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:111	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 50
+		==> 51
+L50: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:176	{}
+0001		STOREG2		<-	V37+0, CI:14	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L51: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:48	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 53
+		==> 54
+L53: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:57	{}
+0001		STOREG2		<-	V37+0, CI:15	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L54: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:112	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 56
+		==> 57
+L56: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:178	{}
+0001		STOREG2		<-	V37+0, CI:16	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L57: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:64	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 59
+		==> 60
+L59: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:180	{}
+0001		STOREG2		<-	V37+0, CI:17	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L60: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:45	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 62
+		==> 63
+L62: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:61	{}
+0001		STOREG2		<-	V37+0, CI:18	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L63: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:42	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 65
+		==> 66
+L65: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:182	{}
+0001		STOREG2		<-	V37+0, CI:19	{}
+0002		JUMP		<-	CC:0	{}
+		==> 126
+L66: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:97	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 68
+		==> 69
+L68: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:0	{}
+0001		STOREG2		<-	V36+0, CI:0	{}
+0002		STOREA1		<-	V-1+1519, CC:48	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L127: <= D-1: (8)  
+0000		CALLN		<-	V62+0	{}
+0001		JUMP		<-		{}
+		==> 107
+L69: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:115	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 71
+		==> 72
+L71: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:1	{}
+0001		STOREG2		<-	V36+0, CI:12	{}
+0002		STOREA1		<-	V-1+1519, CC:49	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L72: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:100	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 74
+		==> 75
+L74: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:2	{}
+0001		STOREG2		<-	V36+0, CI:24	{}
+0002		STOREA1		<-	V-1+1519, CC:50	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L75: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:102	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 77
+		==> 78
+L77: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:3	{}
+0001		STOREG2		<-	V36+0, CI:36	{}
+0002		STOREA1		<-	V-1+1519, CC:51	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L78: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:103	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 80
+		==> 81
+L80: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:4	{}
+0001		STOREG2		<-	V36+0, CI:48	{}
+0002		STOREA1		<-	V-1+1519, CC:52	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L81: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:104	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 83
+		==> 84
+L83: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:5	{}
+0001		STOREG2		<-	V36+0, CI:60	{}
+0002		STOREA1		<-	V-1+1519, CC:53	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L84: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:106	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 86
+		==> 87
+L86: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:6	{}
+0001		STOREG2		<-	V36+0, CI:72	{}
+0002		STOREA1		<-	V-1+1519, CC:54	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L87: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:107	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 89
+		==> 90
+L89: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:7	{}
+0001		STOREG2		<-	V36+0, CI:84	{}
+0002		STOREA1		<-	V-1+1519, CC:55	{}
+0003		JUMP		<-	CC:0	{}
+		==> 127
+L90: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:145	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 92
+		==> 93
+L92: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:-1	{}
+0001		CALLN		<-	V55+0	{}
+0002		JUMP		<-	CC:0	{}
+		==> 109
+L93: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:17	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 95
+		==> 96
+L95: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:1	{}
+0001		CALLN		<-	V55+0	{}
+0002		JUMP		<-	CC:0	{}
+		==> 109
+L96: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:157	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 98
+		==> 99
+L98: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:0	{}
+0001		CALLN		<-	V57+0	{}
+0002		JUMP		<-	CC:0	{}
+		==> 109
+L99: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:29	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 101
+		==> 102
+L101: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:2	{}
+0001		CALLN		<-	V57+0	{}
+0002		JUMP		<-	CC:0	{}
+		==> 109
+L102: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF)[-128..157], CC:13	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 104
+		==> 109
+L104: <= D-1: (1)  
+0000		LOADG1	R0(C)[0..9]	<-	V10+110	{}
+0001		CONV31	R1(I)[0..9]	<-	R0(CF)[0..9]	{}
+0002		BINOP3	R1(I)[0..99]	<-	R1(IF)[0..9], CI:11	{}
+0003		LEAG	R1(P)	<-	V10+4, R1(IF)[0..99]	{}
+0004		LOADI2	R1(P)	<-	R1(PF)+0	{}
+0005		CALL		<-	R1(PF)	{}
+0006		JUMP		<-	CC:0	{}
+		==> 109
+--------------------------------------------------------------------
+keyb_poll: /home/marioc/apps/c64/oscar64/include/c64/keyboard.h:123
+$00 R0(C), $00 R1(I), $01 R2(I), $00 R3(P), $02 R4(C), $00 R5(C), $00 R6(I), 
+L0: <= D-1: (1)  
+0000		STOREA1		<-	V-1+56322, CC:255	{V}
+0001		STOREA1		<-	V-1+56320, CC:255	{V}
+0002		STOREG1		<-	V53+0, CC:0	{}
+0003		LOADA1	R0(C)	<-	V-1+56321	{V}
+0004		RELOP19	R0(B)	<-	R0(CF), CC:255	{}
+0005		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREA1		<-	V-1+56323, CC:0	{V}
+0001		STOREA1		<-	V-1+56320, CC:0	{V}
+0002		LOADA1	R0(C)	<-	V-1+56321	{V}
+0003		RELOP20	R0(B)	<-	R0(CF), CC:255	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V54+6	{}
+0001		BINOP9	R0(C)[0..239]	<-	R0(CF), CC:239	{}
+0002		STOREG1		<-	V54+6, R0(CF)[0..239]	{}
+0003		LOADG1	R0(C)	<-	V54+1	{}
+0004		BINOP9	R0(C)[0..127]	<-	R0(CF), CC:127	{}
+0005		STOREG1		<-	V54+1, R0(CF)[0..127]	{}
+0006		CONST	R1(C)[254..254]	<-	CI:254	{}
+0007		CONST	R0(C)[0..0]	<-	CI:0	{}
+0008		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2) Head 
+0000		STOREA1		<-	V-1+56320, R1(C)[0..511]	{V}
+0001		CONV31	R2(I)[0..7]	<-	R0(C)[0..7]	{}
+0002		LEAG	R3(P)	<-	V54+0, R2(I)[0..7]	{}
+0003		LOADI1	R4(C)	<-	R3(P)+0	{}
+0004		LOADA1	R5(C)	<-	V-1+56321	{V}
+0005		STOREI1		<-	R3(PF)+0, R5(C)	{}
+0006		CONV31	R3(I)[0..255]	<-	R4(CF)	{}
+0007		CONV31	R1(I)[0..255]	<-	R1(CF)[0..511]	{}
+0008		BINOP16	R1(I)[0..510]	<-	R1(IF)[0..255], CI:1	{}
+0009		BINOP8	R1(I)[0..511]	<-	R1(IF)[0..510], CI:1	{}
+000a		CONV31	R6(I)[0..255]	<-	R5(CF)	{}
+000b		BINOP10	R6(I)[0..255]	<-	R6(IF)[0..255], CI:255	{}
+000c		BINOP9	R3(I)[0..255]	<-	R6(IF)[0..255], R3(IF)[0..255]	{}
+000d		BRANCH		<-	R3(C)[0..255]	{}
+		==> 11
+		==> 37
+L11: <= D-1: (1)  
+0000		BINOP16	R2(I)[0..56]	<-	R2(IF)[0..7], CI:3	{}
+0001		BINOP8	R2(I)[0..191]	<-	R2(IF)[0..56], CI:128	{}
+0002		BINOP9	R6(I)[0..240]	<-	R3(I)[0..255], CI:240	{}
+0003		BRANCH		<-	R6(IF)[0..240]	{}
+		==> 14
+		==> 16
+L14: <= D-1: (1)  
+0000		BINOP1	R4(C)[4..195]	<-	R2(CF)[0..191], CC:4	{}
+0001		JUMP		<-		{}
+		==> 35
+L35: <= D-1: (2)  
+0000		BINOP9	R2(I)[0..204]	<-	R3(I)[0..255], CI:204	{}
+0001		BRANCH		<-	R2(IF)[0..204]	{}
+		==> 17
+		==> 36
+L17: <= D-1: (1)  
+0000		BINOP1	R4(C)[2..197]	<-	R4(CF)[0..195], CC:2	{}
+0001		JUMP		<-		{}
+		==> 36
+L36: <= D-1: (2)  
+0000		BINOP9	R2(I)[0..170]	<-	R3(IF)[0..255], CI:170	{}
+0001		BRANCH		<-	R2(IF)[0..170]	{}
+		==> 20
+		==> 45
+L20: <= D-1: (1)  
+0000		BINOP1	R4(C)[1..198]	<-	R4(CF)[0..197], CI:1	{}
+0001		JUMP		<-		{}
+		==> 45
+L45: <= D-1: (2)  
+0000		STOREG1		<-	V53+0, R4(CF)[0..197]	{}
+0001		JUMP		<-		{}
+		==> 37
+L37: <= D-1: (2)  
+0000		BINOP1	R0(C)[1..8]	<-	R0(CF)[0..7], CI:1	{}
+0001		RELOP28	R4(B)	<-	R0(C)[1..8], CC:8	{}
+0002		BRANCH		<-	R4(BF)	{}
+		==> 8
+		==> 10
+L10: <= D-1: (1)  
+0000		LOADG1	R0(C)[0..128]	<-	V53+0	{}
+0001		BRANCH		<-	R0(C)[0..128]	{}
+		==> 26
+		==> 3
+L26: <= D-1: (1)  
+0000		LOADG1	R4(C)	<-	V54+1	{}
+0001		CONV31	R1(I)[0..255]	<-	R4(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 27
+		==> 23
+L27: <= D-1: (1)  
+0000		LOADG1	R4(C)	<-	V54+6	{}
+0001		CONV31	R1(I)[0..255]	<-	R4(CF)	{}
+0002		BINOP9	R1(I)[0..16]	<-	R1(IF)[0..255], CI:16	{}
+0003		BRANCH		<-	R1(IF)[0..16]	{}
+		==> 3
+		==> 23
+L3: <= D-1: (3)  
+0000		STOREA1		<-	V-1+56320, CC:255	{V}
+0001		RET		<-		{}
+L23: <= D-1: (2)  
+0000		BINOP8	R0(C)[0..255]	<-	R0(CF)[0..128], CC:64	{}
+0001		STOREG1		<-	V53+0, R0(CF)[0..255]	{}
+0002		STOREA1		<-	V-1+56320, CC:255	{V}
+0003		RET		<-		{}
+L16: <= D-1: (1)  
+0000		MOVE	R4(C)[0..191]	<-	R2(CF)[0..191]	{}
+0001		JUMP		<-		{}
+		==> 35
+L5: <= D-1: (1)  
+0000		STOREG1		<-	V54+0, CC:255	{}
+0001		STOREG1		<-	V54+1, CC:255	{}
+0002		STOREG1		<-	V54+2, CC:255	{}
+0003		STOREG1		<-	V54+3, CC:255	{}
+0004		STOREG1		<-	V54+4, CC:255	{}
+0005		STOREG1		<-	V54+5, CC:255	{}
+0006		STOREG1		<-	V54+6, CC:255	{}
+0007		STOREG1		<-	V54+7, CC:255	{}
+0008		STOREA1		<-	V-1+56320, CC:255	{V}
+0009		RET		<-		{}
+--------------------------------------------------------------------
+select_note: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_handling.c:65
+$00 R0(I), $00 R1(C), $00 R2(P), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V42+0	{}
+0001		LEAA	R0(P)	<-	V-1+55865, R0(IF)	{}
+0002		STOREI1		<-	R0(PF)+0, CC:11	{}
+0003		LOADZ1	R1(C)	<-	V0+0	{S}
+0004		CONV31	R0(I)[0..255]	<-	R1(CF)	{S}
+0005		LEAA	R2(P)	<-	V-1+55865, R0(I)[0..255]	{S}
+0006		STOREI1		<-	R2(PF)+0, CC:15	{}
+0007		STOREG2		<-	V42+0, R0(IF)[0..255]	{}
+0008		RET		<-		{}
+--------------------------------------------------------------------
+select_new_octave: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_window/menu_handling.c:59
+$00 R0(I), $00 R1(C), $00 R2(P), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V40+0	{}
+0001		LEAA	R0(P)	<-	V-1+55800, R0(IF)	{}
+0002		STOREI1		<-	R0(PF)+0, CC:11	{}
+0003		LOADZ1	R1(C)	<-	V0+0	{S}
+0004		CONV31	R0(I)[0..255]	<-	R1(CF)	{S}
+0005		LEAA	R2(P)	<-	V-1+55800, R0(I)[0..255]	{S}
+0006		STOREI1		<-	R2(PF)+0, CC:15	{}
+0007		STOREG2		<-	V40+0, R0(IF)[0..255]	{}
+0008		RET		<-		{}
+--------------------------------------------------------------------
+sidfx_loop: /home/marioc/apps/c64/oscar64/include/audio/sidfx.h:21
+$00 R0(C), $00 R1(I), $01 R2(I), $03 R3(P), $04 R4(C), $00 R5(B), $00 R6(I), 
+L0: <= D-1: (1)  
+0000		CONST	R0(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CONV31	R1(I)[0..2]	<-	R0(C)[0..2]	{}
+0001		BINOP3	R2(I)[0..20]	<-	R1(I)[0..2], CI:10	{}
+0002		LEAG	R3(P)	<-	V7+0, R2(I)[0..20]	{}
+0003		LEAG	R2(P)[-2147483648..2147483647]	<-	V7+5, R2(IF)[0..20]	{}
+0004		LOADI1	R4(C)[-2147483648..2147483647]	<-	R2(PF)+0	{V}
+0005		RELOP19	R5(B)	<-	R4(C)[-2147483648..2147483647], CC:3	{}
+0006		BRANCH		<-	R5(BF)	{}
+		==> 13
+		==> 49
+L13: <= D-1: (1)  
+0000		LOADI2	R2(P)	<-	R3(P)+0	{}
+0001		BRANCH		<-	R2(P)	{}
+		==> 14
+		==> 15
+L14: <= D-1: (1)  
+0000		LOADI2	R6(I)	<-	R2(P)+0	{}
+0001		STOREI2		<-	R3(P)+6, R6(IF)	{}
+0002		LOADI2	R6(I)	<-	R2(P)+2	{}
+0003		STOREI2		<-	R3(P)+8, R6(IF)	{}
+0004		BINOP3	R1(I)[0..14]	<-	R1(IF)[0..2], CI:7	{}
+0005		LEAA	R1(P)	<-	V-1+54272, R1(IF)[0..14]	{}
+0006		LOADI2	R6(I)	<-	R2(P)+0	{}
+0007		STOREI2		<-	R1(P)+0, R6(IF)	{V}
+0008		LOADI2	R6(I)	<-	R2(P)+2	{}
+0009		STOREI2		<-	R1(P)+2, R6(IF)	{V}
+000a		LOADI1	R4(C)	<-	R2(P)+5	{}
+000b		STOREI1		<-	R1(P)+5, R4(CF)	{V}
+000c		LOADI1	R4(C)	<-	R2(P)+6	{}
+000d		STOREI1		<-	R1(P)+6, R4(CF)	{V}
+000e		LOADI1	R4(C)	<-	R2(P)+4	{}
+000f		STOREI1		<-	R1(PF)+4, R4(CF)	{V}
+0010		LOADI1	R4(C)	<-	R2(PF)+11	{}
+0011		STOREI1		<-	R3(P)+5, CC:4	{V}
+0012		STOREI1		<-	R3(PF)+2, R4(CF)	{}
+0013		JUMP		<-		{}
+		==> 62
+L62: <= D-1: (13)  
+0000		BINOP1	R0(C)[1..3]	<-	R0(CF)[0..2], CI:1	{}
+0001		RELOP28	R4(B)	<-	R0(C)[1..3], CC:3	{}
+0002		BRANCH		<-	R4(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+L15: <= D-1: (1)  
+0000		STOREI1		<-	R3(PF)+5, CC:0	{V}
+0001		JUMP		<-		{}
+		==> 62
+L49: <= D-1: (1)  
+0000		RELOP28	R5(B)	<-	R4(C)[-2147483648..2147483647], CC:3	{}
+0001		BRANCH		<-	R5(BF)	{}
+		==> 51
+		==> 50
+L51: <= D-1: (1)  
+0000		RELOP19	R5(B)	<-	R4(C)[0..2], CC:0	{}
+0001		BRANCH		<-	R5(BF)	{}
+		==> 62
+		==> 52
+L52: <= D-1: (1)  
+0000		RELOP19	R5(B)	<-	R4(C)[0..2], CC:1	{}
+0001		BRANCH		<-	R5(BF)	{}
+		==> 9
+		==> 53
+L9: <= D-1: (1)  
+0000		BINOP3	R1(I)[0..14]	<-	R1(IF)[0..2], CI:7	{}
+0001		LEAA	R1(P)	<-	V-1+54272, R1(IF)[0..14]	{}
+0002		STOREI1		<-	R1(P)+6, CC:0	{V}
+0003		STOREI1		<-	R1(P)+5, CC:0	{V}
+0004		STOREI1		<-	R1(PF)+4, CC:0	{V}
+0005		STOREI1		<-	R3(PF)+5, CC:2	{V}
+0006		JUMP		<-		{}
+		==> 62
+L53: <= D-1: (1)  
+0000		RELOP19	R4(B)	<-	R4(CF)[0..2], CC:2	{}
+0001		BRANCH		<-	R4(BF)	{}
+		==> 11
+		==> 62
+L11: <= D-1: (1)  
+0000		BINOP3	R1(I)[0..14]	<-	R1(IF)[0..2], CI:7	{}
+0001		LEAA	R1(P)	<-	V-1+54276, R1(IF)[0..14]	{}
+0002		STOREI1		<-	R1(PF)+0, CC:8	{V}
+0003		STOREI1		<-	R3(PF)+5, CC:3	{V}
+0004		JUMP		<-		{}
+		==> 62
+L50: <= D-1: (1)  
+0000		RELOP19	R5(B)	<-	R4(C)[-2147483648..2147483647], CC:4	{}
+0001		BRANCH		<-	R5(BF)	{}
+		==> 18
+		==> 55
+L18: <= D-1: (1)  
+0000		LOADI2	R2(P)	<-	R3(P)+0	{}
+0001		LOADI2	R2(I)	<-	R2(PF)+7	{}
+0002		BRANCH		<-	R2(I)	{}
+		==> 19
+		==> 21
+L19: <= D-1: (1)  
+0000		LOADI2	R6(I)	<-	R3(P)+6	{}
+0001		BINOP1	R2(I)	<-	R6(IF), R2(IF)	{}
+0002		STOREI2		<-	R3(P)+6, R2(I)	{}
+0003		BINOP3	R6(I)[0..14]	<-	R1(I)[0..2], CI:7	{}
+0004		LEAA	R6(P)	<-	V-1+54272, R6(IF)[0..14]	{}
+0005		STOREI2		<-	R6(PF)+0, R2(IF)	{V}
+0006		JUMP		<-		{}
+		==> 21
+L21: <= D-1: (2)  
+0000		LOADI2	R2(P)	<-	R3(P)+0	{}
+0001		LOADI2	R2(I)	<-	R2(PF)+9	{}
+0002		BRANCH		<-	R2(I)	{}
+		==> 22
+		==> 24
+L22: <= D-1: (1)  
+0000		LOADI2	R6(I)	<-	R3(P)+8	{}
+0001		BINOP1	R2(I)	<-	R6(IF), R2(IF)	{}
+0002		STOREI2		<-	R3(P)+8, R2(I)	{}
+0003		BINOP3	R6(I)[0..14]	<-	R1(I)[0..2], CI:7	{}
+0004		LEAA	R6(P)	<-	V-1+54274, R6(IF)[0..14]	{}
+0005		STOREI2		<-	R6(PF)+0, R2(IF)	{V}
+0006		JUMP		<-		{}
+		==> 24
+L24: <= D-1: (2)  
+0000		LOADI1	R4(C)	<-	R3(P)+2	{}
+0001		BRANCH		<-	R4(C)	{}
+		==> 25
+		==> 26
+L25: <= D-1: (2)  
+0000		BINOP1	R4(C)	<-	R4(CF), CI:-1	{}
+0001		STOREI1		<-	R3(PF)+2, R4(CF)	{}
+0002		JUMP		<-		{}
+		==> 62
+L26: <= D-1: (1)  
+0000		LOADI2	R2(P)	<-	R3(P)+0	{}
+0001		LOADI1	R4(C)	<-	R2(P)+12	{}
+0002		BRANCH		<-	R4(CF)	{}
+		==> 28
+		==> 29
+L28: <= D-1: (1)  
+0000		LOADI1	R4(C)	<-	R2(P)+4	{}
+0001		CONV31	R6(I)[0..255]	<-	R4(CF)	{}
+0002		BINOP9	R6(I)[0..255]	<-	R6(IF)[0..255], CI:-2	{}
+0003		BINOP3	R1(I)[0..14]	<-	R1(IF)[0..2], CI:7	{}
+0004		LEAA	R1(P)	<-	V-1+54276, R1(IF)[0..14]	{}
+0005		STOREI1		<-	R1(PF)+0, R6(CF)[0..255]	{V}
+0006		LOADI1	R4(C)	<-	R2(PF)+12	{}
+0007		STOREI1		<-	R3(P)+5, CC:5	{V}
+0008		STOREI1		<-	R3(PF)+2, R4(CF)	{}
+0009		JUMP		<-		{}
+		==> 62
+L29: <= D-1: (1)  
+0000		LOADI1	R4(C)	<-	R3(P)+3	{}
+0001		BRANCH		<-	R4(C)	{}
+		==> 31
+		==> 32
+L31: <= D-1: (1)  
+0000		STOREI1		<-	R3(P)+5, CC:3	{V}
+0001		BINOP1	R4(C)	<-	R4(CF), CI:-1	{}
+0002		STOREI1		<-	R3(P)+3, R4(CF)	{}
+0003		LEAI	R1(P)	<-	R2(PF)+0, CI:14	{}
+0004		STOREI2		<-	R3(PF)+0, R1(PF)	{}
+0005		JUMP		<-		{}
+		==> 62
+L32: <= D-1: (1)  
+0000		STOREI1		<-	R3(P)+5, CC:1	{V}
+0001		CONST	R1(P)	<-	CA0(-1:0)	{S}
+0002		STOREI2		<-	R3(PF)+0, R1(PF)	{}
+0003		JUMP		<-		{}
+		==> 62
+L55: <= D-1: (1)  
+0000		RELOP19	R4(B)	<-	R4(CF)[-2147483648..2147483647], CC:5	{}
+0001		BRANCH		<-	R4(BF)	{}
+		==> 35
+		==> 62
+L35: <= D-1: (1)  
+0000		LOADI2	R2(P)	<-	R3(P)+0	{}
+0001		LOADI2	R2(I)	<-	R2(PF)+7	{}
+0002		BRANCH		<-	R2(I)	{}
+		==> 36
+		==> 38
+L36: <= D-1: (1)  
+0000		LOADI2	R6(I)	<-	R3(P)+6	{}
+0001		BINOP1	R2(I)	<-	R6(IF), R2(IF)	{}
+0002		STOREI2		<-	R3(P)+6, R2(I)	{}
+0003		BINOP3	R6(I)[0..14]	<-	R1(I)[0..2], CI:7	{}
+0004		LEAA	R6(P)	<-	V-1+54272, R6(IF)[0..14]	{}
+0005		STOREI2		<-	R6(PF)+0, R2(IF)	{V}
+0006		JUMP		<-		{}
+		==> 38
+L38: <= D-1: (2)  
+0000		LOADI2	R2(P)	<-	R3(P)+0	{}
+0001		LOADI2	R2(I)	<-	R2(PF)+9	{}
+0002		BRANCH		<-	R2(I)	{}
+		==> 39
+		==> 41
+L39: <= D-1: (1)  
+0000		LOADI2	R6(I)	<-	R3(P)+8	{}
+0001		BINOP1	R2(I)	<-	R6(IF), R2(IF)	{}
+0002		STOREI2		<-	R3(P)+8, R2(I)	{}
+0003		BINOP3	R1(I)[0..14]	<-	R1(IF)[0..2], CI:7	{}
+0004		LEAA	R1(P)	<-	V-1+54274, R1(IF)[0..14]	{}
+0005		STOREI2		<-	R1(PF)+0, R2(IF)	{V}
+0006		JUMP		<-		{}
+		==> 41
+L41: <= D-1: (2)  
+0000		LOADI1	R4(C)	<-	R3(P)+2	{}
+0001		BRANCH		<-	R4(C)	{}
+		==> 25
+		==> 43
+L43: <= D-1: (1)  
+0000		STOREI1		<-	R3(P)+5, CC:1	{V}
+0001		LOADI1	R4(C)	<-	R3(P)+3	{}
+0002		BRANCH		<-	R4(C)	{}
+		==> 45
+		==> 46
+L45: <= D-1: (1)  
+0000		BINOP1	R4(C)	<-	R4(CF), CI:-1	{}
+0001		STOREI1		<-	R3(P)+3, R4(CF)	{}
+0002		LOADI2	R1(P)	<-	R3(P)+0	{}
+0003		LEAI	R1(P)	<-	R1(PF)+0, CI:14	{}
+0004		STOREI2		<-	R3(PF)+0, R1(PF)	{}
+0005		JUMP		<-		{}
+		==> 62
+L46: <= D-1: (1)  
+0000		CONST	R1(P)	<-	CA0(-1:0)	{S}
+0001		STOREI2		<-	R3(PF)+0, R1(PF)	{}
+0002		JUMP		<-		{}
+		==> 62
+--------------------------------------------------------------------
+change_main_scene_to: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/scene_utils.c:22
+$00 R0(C), $00 R1(I), $00 R2(P), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..5]	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..5]	<-	R0(C)[0..5]	{S}
+0002		BINOP16	R1(I)[0..20]	<-	R1(IF)[0..5], CI:2	{S}
+0003		LEAG	R2(P)	<-	V9+1, R1(I)[0..20]	{S}
+0004		LOADI2	R2(P)	<-	R2(PF)+0	{}
+0005		STOREG2		<-	V9+21, R2(PF)	{}
+0006		LEAG	R1(P)	<-	V9+3, R1(IF)[0..20]	{}
+0007		LOADI2	R1(P)	<-	R1(PF)+0	{}
+0008		STOREG1		<-	V9+0, R0(CF)[0..5]	{}
+0009		STOREG2		<-	V9+23, R1(PF)	{}
+000a		RET		<-		{}
+--------------------------------------------------------------------
+sound_effect_info_window_mainloop: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/scene.c:2
+$00 R0(C), $01 R1(I), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V66+0	{}
+0001		CALLN		<-	V67+0	{}
+0002		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2) Head 
+0000		CALLN	R0(C)	<-	V68+0	{}
+0001		BRANCH		<-	R0(CF)	{}
+		==> 4
+		==> 35
+L4: <= D-1: (1)  
+0000		CALLN		<-	V78+0	{}
+0001		RET		<-		{}
+L35: <= D-1: (1)  
+0000		CALLN		<-	V63+0	{}
+0001		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 29
+		==> 13
+L13: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 28
+		==> 13
+--------------------------------------------------------------------
+sound_effect_info_fill_buffer: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/view.c:3
+$00 R0(I), $00 R1(I), $00 R2(C), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V27+0	{}
+0001		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+0002		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0003		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0004		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0005		STOREG1		<-	V59+86, R2(CF)	{}
+0006		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+0007		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0008		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0009		LOADI1	R2(C)	<-	R1(PF)+0	{}
+000a		STOREG1		<-	V59+87, R2(CF)	{}
+000b		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+000c		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+000d		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+000e		LOADI1	R2(C)	<-	R1(PF)+0	{}
+000f		STOREG1		<-	V59+88, R2(CF)	{}
+0010		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0011		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0012		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0013		STOREG1		<-	V59+89, R2(CF)	{}
+0014		LOADG2	R0(I)	<-	V27+2	{}
+0015		BINOP17	R1(I)	<-	R0(I), CI:8	{}
+0016		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0017		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0018		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0019		STOREG1		<-	V59+95, R2(CF)	{}
+001a		BINOP17	R1(I)	<-	R0(I), CI:4	{}
+001b		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+001c		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+001d		LOADI1	R2(C)	<-	R1(PF)+0	{}
+001e		STOREG1		<-	V59+96, R2(CF)	{}
+001f		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0020		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0021		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0022		STOREG1		<-	V59+97, R2(CF)	{}
+0023		LOADG1	R2(C)	<-	V27+4	{}
+0024		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+0025		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+0026		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+0027		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0028		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0029		STOREG1		<-	V59+112, R2(CF)	{}
+002a		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+002b		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+002c		LOADI1	R2(C)	<-	R0(PF)+0	{}
+002d		STOREG1		<-	V59+113, R2(CF)	{}
+002e		LOADG1	R2(C)	<-	V27+5	{}
+002f		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+0030		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+0031		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+0032		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0033		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0034		STOREG1		<-	V59+138, R2(CF)	{}
+0035		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0036		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0037		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0038		STOREG1		<-	V59+139, R2(CF)	{}
+0039		LOADG1	R2(C)	<-	V27+6	{}
+003a		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+003b		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+003c		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+003d		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+003e		LOADI1	R2(C)	<-	R1(PF)+0	{}
+003f		STOREG1		<-	V59+164, R2(CF)	{}
+0040		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0041		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0042		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0043		STOREG1		<-	V59+165, R2(CF)	{}
+0044		LOADG2	R0(I)	<-	V27+7	{}
+0045		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+0046		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0047		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0048		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0049		STOREG1		<-	V59+190, R2(CF)	{}
+004a		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+004b		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+004c		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+004d		LOADI1	R2(C)	<-	R1(PF)+0	{}
+004e		STOREG1		<-	V59+191, R2(CF)	{}
+004f		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+0050		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0051		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0052		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0053		STOREG1		<-	V59+192, R2(CF)	{}
+0054		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0055		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0056		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0057		STOREG1		<-	V59+193, R2(CF)	{}
+0058		LOADG2	R0(I)	<-	V27+9	{}
+0059		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+005a		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+005b		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+005c		LOADI1	R2(C)	<-	R1(PF)+0	{}
+005d		STOREG1		<-	V59+198, R2(CF)	{}
+005e		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+005f		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0060		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0061		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0062		STOREG1		<-	V59+199, R2(CF)	{}
+0063		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+0064		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0065		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0066		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0067		STOREG1		<-	V59+200, R2(CF)	{}
+0068		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0069		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+006a		LOADI1	R2(C)	<-	R0(PF)+0	{}
+006b		STOREG1		<-	V59+201, R2(CF)	{}
+006c		LOADG1	R2(C)	<-	V27+11	{}
+006d		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+006e		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+006f		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+0070		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+0071		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0072		STOREG1		<-	V59+216, R2(CF)	{}
+0073		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0074		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0075		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0076		STOREG1		<-	V59+217, R2(CF)	{}
+0077		LOADG1	R2(C)	<-	V27+12	{}
+0078		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+0079		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+007a		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+007b		LEAG	R1(P)	<-	V12+0, R1(IF)[0..15]	{}
+007c		LOADI1	R2(C)	<-	R1(PF)+0	{}
+007d		STOREG1		<-	V59+224, R2(CF)	{}
+007e		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+007f		LEAG	R0(P)	<-	V12+0, R0(IF)[0..15]	{}
+0080		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0081		STOREG1		<-	V59+225, R2(CF)	{}
+0082		RET		<-		{}
+--------------------------------------------------------------------
+sound_effect_info_show: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/view.c:48
+$00 R0(I), $02 R1(I), $04 R2(C), $00 R3(C), $05 R4(P), $07 R5(P), $00 R6(C), $09 R7(P), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001		CONST	R1(I)[128..128]	<-	CI:128	{}
+0002		CONST	R2(C)[0..0]	<-	CI:0	{}
+0003		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CONST	R3(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head 
+0000		LEAG	R4(P)	<-	V69+0, R0(I)[0..389]	{}
+0001		LEAA	R5(P)	<-	V-1+1024, R1(I)[128..]	{}
+0002		LOADI1	R6(C)	<-	R5(P)+0	{}
+0003		STOREI1		<-	R4(PF)+0, R6(CF)	{}
+0004		LEAG	R4(P)	<-	V70+0, R0(I)[0..389]	{}
+0005		LEAA	R7(P)	<-	V-1+55296, R1(I)[128..]	{}
+0006		LOADI1	R6(C)	<-	R7(P)+0	{}
+0007		STOREI1		<-	R4(PF)+0, R6(CF)	{}
+0008		LEAG	R4(P)	<-	V59+0, R0(I)[0..389]	{}
+0009		LOADI1	R6(C)	<-	R4(PF)+0	{}
+000a		STOREI1		<-	R5(PF)+0, R6(CF)	{}
+000b		STOREI1		<-	R7(PF)+0, CC:15	{}
+000c		BINOP1	R0(I)[1..]	<-	R0(IF)[0..], CI:1	{}
+000d		BINOP1	R1(I)[129..]	<-	R1(IF)[128..], CI:1	{}
+000e		BINOP1	R3(C)[1..26]	<-	R3(CF)[0..25], CI:1	{}
+000f		RELOP28	R6(B)	<-	R3(C)[1..26], CC:26	{}
+0010		BRANCH		<-	R6(BF)	{}
+		==> 6
+		==> 8
+L8: <= D-1: (1)  
+0000		BINOP1	R1(I)[143..]	<-	R1(IF)[129..], CI:14	{}
+0001		BINOP1	R2(C)[1..15]	<-	R2(CF)[0..14], CI:1	{}
+0002		RELOP28	R3(B)	<-	R2(C)[1..15], CC:15	{}
+0003		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+sound_effect_info_process_keyboard_events: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/events.c:2
+$00 R0(C), $01 R1(I), $03 R2(B), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V60+0	{}
+0001		LOADG1	R0(C)[0..128]	<-	V53+0	{}
+0002		CONV31	R1(I)[0..128]	<-	R0(CF)[0..128]	{}
+0003		BINOP9	R1(I)[0..127]	<-	R1(IF)[0..128], CI:127	{}
+0004		LEAG	R1(P)	<-	V57+0, R1(IF)[0..127]	{}
+0005		LOADI1	R0(C)[-128..157]	<-	R1(PF)+0	{}
+0006		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:105	{}
+0007		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 7
+L1: <= D-1: (5)  
+0000		RETV		<-	CC:1	{}
+L7: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:113	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 6
+L6: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:32	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 5
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:27	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 4
+L4: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:95	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF)[-128..157], CC:100	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 9
+		==> 10
+L9: <= D-1: (1)  
+0000		CALLN		<-	V69+0	{}
+0001		RETV		<-	CC:1	{}
+L10: <= D-1: (1)  
+0000		RETV		<-	CC:0	{}
+--------------------------------------------------------------------
+exporter_save_file: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/exporter.c:49
+$00 R0(P), $02 R1(B), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V70+0	{}
+0001		CONST	R0(P)	<-	CG0(82:0)	{S}
+0002		STOREZ2		<-	V0+0, R0(PF)	{}
+0003		CALLN		<-	V71+0	{}
+0004		STOREZ1		<-	V0+0, CC:2	{}
+0005		STOREZ1		<-	V1+0, CC:8	{}
+0006		STOREZ1		<-	V2+0, CC:2	{}
+0007		CALLN	R1(B)	<-	V72+0	{}
+0008		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREZ1		<-	V1+0, CC:2	{}
+0001		STOREZ2		<-	V4+0, CI:114	{}
+0002		CONST	R0(P)	<-	CG115(72:0)	{S}
+0003		STOREZ2		<-	V2+0, R0(PF)	{}
+0004		CALLN		<-	V73+0	{}
+0005		STOREZ1		<-	V0+0, CC:2	{}
+0006		CALLN		<-	V77+0	{}
+0007		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+exporter_fill_txt_template: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/exporter.c:3
+$00 R0(I), $00 R1(I), $00 R2(C), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V27+0	{}
+0001		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+0002		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0003		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0004		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0005		STOREG1		<-	V72+30, R2(CF)	{}
+0006		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+0007		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0008		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0009		LOADI1	R2(C)	<-	R1(PF)+0	{}
+000a		STOREG1		<-	V72+31, R2(CF)	{}
+000b		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+000c		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+000d		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+000e		LOADI1	R2(C)	<-	R1(PF)+0	{}
+000f		STOREG1		<-	V72+32, R2(CF)	{}
+0010		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0011		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0012		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0013		STOREG1		<-	V72+33, R2(CF)	{}
+0014		LOADG2	R0(I)	<-	V27+2	{}
+0015		BINOP17	R1(I)	<-	R0(I), CI:8	{}
+0016		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0017		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0018		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0019		STOREG1		<-	V72+39, R2(CF)	{}
+001a		BINOP17	R1(I)	<-	R0(I), CI:4	{}
+001b		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+001c		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+001d		LOADI1	R2(C)	<-	R1(PF)+0	{}
+001e		STOREG1		<-	V72+40, R2(CF)	{}
+001f		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0020		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0021		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0022		STOREG1		<-	V72+41, R2(CF)	{}
+0023		LOADG1	R2(C)	<-	V27+4	{}
+0024		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+0025		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+0026		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+0027		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0028		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0029		STOREG1		<-	V72+50, R2(CF)	{}
+002a		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+002b		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+002c		LOADI1	R2(C)	<-	R0(PF)+0	{}
+002d		STOREG1		<-	V72+51, R2(CF)	{}
+002e		LOADG1	R2(C)	<-	V27+5	{}
+002f		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+0030		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+0031		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+0032		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0033		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0034		STOREG1		<-	V72+60, R2(CF)	{}
+0035		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0036		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0037		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0038		STOREG1		<-	V72+61, R2(CF)	{}
+0039		LOADG1	R2(C)	<-	V27+6	{}
+003a		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+003b		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+003c		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+003d		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+003e		LOADI1	R2(C)	<-	R1(PF)+0	{}
+003f		STOREG1		<-	V72+70, R2(CF)	{}
+0040		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0041		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0042		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0043		STOREG1		<-	V72+71, R2(CF)	{}
+0044		LOADG2	R0(I)	<-	V27+7	{}
+0045		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+0046		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0047		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0048		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0049		STOREG1		<-	V72+80, R2(CF)	{}
+004a		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+004b		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+004c		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+004d		LOADI1	R2(C)	<-	R1(PF)+0	{}
+004e		STOREG1		<-	V72+81, R2(CF)	{}
+004f		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+0050		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0051		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0052		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0053		STOREG1		<-	V72+82, R2(CF)	{}
+0054		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0055		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0056		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0057		STOREG1		<-	V72+83, R2(CF)	{}
+0058		LOADG2	R0(I)	<-	V27+9	{}
+0059		BINOP18	R1(I)	<-	R0(I), CI:12	{}
+005a		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+005b		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+005c		LOADI1	R2(C)	<-	R1(PF)+0	{}
+005d		STOREG1		<-	V72+88, R2(CF)	{}
+005e		BINOP18	R1(I)	<-	R0(I), CI:8	{}
+005f		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0060		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0061		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0062		STOREG1		<-	V72+89, R2(CF)	{}
+0063		BINOP18	R1(I)	<-	R0(I), CI:4	{}
+0064		BINOP9	R1(I)[0..15]	<-	R1(IF), CI:15	{}
+0065		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0066		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0067		STOREG1		<-	V72+90, R2(CF)	{}
+0068		BINOP9	R0(I)[0..15]	<-	R0(IF), CI:15	{}
+0069		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+006a		LOADI1	R2(C)	<-	R0(PF)+0	{}
+006b		STOREG1		<-	V72+91, R2(CF)	{}
+006c		LOADG1	R2(C)	<-	V27+11	{}
+006d		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+006e		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+006f		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+0070		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+0071		LOADI1	R2(C)	<-	R1(PF)+0	{}
+0072		STOREG1		<-	V72+100, R2(CF)	{}
+0073		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0074		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0075		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0076		STOREG1		<-	V72+101, R2(CF)	{}
+0077		LOADG1	R2(C)	<-	V27+12	{}
+0078		CONV31	R0(I)[0..255]	<-	R2(CF)	{}
+0079		BINOP17	R1(I)[0..15]	<-	R0(I)[0..255], CI:4	{}
+007a		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..15], CI:15	{}
+007b		LEAG	R1(P)	<-	V71+0, R1(IF)[0..15]	{}
+007c		LOADI1	R2(C)	<-	R1(PF)+0	{}
+007d		STOREG1		<-	V72+106, R2(CF)	{}
+007e		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+007f		LEAG	R0(P)	<-	V71+0, R0(IF)[0..15]	{}
+0080		LOADI1	R2(C)	<-	R0(PF)+0	{}
+0081		STOREG1		<-	V72+107, R2(CF)	{}
+0082		RET		<-		{}
+--------------------------------------------------------------------
+krnio_setnam: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:24
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V0+0, V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+krnio_open: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:28
+$00 R0(C), $00 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..15]	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..15]	<-	R0(CF)[0..15]	{S}
+0002		LEAG	R1(P)	<-	V83+0, R1(IF)[0..15]	{S}
+0003		STOREI1		<-	R1(PF)+0, CC:0	{}
+0004		JSR		<-	V2+0, V1+0, V0+0, V-1+0	{}
+0005		RET		<-		{}
+--------------------------------------------------------------------
+krnio_write: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:73
+$00 R0(C), $00 R1(I), $00 R2(I), $00 R3(P), $02 R4(P), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V1+0	{S}
+0001		STOREZ1		<-	V0+0, R0(CF)	{}
+0002		CALLN	R0(B)	<-	V74+0	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  
+0000		LOADZ2	R1(I)	<-	V4+0	{S}
+0001		RELOP24	R0(B)	<-	CI:0, R1(I)	{S}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 10
+		==> 7
+L10: <= D-1: (1)  
+0000		CONST	R2(I)[0..0]	<-	CI:0	{}
+0001		LOADZ2	R3(P)	<-	V2+0	{IS}
+0002		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2) Head 
+0000		LEAI	R4(P)	<-	R3(P)+0, R2(I)[0..]	{}
+0001		LOADI1	R0(C)	<-	R4(PF)+0	{}
+0002		STOREZ1		<-	V0+0, R0(CF)	{}
+0003		CALLN		<-	V75+0	{}
+0004		BINOP1	R2(I)[1..]	<-	R2(IF)[0..], CI:1	{}
+0005		RELOP24	R0(B)	<-	R2(I)[1..], R1(I)[1..?]	{}
+0006		BRANCH		<-	R0(BF)	{}
+		==> 5
+		==> 7
+L7: <= D-1: (2)  
+0000		CALLN		<-	V76+0	{}
+0001		LOADZ2	R1(I)	<-	V4+0	{S}
+0002		RETV		<-	R1(IF)	{}
+L2: <= D-1: (1)  
+0000		RETV		<-	CI:-1	{}
+--------------------------------------------------------------------
+krnio_chkout: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:42
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V0+0, V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+krnio_chrout: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:54
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V0+0, V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+krnio_clrchn: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:50
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+krnio_close: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:32
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V0+0, V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+sound_effect_info_hide: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/info_window/view.c:70
+$00 R0(I), $02 R1(I), $04 R2(C), $00 R3(C), $05 R4(P), $07 R5(C), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[128..128]	<-	CI:128	{}
+0001		CONST	R1(I)[0..0]	<-	CI:0	{}
+0002		CONST	R2(C)[0..0]	<-	CI:0	{}
+0003		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CONST	R3(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head 
+0000		LEAG	R4(P)	<-	V69+0, R1(I)[0..999]	{}
+0001		LOADI1	R5(C)	<-	R4(PF)+0	{}
+0002		LEAA	R4(P)	<-	V-1+1024, R0(I)[128..]	{}
+0003		STOREI1		<-	R4(PF)+0, R5(CF)	{}
+0004		LEAG	R4(P)	<-	V70+0, R1(I)[0..999]	{}
+0005		LOADI1	R5(C)	<-	R4(PF)+0	{}
+0006		LEAA	R4(P)	<-	V-1+55296, R0(I)[128..]	{}
+0007		STOREI1		<-	R4(PF)+0, R5(CF)	{}
+0008		BINOP1	R1(I)[1..]	<-	R1(IF)[0..], CI:1	{}
+0009		BINOP1	R0(I)[129..]	<-	R0(IF)[128..], CI:1	{}
+000a		BINOP1	R3(C)[1..26]	<-	R3(CF)[0..25], CI:1	{}
+000b		RELOP28	R5(B)	<-	R3(C)[1..26], CC:26	{}
+000c		BRANCH		<-	R5(BF)	{}
+		==> 6
+		==> 8
+L8: <= D-1: (1)  
+0000		BINOP1	R0(I)[143..]	<-	R0(IF)[129..], CI:14	{}
+0001		BINOP1	R2(C)[1..15]	<-	R2(CF)[0..14], CI:1	{}
+0002		RELOP28	R3(B)	<-	R2(C)[1..15], CC:15	{}
+0003		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_init: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/scene.c:2
+
+L0: <= D-1: (1)  
+0000		CALLN		<-	V80+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_init: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/audio.c:36
+$00 R0(I), $00 R1(P), $00 R2(B), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001		CONST	R1(P)	<-	CG576(86:0)	{}
+0002		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		STOREI1		<-	R1(P)+0, CC:29	{}
+0001		STOREI2		<-	R1(P)+1, CI:128	{}
+0002		STOREI1		<-	R1(P)+3, CC:33	{}
+0003		STOREI1		<-	R1(P)+4, CC:0	{}
+0004		STOREI1		<-	R1(P)+5, CC:240	{}
+0005		STOREI2		<-	R1(P)+6, CI:0	{}
+0006		STOREI2		<-	R1(P)+8, CI:0	{}
+0007		STOREI1		<-	R1(P)+10, CC:8	{}
+0008		STOREI1		<-	R1(P)+11, CC:8	{}
+0009		LEAI	R1(P)	<-	R1(PF)+0, CI:12	{}
+000a		BINOP1	R0(I)[1..48]	<-	R0(IF)[0..47], CI:1	{}
+000b		RELOP28	R2(B)	<-	R0(I)[1..48], CI:48	{}
+000c		BRANCH		<-	R2(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_mainloop: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/scene.c:23
+$00 R0(C), $01 R1(I), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V82+0	{}
+0001		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2) Head 
+0000		CALLN	R0(C)	<-	V87+0	{}
+0001		BRANCH		<-	R0(CF)	{}
+		==> 4
+		==> 35
+L4: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:0	{}
+0001		CALLN		<-	V64+0	{}
+0002		RET		<-		{}
+L35: <= D-1: (1)  
+0000		CALLN		<-	V63+0	{}
+0001		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 29
+		==> 13
+L13: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 28
+		==> 13
+--------------------------------------------------------------------
+sound_bank_window_show: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/scene.c:6
+$00 R0(P), $02 R1(C), $00 R2(I), 
+L0: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:11	{}
+0001		CALLN		<-	V45+0	{}
+0002		CONST	R0(P)	<-	CG1000(87:0)	{S}
+0003		STOREZ2		<-	V0+0, R0(PF)	{}
+0004		CALLN		<-	V83+0	{}
+0005		LOADG1	R1(C)	<-	V88+0	{}
+0006		CONV31	R0(I)[0..255]	<-	R1(CF)	{}
+0007		BINOP3	R0(I)[0..4080]	<-	R0(IF)[0..255], CI:16	{}
+0008		LOADG1	R1(C)	<-	V89+0	{}
+0009		CONV31	R2(I)[0..255]	<-	R1(CF)	{}
+000a		BINOP1	R0(I)[0..4335]	<-	R2(IF)[0..255], R0(IF)[0..4080]	{}
+000b		STOREZ1		<-	V2+0, R0(CF)[0..4335]	{}
+000c		CALLN		<-	V84+0	{}
+000d		CALLN		<-	V85+0	{}
+000e		RET		<-		{}
+--------------------------------------------------------------------
+copy_to_screen: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/view_utils.c:3
+$00 R0(I), $00 R1(P), $00 R2(P), $01 R3(P), $00 R4(C), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001		LOADZ2	R1(P)	<-	V0+0	{IS}
+0002		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAA	R2(P)	<-	V-1+1024, R0(I)[0..249]	{}
+0001		LEAI	R3(P)	<-	R1(P)+0, R0(I)[0..249]	{}
+0002		LOADI1	R4(C)	<-	R3(P)+0	{}
+0003		STOREI1		<-	R2(PF)+0, R4(CF)	{}
+0004		LEAA	R2(P)	<-	V-1+55296, R0(I)[0..249]	{}
+0005		STOREI1		<-	R2(PF)+0, CC:11	{}
+0006		LEAA	R2(P)	<-	V-1+1274, R0(I)[0..249]	{}
+0007		LOADI1	R4(C)	<-	R3(P)+250	{}
+0008		STOREI1		<-	R2(PF)+0, R4(CF)	{}
+0009		LEAA	R2(P)	<-	V-1+55546, R0(I)[0..249]	{}
+000a		STOREI1		<-	R2(PF)+0, CC:11	{}
+000b		LEAA	R2(P)	<-	V-1+1524, R0(I)[0..249]	{}
+000c		LOADI1	R4(C)	<-	R3(P)+500	{}
+000d		STOREI1		<-	R2(PF)+0, R4(CF)	{}
+000e		LEAA	R2(P)	<-	V-1+55796, R0(I)[0..249]	{}
+000f		STOREI1		<-	R2(PF)+0, CC:11	{}
+0010		LOADI1	R4(C)	<-	R3(PF)+750	{}
+0011		LEAA	R2(P)	<-	V-1+1774, R0(I)[0..249]	{}
+0012		STOREI1		<-	R2(PF)+0, R4(CF)	{}
+0013		LEAA	R2(P)	<-	V-1+56046, R0(I)[0..249]	{}
+0014		STOREI1		<-	R2(PF)+0, CC:11	{}
+0015		BINOP1	R0(I)[1..250]	<-	R0(IF)[0..249], CI:1	{}
+0016		RELOP28	R4(B)	<-	R0(I)[1..250], CI:250	{}
+0017		BRANCH		<-	R4(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_store_sfx: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/audio.c:20
+$00 R0(I), $00 R1(C), $00 R2(C), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADG2	R0(I)	<-	V27+0	{}
+0001		STOREZ2		<-	V0+0, R0(IF)	{}
+0002		CALLN	R1(C)	<-	V51+0	{}
+0003		LOADZ1	R2(C)[0..47]	<-	V2+0	{S}
+0004		CONV31	R0(I)[0..47]	<-	R2(CF)[0..47]	{S}
+0005		BINOP3	R0(I)[0..564]	<-	R0(IF)[0..47], CI:12	{S}
+0006		LEAG	R0(P)	<-	V86+0, R0(IF)[0..564]	{S}
+0007		STOREI1		<-	R0(P)+0, R1(CF)	{}
+0008		LOADG2	R3(I)	<-	V27+2	{}
+0009		STOREI2		<-	R0(P)+1, R3(IF)	{}
+000a		LOADG1	R1(C)	<-	V27+4	{}
+000b		STOREI1		<-	R0(P)+3, R1(CF)	{}
+000c		LOADG1	R1(C)	<-	V27+5	{}
+000d		STOREI1		<-	R0(P)+4, R1(CF)	{}
+000e		LOADG1	R1(C)	<-	V27+6	{}
+000f		STOREI1		<-	R0(P)+5, R1(CF)	{}
+0010		LOADG2	R3(I)	<-	V27+7	{}
+0011		STOREI2		<-	R0(P)+6, R3(IF)	{}
+0012		LOADG2	R3(I)	<-	V27+9	{}
+0013		STOREI2		<-	R0(P)+8, R3(IF)	{}
+0014		LOADG1	R1(C)	<-	V27+11	{}
+0015		STOREI1		<-	R0(P)+10, R1(CF)	{}
+0016		LOADG1	R1(C)	<-	V27+12	{}
+0017		STOREI1		<-	R0(PF)+11, R1(CF)	{}
+0018		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_select_option: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/menu_handling.c:10
+$00 R0(C), $02 R1(I), $01 R2(C), $00 R3(I), $00 R4(P), $00 R5(B), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V89+0	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0002		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{}
+0003		LOADG1	R2(C)	<-	V88+0	{}
+0004		CONV31	R3(I)[0..255]	<-	R2(C)	{}
+0005		BINOP3	R3(I)[0..3315]	<-	R3(IF)[0..255], CI:13	{}
+0006		BINOP1	R1(I)[0..13515]	<-	R3(IF)[0..3315], R1(IF)[0..10200]	{}
+0007		LEAA	R1(P)	<-	V-1+55297, R1(IF)[0..13515]	{I}
+0008		CONST	R3(I)[0..0]	<-	CI:0	{}
+0009		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAI	R4(P)	<-	R1(P)+0, R3(I)[0..11]	{}
+0001		STOREI1		<-	R4(PF)+0, CC:15	{}
+0002		BINOP1	R3(I)[1..12]	<-	R3(IF)[0..11], CI:1	{}
+0003		RELOP28	R5(B)	<-	R3(I)[1..12], CI:12	{}
+0004		BRANCH		<-	R5(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		CONV31	R1(I)[0..255]	<-	R2(CF)	{}
+0001		BINOP3	R1(I)[0..4080]	<-	R1(IF)[0..255], CI:16	{}
+0002		CONV31	R3(I)[0..255]	<-	R0(CF)	{}
+0003		BINOP1	R1(I)[0..4335]	<-	R3(IF)[0..255], R1(IF)[0..4080]	{}
+0004		STOREZ1		<-	V0+0, R1(CF)[0..4335]	{}
+0005		CALLN		<-	V86+0	{}
+0006		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_restore_sfx: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/audio.c:3
+$00 R0(C), $00 R1(I), $00 R2(I), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..47]	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..47]	<-	R0(CF)[0..47]	{S}
+0002		BINOP3	R1(I)[0..564]	<-	R1(IF)[0..47], CI:12	{S}
+0003		LEAG	R1(P)	<-	V86+0, R1(IF)[0..564]	{S}
+0004		LOADI1	R0(C)[0..95]	<-	R1(P)+0	{}
+0005		CONV31	R2(I)[0..95]	<-	R0(CF)[0..95]	{}
+0006		BINOP16	R2(I)[0..190]	<-	R2(IF)[0..95], CI:1	{}
+0007		LEAG	R2(P)	<-	V35+0, R2(IF)[0..190]	{}
+0008		LOADI2	R2(I)	<-	R2(PF)+0	{}
+0009		STOREG2		<-	V27+0, R2(IF)	{}
+000a		LOADI2	R2(I)	<-	R1(P)+1	{}
+000b		STOREG2		<-	V27+2, R2(IF)	{}
+000c		LOADI1	R0(C)	<-	R1(P)+3	{}
+000d		STOREG1		<-	V27+4, R0(CF)	{}
+000e		LOADI1	R0(C)	<-	R1(P)+4	{}
+000f		STOREG1		<-	V27+5, R0(CF)	{}
+0010		LOADI1	R0(C)	<-	R1(P)+5	{}
+0011		STOREG1		<-	V27+6, R0(CF)	{}
+0012		LOADI2	R2(I)	<-	R1(P)+6	{}
+0013		STOREG2		<-	V27+7, R2(IF)	{}
+0014		LOADI2	R2(I)	<-	R1(P)+8	{}
+0015		STOREG2		<-	V27+9, R2(IF)	{}
+0016		LOADI1	R0(C)	<-	R1(P)+10	{}
+0017		STOREG1		<-	V27+11, R0(CF)	{}
+0018		LOADI1	R0(C)	<-	R1(PF)+11	{}
+0019		STOREG1		<-	V27+12, R0(CF)	{}
+001a		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_process_keyboard_events: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/events.c:2
+$00 R0(C), $01 R1(I), $03 R2(B), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V60+0	{}
+0001		LOADG1	R0(C)[0..128]	<-	V53+0	{}
+0002		CONV31	R1(I)[0..128]	<-	R0(CF)[0..128]	{}
+0003		BINOP9	R1(I)[0..127]	<-	R1(IF)[0..128], CI:127	{}
+0004		LEAG	R1(P)	<-	V57+0, R1(IF)[0..127]	{}
+0005		LOADI1	R0(C)[-128..157]	<-	R1(PF)+0	{}
+0006		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:101	{}
+0007		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 5
+L1: <= D-1: (3)  
+0000		RETV		<-	CC:1	{}
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:27	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 4
+L4: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:95	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:145	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  
+0000		CALLN		<-	V88+0	{}
+0001		JUMP		<-	CC:0	{}
+		==> 32
+L32: <= D-1: (6)  
+0000		CONST	R1(P)	<-	CG14(27:0)	{S}
+0001		LOADG1	R0(C)[-2147483648..2147483647]	<-	V7+25	{V}
+0002		RELOP19	R0(B)	<-	R0(CF)[-2147483648..2147483647], CC:0	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 36
+		==> 37
+L36: <= D-1: (1)  
+0000		CONST	R0(C)[3..3]	<-	CI:3	{}
+0001		JUMP		<-		{}
+		==> 38
+L38: <= D-1: (2)  
+0000		STOREG1		<-	V7+25, CC:0	{V}
+0001		STOREG2		<-	V7+20, R1(PF)	{}
+0002		STOREG1		<-	V7+23, CC:0	{}
+0003		LOADG1	R2(C)	<-	V27+13	{}
+0004		STOREG1		<-	V7+24, R2(CF)	{}
+0005		STOREG1		<-	V7+25, R0(CF)[1..3]	{V}
+0006		RETV		<-	CC:0	{}
+L37: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V27+13	{}
+0001		LOADG1	R2(C)	<-	V7+24	{}
+0002		RELOP26	R0(B)	<-	R2(CF), R0(CF)	{}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 39
+		==> 34
+L39: <= D-1: (1)  
+0000		CONST	R0(C)[1..1]	<-	CI:1	{}
+0001		JUMP		<-		{}
+		==> 38
+L34: <= D-1: (5)  
+0000		RETV		<-	CC:0	{}
+L8: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:17	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 10
+		==> 11
+L10: <= D-1: (1)  
+0000		CALLN		<-	V90+0	{}
+0001		JUMP		<-	CC:0	{}
+		==> 32
+L11: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:157	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 13
+		==> 14
+L13: <= D-1: (1)  
+0000		CALLN		<-	V91+0	{}
+0001		JUMP		<-	CC:0	{}
+		==> 32
+L14: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:29	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 16
+		==> 17
+L16: <= D-1: (1)  
+0000		CALLN		<-	V92+0	{}
+0001		JUMP		<-	CC:0	{}
+		==> 32
+L17: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:13	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 32
+		==> 22
+L22: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:32	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 32
+		==> 20
+L20: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:105	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 23
+		==> 24
+L23: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:1	{}
+0001		CALLN		<-	V93+0	{}
+0002		JUMP		<-	CC:0	{}
+		==> 34
+L24: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:98	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:3	{}
+0001		CALLN		<-	V93+0	{}
+0002		CONST	R1(P)	<-	CG1000(87:0)	{S}
+0003		STOREZ2		<-	V0+0, R1(PF)	{}
+0004		CALLN		<-	V83+0	{}
+0005		CALLN		<-	V85+0	{}
+0006		JUMP		<-	CC:0	{}
+		==> 34
+L27: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF)[-128..157], CC:114	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 29
+		==> 34
+L29: <= D-1: (1)  
+0000		STOREF1		<-	V0+0, CC:4	{}
+0001		LOADG1	R0(C)	<-	V88+0	{}
+0002		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0003		BINOP3	R1(I)[0..3315]	<-	R1(IF)[0..255], CI:13	{}
+0004		BINOP1	R1(I)[1..3316]	<-	R1(IF)[0..3315], CI:1	{}
+0005		STOREG1		<-	V94+0, R1(CF)[1..3316]	{}
+0006		LOADG1	R0(C)	<-	V89+0	{}
+0007		STOREG1		<-	V94+1, R0(CF)	{}
+0008		STOREG1		<-	V94+2, CC:12	{}
+0009		CALLN		<-	V93+0	{}
+000a		CALLN		<-	V94+0	{}
+000b		JUMP		<-	CC:0	{}
+		==> 34
+--------------------------------------------------------------------
+sound_bank_window_go_up: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/menu_handling.c:45
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V89+0	{}
+0001		LOADG1	R0(C)	<-	V89+0	{}
+0002		BINOP2	R0(C)	<-	R0(CF), CC:1	{}
+0003		STOREG1		<-	V89+0, R0(C)	{}
+0004		RELOP27	R0(B)	<-	R0(CF), CC:16	{}
+0005		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREG1		<-	V89+0, CC:15	{}
+0001		CALLN		<-	V85+0	{}
+0002		RET		<-		{}
+L3: <= D-1: (1)  
+0000		CALLN		<-	V85+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_deselect_option: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/menu_handling.c:2
+$00 R0(C), $00 R1(I), $00 R2(I), $00 R3(P), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V89+0	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{}
+0003		LOADG1	R0(C)	<-	V88+0	{}
+0004		CONV31	R2(I)[0..255]	<-	R0(CF)	{}
+0005		BINOP3	R2(I)[0..3315]	<-	R2(IF)[0..255], CI:13	{}
+0006		BINOP1	R1(I)[0..13515]	<-	R2(IF)[0..3315], R1(IF)[0..10200]	{}
+0007		LEAA	R1(P)	<-	V-1+55297, R1(IF)[0..13515]	{I}
+0008		CONST	R2(I)[0..0]	<-	CI:0	{}
+0009		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAI	R3(P)	<-	R1(P)+0, R2(I)[0..11]	{}
+0001		STOREI1		<-	R3(PF)+0, CC:11	{}
+0002		BINOP1	R2(I)[1..12]	<-	R2(IF)[0..11], CI:1	{}
+0003		RELOP28	R0(B)	<-	R2(I)[1..12], CI:12	{}
+0004		BRANCH		<-	R0(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_go_down: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/menu_handling.c:57
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V89+0	{}
+0001		LOADG1	R0(C)	<-	V89+0	{}
+0002		BINOP1	R0(C)	<-	R0(CF), CC:1	{}
+0003		STOREG1		<-	V89+0, R0(C)	{}
+0004		RELOP19	R0(B)	<-	R0(CF), CC:16	{}
+0005		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREG1		<-	V89+0, CC:0	{}
+0001		CALLN		<-	V85+0	{}
+0002		RET		<-		{}
+L3: <= D-1: (1)  
+0000		CALLN		<-	V85+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_go_left: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/menu_handling.c:21
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V89+0	{}
+0001		LOADG1	R0(C)	<-	V88+0	{}
+0002		BINOP2	R0(C)	<-	R0(CF), CC:1	{}
+0003		STOREG1		<-	V88+0, R0(C)	{}
+0004		RELOP27	R0(B)	<-	R0(CF), CC:3	{}
+0005		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREG1		<-	V88+0, CC:2	{}
+0001		CALLN		<-	V85+0	{}
+0002		RET		<-		{}
+L3: <= D-1: (1)  
+0000		CALLN		<-	V85+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+sound_bank_window_go_right: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/menu_handling.c:33
+$00 R0(C), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V89+0	{}
+0001		LOADG1	R0(C)	<-	V88+0	{}
+0002		BINOP1	R0(C)	<-	R0(CF), CC:1	{}
+0003		STOREG1		<-	V88+0, R0(C)	{}
+0004		RELOP19	R0(B)	<-	R0(CF), CC:3	{}
+0005		BRANCH		<-	R0(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		STOREG1		<-	V88+0, CC:0	{}
+0001		CALLN		<-	V85+0	{}
+0002		RET		<-		{}
+L3: <= D-1: (1)  
+0000		CALLN		<-	V85+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+run_as_child: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/common/scene_utils.c:32
+$00 R0(C), $01 R1(I), 
+L0: <= D-1: (1)  
+0000		LOADP1	R0(C)[0..5]	<-	V0+0	{S}
+0001		CONV31	R1(I)[0..5]	<-	R0(CF)[0..5]	{S}
+0002		BINOP16	R1(I)[0..20]	<-	R1(IF)[0..5], CI:2	{S}
+0003		LEAG	R1(P)	<-	V9+3, R1(IF)[0..20]	{}
+0004		LOADI2	R1(P)	<-	R1(PF)+0	{}
+0005		CALL		<-	R1(PF)	{}
+0006		RET		<-		{}
+--------------------------------------------------------------------
+copy_screen_name_to_view_buffor: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/view.c:5
+$00 R0(C), $00 R1(I), $02 R2(I), $03 R3(I), $05 R4(P), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V89+0	{}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{}
+0003		LOADG1	R0(C)	<-	V88+0	{}
+0004		CONV31	R2(I)[0..255]	<-	R0(CF)	{}
+0005		BINOP3	R2(I)[0..3315]	<-	R2(IF)[0..255], CI:13	{}
+0006		BINOP1	R2(I)[1..3316]	<-	R2(IF)[0..3315], CI:1	{}
+0007		CONV31	R2(I)[0..255]	<-	R2(CF)[1..3316]	{}
+0008		BINOP1	R1(I)[0..10455]	<-	R2(IF)[0..255], R1(IF)[0..10200]	{}
+0009		CONST	R2(I)[0..0]	<-	CI:0	{}
+000a		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		BINOP1	R3(I)[0..999]	<-	R1(I)[0..999], R2(I)[0..11]	{}
+0001		LEAA	R4(P)	<-	V-1+1024, R3(I)[0..999]	{}
+0002		LOADI1	R0(C)	<-	R4(PF)+0	{}
+0003		LEAG	R3(P)	<-	V87+0, R3(IF)[0..999]	{}
+0004		STOREI1		<-	R3(PF)+0, R0(CF)	{}
+0005		BINOP1	R2(I)[1..12]	<-	R2(IF)[0..11], CI:1	{}
+0006		RELOP28	R0(B)	<-	R2(I)[1..12], CI:12	{}
+0007		BRANCH		<-	R0(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+loader_window_mainloop: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_loader_window/scene.c:2
+$00 R0(C), $01 R1(I), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V96+0	{}
+0001		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2) Head 
+0000		CALLN	R0(C)	<-	V97+0	{}
+0001		BRANCH		<-	R0(CF)	{}
+		==> 4
+		==> 35
+L4: <= D-1: (1)  
+0000		CALLN		<-	V106+0	{}
+0001		RET		<-		{}
+L35: <= D-1: (1)  
+0000		CALLN		<-	V63+0	{}
+0001		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 29
+		==> 13
+L13: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 28
+		==> 13
+--------------------------------------------------------------------
+loader_show_view: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_loader_window/view.c:2
+$00 R0(C), $01 R1(I), $03 R2(C), $00 R3(C), $00 R4(I), $00 R5(P), $04 R6(P), $00 R7(C), $06 R8(P), 
+L0: <= D-1: (1)  
+0000		CONST	R0(C)[0..0]	<-	CI:0	{}
+0001		CONST	R1(I)[210..210]	<-	CI:210	{}
+0002		CONST	R2(C)[0..0]	<-	CI:0	{}
+0003		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CONST	R3(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head 
+0000		CONV31	R4(I)[0..189]	<-	R0(C)[0..189]	{}
+0001		LEAG	R5(P)	<-	V69+0, R4(I)[0..189]	{}
+0002		LEAA	R6(P)	<-	V-1+1024, R1(I)[210..]	{}
+0003		LOADI1	R7(C)	<-	R6(P)+0	{}
+0004		STOREI1		<-	R5(PF)+0, R7(CF)	{}
+0005		LEAG	R5(P)	<-	V70+0, R4(I)[0..189]	{}
+0006		LEAA	R8(P)	<-	V-1+55296, R1(I)[210..]	{}
+0007		LOADI1	R7(C)	<-	R8(P)+0	{}
+0008		STOREI1		<-	R5(PF)+0, R7(CF)	{}
+0009		LEAG	R4(P)	<-	V97+0, R4(IF)[0..189]	{}
+000a		LOADI1	R7(C)	<-	R4(PF)+0	{}
+000b		STOREI1		<-	R6(PF)+0, R7(CF)	{}
+000c		STOREI1		<-	R8(PF)+0, CC:15	{}
+000d		BINOP1	R0(C)[1..]	<-	R0(CF)[0..], CI:1	{}
+000e		BINOP1	R1(I)[211..]	<-	R1(IF)[210..], CI:1	{}
+000f		BINOP1	R3(C)[1..19]	<-	R3(CF)[0..18], CI:1	{}
+0010		RELOP28	R7(B)	<-	R3(C)[1..19], CC:19	{}
+0011		BRANCH		<-	R7(BF)	{}
+		==> 6
+		==> 8
+L8: <= D-1: (1)  
+0000		BINOP1	R1(I)[232..]	<-	R1(IF)[211..], CI:21	{}
+0001		BINOP1	R2(C)[1..10]	<-	R2(CF)[0..9], CI:1	{}
+0002		RELOP28	R3(B)	<-	R2(C)[1..10], CC:10	{}
+0003		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+loader_process_keyboard_events: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_loader_window/events.c:2
+$00 R0(C), $01 R1(I), $03 R2(B), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V60+0	{}
+0001		LOADG1	R0(C)[0..128]	<-	V53+0	{}
+0002		CONV31	R1(I)[0..128]	<-	R0(CF)[0..128]	{}
+0003		BINOP9	R1(I)[0..127]	<-	R1(IF)[0..128], CI:127	{}
+0004		LEAG	R1(P)	<-	V57+0, R1(IF)[0..127]	{}
+0005		LOADI1	R0(C)[-128..157]	<-	R1(PF)+0	{}
+0006		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:98	{}
+0007		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 7
+L1: <= D-1: (5)  
+0000		RETV		<-	CC:1	{}
+L7: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:113	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 6
+L6: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:32	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 5
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:27	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 4
+L4: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:95	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:115	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 9
+		==> 10
+L9: <= D-1: (1)  
+0000		CALLN		<-	V98+0	{}
+0001		RETV		<-	CC:1	{}
+L10: <= D-1: (1)  
+0000		RELOP19	R0(B)	<-	R0(CF)[-128..157], CC:108	{}
+0001		BRANCH		<-	R0(BF)	{}
+		==> 13
+		==> 14
+L13: <= D-1: (1)  
+0000		CALLN		<-	V100+0	{}
+0001		RETV		<-	CC:1	{}
+L14: <= D-1: (1)  
+0000		RETV		<-	CC:0	{}
+--------------------------------------------------------------------
+loader_save_file: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_loader_window/loader.c:2
+$04 R0(P), $06 R1(B), $00 R2(P), $00 R3(C), $01 R4(I), $00 R5(I), 
+L0: <= D-1: (1)  
+0000		CONST	R0(P)	<-	CG0(98:0)	{S}
+0001		STOREZ2		<-	V0+0, R0(PF)	{}
+0002		CALLN		<-	V71+0	{}
+0003		STOREZ1		<-	V0+0, CC:2	{}
+0004		STOREZ1		<-	V1+0, CC:8	{}
+0005		STOREZ1		<-	V2+0, CC:2	{}
+0006		CALLN	R1(B)	<-	V72+0	{}
+0007		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		CONST	R1(C)[0..0]	<-	CI:0	{}
+0001		CONST	R0(P)	<-	CG576(86:0)	{}
+0002		CONST	R2(P)	<-	CG24(101:0)	{IS}
+0003		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2) Head 
+0000		STOREZ2		<-	V0+0, R2(P)	{}
+0001		STOREZ1		<-	V2+0, R1(C)[0..47]	{}
+0002		CALLN		<-	V99+0	{}
+0003		STOREZ1		<-	V1+0, CC:2	{}
+0004		STOREZ2		<-	V2+0, R2(P)	{}
+0005		STOREZ2		<-	V4+0, CI:24	{}
+0006		LOADI1	R3(C)	<-	R0(P)+0	{}
+0007		STOREG1		<-	V101+12, R3(CF)	{}
+0008		LOADI2	R4(I)	<-	R0(P)+1	{}
+0009		BINOP17	R5(I)	<-	R4(I), CI:8	{}
+000a		BINOP9	R5(I)[0..255]	<-	R5(IF), CI:255	{}
+000b		STOREG1		<-	V101+13, R5(CF)[0..255]	{}
+000c		BINOP9	R4(I)[0..255]	<-	R4(IF), CI:255	{}
+000d		STOREG1		<-	V101+14, R4(CF)[0..255]	{}
+000e		LOADI1	R3(C)	<-	R0(P)+3	{}
+000f		STOREG1		<-	V101+15, R3(CF)	{}
+0010		LOADI1	R3(C)	<-	R0(P)+4	{}
+0011		STOREG1		<-	V101+16, R3(CF)	{}
+0012		LOADI1	R3(C)	<-	R0(P)+5	{}
+0013		STOREG1		<-	V101+17, R3(CF)	{}
+0014		LOADI2	R4(I)	<-	R0(P)+6	{}
+0015		BINOP18	R5(I)	<-	R4(I), CI:8	{}
+0016		BINOP9	R5(I)[0..255]	<-	R5(IF), CI:255	{}
+0017		STOREG1		<-	V101+18, R5(CF)[0..255]	{}
+0018		BINOP9	R4(I)[0..255]	<-	R4(IF), CI:255	{}
+0019		STOREG1		<-	V101+19, R4(CF)[0..255]	{}
+001a		LOADI2	R4(I)	<-	R0(P)+8	{}
+001b		BINOP18	R5(I)	<-	R4(I), CI:8	{}
+001c		BINOP9	R5(I)[0..255]	<-	R5(IF), CI:255	{}
+001d		STOREG1		<-	V101+20, R5(CF)[0..255]	{}
+001e		BINOP9	R4(I)[0..255]	<-	R4(IF), CI:255	{}
+001f		STOREG1		<-	V101+21, R4(CF)[0..255]	{}
+0020		LOADI1	R3(C)	<-	R0(P)+10	{}
+0021		STOREG1		<-	V101+22, R3(CF)	{}
+0022		LOADI1	R3(C)	<-	R0(P)+11	{}
+0023		STOREG1		<-	V101+23, R3(CF)	{}
+0024		CALLN		<-	V73+0	{}
+0025		LEAI	R0(P)	<-	R0(PF)+0, CI:12	{}
+0026		BINOP1	R1(C)[1..48]	<-	R1(CF)[0..47], CI:1	{}
+0027		RELOP28	R3(B)	<-	R1(C)[1..48], CC:48	{}
+0028		BRANCH		<-	R3(BF)	{}
+		==> 5
+		==> 7
+L7: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:2	{}
+0001		CALLN		<-	V77+0	{}
+0002		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+view_buffor_get_sound_name: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/view.c:29
+$00 R0(C), $00 R1(I), $02 R2(I), $00 R3(I), $00 R4(P), $00 R5(C), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V2+0	{S}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{S}
+0002		BINOP17	R2(I)[0..15]	<-	R1(I)[0..255], CI:4	{S}
+0003		BINOP3	R2(I)[0..195]	<-	R2(IF)[0..15], CI:13	{S}
+0004		BINOP1	R2(I)[1..196]	<-	R2(IF)[0..195], CI:1	{S}
+0005		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..255], CI:15	{S}
+0006		BINOP3	R1(I)[0..600]	<-	R1(IF)[0..15], CI:40	{S}
+0007		LEAG	R1(P)	<-	V87+0, R1(IF)[0..600]	{S}
+0008		LEAI	R1(P)	<-	R1(PF)+0, R2(IF)[1..196]	{I}
+0009		CONST	R0(C)[0..0]	<-	CI:0	{}
+000a		LOADZ2	R2(P)	<-	V0+0	{IS}
+000b		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CONV31	R3(I)[0..11]	<-	R0(C)[0..11]	{}
+0001		LEAI	R4(P)	<-	R2(P)+0, R3(I)[0..11]	{}
+0002		LEAI	R3(P)	<-	R1(P)+0, R3(IF)[0..11]	{}
+0003		LOADI1	R5(C)	<-	R3(PF)+0	{}
+0004		STOREI1		<-	R4(PF)+0, R5(CF)	{}
+0005		BINOP1	R0(C)[1..12]	<-	R0(CF)[0..11], CI:1	{}
+0006		RELOP28	R5(B)	<-	R0(C)[1..12], CC:12	{}
+0007		BRANCH		<-	R5(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+loader_load_file: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_loader_window/loader.c:33
+$06 R0(P), $08 R1(B), $00 R2(P), $00 R3(C), $01 R4(I), $03 R5(I), 
+L0: <= D-1: (1)  
+0000		CONST	R0(P)	<-	CG0(102:0)	{S}
+0001		STOREZ2		<-	V0+0, R0(PF)	{}
+0002		CALLN		<-	V71+0	{}
+0003		STOREZ1		<-	V0+0, CC:2	{}
+0004		STOREZ1		<-	V1+0, CC:8	{}
+0005		STOREZ1		<-	V2+0, CC:2	{}
+0006		CALLN	R1(B)	<-	V72+0	{}
+0007		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		CONST	R1(C)[0..0]	<-	CI:0	{}
+0001		CONST	R0(P)	<-	CG576(86:0)	{}
+0002		CONST	R2(P)	<-	CG24(101:0)	{IS}
+0003		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2) Head 
+0000		STOREZ1		<-	V1+0, CC:2	{}
+0001		STOREZ2		<-	V2+0, R2(P)	{}
+0002		STOREZ2		<-	V4+0, CI:24	{}
+0003		CALLN		<-	V101+0	{}
+0004		STOREZ2		<-	V0+0, R2(P)	{}
+0005		STOREZ1		<-	V2+0, R1(C)[0..47]	{}
+0006		CALLN		<-	V105+0	{}
+0007		LOADG1	R3(C)	<-	V101+12	{}
+0008		STOREI1		<-	R0(P)+0, R3(CF)	{}
+0009		LOADG1	R3(C)	<-	V101+13	{}
+000a		CONV31	R4(I)[0..255]	<-	R3(CF)	{}
+000b		BINOP16	R4(I)[0..65280]	<-	R4(IF)[0..255], CI:8	{}
+000c		LOADG1	R3(C)	<-	V101+14	{}
+000d		CONV31	R5(I)[0..255]	<-	R3(CF)	{}
+000e		BINOP1	R4(I)[0..65535]	<-	R5(IF)[0..255], R4(IF)[0..65280]	{}
+000f		STOREI2		<-	R0(P)+1, R4(IF)[0..65535]	{}
+0010		LOADG1	R3(C)	<-	V101+15	{}
+0011		STOREI1		<-	R0(P)+3, R3(CF)	{}
+0012		LOADG1	R3(C)	<-	V101+16	{}
+0013		STOREI1		<-	R0(P)+4, R3(CF)	{}
+0014		LOADG1	R3(C)	<-	V101+17	{}
+0015		STOREI1		<-	R0(P)+5, R3(CF)	{}
+0016		LOADG1	R3(C)	<-	V101+18	{}
+0017		CONV31	R4(I)[0..255]	<-	R3(CF)	{}
+0018		BINOP16	R4(I)[0..65280]	<-	R4(IF)[0..255], CI:8	{}
+0019		LOADG1	R3(C)	<-	V101+19	{}
+001a		CONV31	R5(I)[0..255]	<-	R3(CF)	{}
+001b		BINOP1	R4(I)[0..65535]	<-	R5(IF)[0..255], R4(IF)[0..65280]	{}
+001c		STOREI2		<-	R0(P)+6, R4(IF)[0..65535]	{}
+001d		LOADG1	R3(C)	<-	V101+20	{}
+001e		CONV31	R4(I)[0..255]	<-	R3(CF)	{}
+001f		BINOP16	R4(I)[0..65280]	<-	R4(IF)[0..255], CI:8	{}
+0020		LOADG1	R3(C)	<-	V101+21	{}
+0021		CONV31	R5(I)[0..255]	<-	R3(CF)	{}
+0022		BINOP1	R4(I)[0..65535]	<-	R5(IF)[0..255], R4(IF)[0..65280]	{}
+0023		STOREI2		<-	R0(P)+8, R4(IF)[0..65535]	{}
+0024		LOADG1	R3(C)	<-	V101+22	{}
+0025		STOREI1		<-	R0(P)+10, R3(CF)	{}
+0026		LOADG1	R3(C)	<-	V101+23	{}
+0027		STOREI1		<-	R0(P)+11, R3(CF)	{}
+0028		LEAI	R0(P)	<-	R0(PF)+0, CI:12	{}
+0029		BINOP1	R1(C)[1..48]	<-	R1(CF)[0..47], CI:1	{}
+002a		RELOP28	R3(B)	<-	R1(C)[1..48], CC:48	{}
+002b		BRANCH		<-	R3(BF)	{}
+		==> 5
+		==> 7
+L7: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, CC:2	{}
+0001		CALLN		<-	V77+0	{}
+0002		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+krnio_read: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:82
+$00 R0(C), $00 R1(I), $00 R2(C), $01 R3(I), $03 R4(I), $04 R5(P), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)[0..15]	<-	V1+0	{S}
+0001		CONV31	R1(I)[0..15]	<-	R0(C)[0..15]	{S}
+0002		LEAG	R1(P)	<-	V83+0, R1(IF)[0..15]	{S}
+0003		LOADI1	R2(C)[0..128]	<-	R1(P)+0	{}
+0004		RELOP19	R2(B)	<-	R2(CF)[0..128], CC:64	{}
+0005		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		RETV		<-	CI:0	{}
+L3: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, R0(CF)[0..15]	{}
+0001		CALLN	R0(B)	<-	V102+0	{}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  
+0000		CONST	R3(I)[0..0]	<-	CI:0	{}
+0001		LOADZ2	R4(I)	<-	V4+0	{S}
+0002		RELOP24	R0(B)	<-	CI:0, R4(IF)	{S}
+0003		BRANCH		<-	R0(BF)	{}
+		==> 9
+		==> 10
+L9: <= D-1: (2) Head 
+0000		CALLN	R4(I)	<-	V103+0	{}
+0001		CALLN	R0(C)	<-	V104+0	{}
+0002		STOREI1		<-	R1(P)+0, R0(C)	{}
+0003		BRANCH		<-	R0(C)	{}
+		==> 14
+		==> 13
+L14: <= D-1: (1)  
+0000		RELOP20	R2(B)	<-	R0(C), CC:64	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 10
+		==> 13
+L10: <= D-1: (4)  
+0000		CALLN		<-	V76+0	{}
+0001		RETV		<-	R3(IF)[0..]	{}
+L13: <= D-1: (2)  
+0000		LOADZ2	R5(P)	<-	V2+0	{S}
+0001		LEAI	R5(P)	<-	R5(PF)+0, R3(I)[0..]	{}
+0002		STOREI1		<-	R5(PF)+0, R4(CF)	{}
+0003		BINOP1	R3(I)[1..]	<-	R3(IF)[0..], CI:1	{}
+0004		BRANCH		<-	R0(CF)	{}
+		==> 10
+		==> 8
+L8: <= D-1: (1)  
+0000		LOADZ2	R4(I)	<-	V4+0	{S}
+0001		RELOP24	R0(B)	<-	R3(I)[1..], R4(IF)	{}
+0002		BRANCH		<-	R0(BF)	{}
+		==> 9
+		==> 10
+L6: <= D-1: (1)  
+0000		RETV		<-	CI:-1	{}
+--------------------------------------------------------------------
+krnio_chkin: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:46
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V0+0, V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+krnio_chrin: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:58
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+krnio_status: /home/marioc/apps/c64/oscar64/include/c64/kernalio.h:36
+
+L0: <= D-1: (1)  
+0000		JSR		<-	V-1+0	{}
+0001		RET		<-		{}
+--------------------------------------------------------------------
+view_buffor_set_sound_name: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_window/view.c:17
+$00 R0(C), $00 R1(I), $02 R2(I), $00 R3(P), $00 R4(P), 
+L0: <= D-1: (1)  
+0000		LOADZ1	R0(C)	<-	V2+0	{S}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{S}
+0002		BINOP17	R2(I)[0..15]	<-	R1(I)[0..255], CI:4	{S}
+0003		BINOP3	R2(I)[0..195]	<-	R2(IF)[0..15], CI:13	{S}
+0004		BINOP1	R2(I)[1..196]	<-	R2(IF)[0..195], CI:1	{S}
+0005		BINOP9	R1(I)[0..15]	<-	R1(IF)[0..255], CI:15	{S}
+0006		BINOP3	R1(I)[0..600]	<-	R1(IF)[0..15], CI:40	{S}
+0007		LEAG	R1(P)	<-	V87+0, R1(IF)[0..600]	{S}
+0008		LEAI	R1(P)	<-	R1(PF)+0, R2(IF)[1..196]	{I}
+0009		CONST	R2(I)[0..0]	<-	CI:0	{}
+000a		LOADZ2	R3(P)	<-	V0+0	{IS}
+000b		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		LEAI	R4(P)	<-	R3(P)+0, R2(I)[0..11]	{}
+0001		LOADI1	R0(C)	<-	R4(PF)+0	{}
+0002		LEAI	R4(P)	<-	R1(P)+0, R2(I)[0..11]	{}
+0003		STOREI1		<-	R4(PF)+0, R0(CF)	{}
+0004		BINOP1	R2(I)[1..12]	<-	R2(IF)[0..11], CI:1	{}
+0005		RELOP28	R0(B)	<-	R2(I)[1..12], CI:12	{}
+0006		BRANCH		<-	R0(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+loader_hide_view: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/sound_bank_loader_window/view.c:24
+$00 R0(I), $02 R1(C), $03 R2(C), $00 R3(C), $04 R4(I), $06 R5(P), $00 R6(C), 
+L0: <= D-1: (1)  
+0000		CONST	R0(I)[210..210]	<-	CI:210	{}
+0001		CONST	R1(C)[0..0]	<-	CI:0	{}
+0002		CONST	R2(C)[0..0]	<-	CI:0	{}
+0003		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head 
+0000		CONST	R3(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head 
+0000		CONV31	R4(I)[0..255]	<-	R1(C)[0..]	{}
+0001		LEAG	R5(P)	<-	V69+0, R4(I)[0..255]	{}
+0002		LOADI1	R6(C)	<-	R5(PF)+0	{}
+0003		LEAA	R5(P)	<-	V-1+1024, R0(I)[210..]	{}
+0004		STOREI1		<-	R5(PF)+0, R6(CF)	{}
+0005		LEAG	R4(P)	<-	V70+0, R4(IF)[0..255]	{}
+0006		LOADI1	R6(C)	<-	R4(PF)+0	{}
+0007		LEAA	R4(P)	<-	V-1+55296, R0(I)[210..]	{}
+0008		STOREI1		<-	R4(PF)+0, R6(CF)	{}
+0009		BINOP1	R1(C)[1..]	<-	R1(CF)[0..], CI:1	{}
+000a		BINOP1	R0(I)[211..]	<-	R0(IF)[210..], CI:1	{}
+000b		BINOP1	R3(C)[1..19]	<-	R3(CF)[0..18], CI:1	{}
+000c		RELOP28	R6(B)	<-	R3(C)[1..19], CC:19	{}
+000d		BRANCH		<-	R6(BF)	{}
+		==> 6
+		==> 8
+L8: <= D-1: (1)  
+0000		BINOP1	R0(I)[232..]	<-	R0(IF)[211..], CI:21	{}
+0001		BINOP1	R2(C)[1..10]	<-	R2(CF)[0..9], CI:1	{}
+0002		RELOP28	R3(B)	<-	R2(C)[1..10], CC:10	{}
+0003		BRANCH		<-	R3(BF)	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+edit_label_window_mainloop: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_label_window/scene.c:3
+$00 R0(C), $01 R1(I), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V108+0	{}
+0001		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2) Head 
+0000		CALLN	R0(C)	<-	V109+0	{}
+0001		BRANCH		<-	R0(CF)	{}
+		==> 4
+		==> 35
+L4: <= D-1: (1)  
+0000		RET		<-		{}
+L35: <= D-1: (1)  
+0000		CALLN		<-	V63+0	{}
+0001		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 29
+		==> 13
+L13: <= D-1: (2) Head 
+0000		LOADA1	R0(C)	<-	V-1+53265	{V}
+0001		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+0002		BINOP9	R1(I)[0..128]	<-	R1(IF)[0..255], CI:128	{}
+0003		BRANCH		<-	R1(IF)[0..128]	{}
+		==> 28
+		==> 13
+--------------------------------------------------------------------
+edit_label_window_process_input_arguments: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_label_window/argv.c:2
+$00 R0(C), $00 R1(I), $00 R2(C), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V94+0	{}
+0001		STOREG1		<-	V109+0, R0(C)	{}
+0002		CONV31	R1(I)[0..255]	<-	R0(C)	{}
+0003		LOADG1	R2(C)	<-	V94+2	{}
+0004		CONV31	R3(I)[0..255]	<-	R2(CF)	{}
+0005		BINOP1	R1(I)[0..510]	<-	R3(IF)[0..255], R1(IF)[0..255]	{}
+0006		STOREG1		<-	V110+0, R1(CF)[0..510]	{}
+0007		STOREG1		<-	V111+0, R0(CF)	{}
+0008		LOADG1	R0(C)	<-	V94+1	{}
+0009		CONV31	R1(I)[0..255]	<-	R0(CF)	{}
+000a		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{}
+000b		STOREG2		<-	V112+0, R1(IF)[0..10200]	{}
+000c		RET		<-		{}
+--------------------------------------------------------------------
+edit_label_window_process_keyboard_events: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_label_window/events.c:2
+$03 R0(C), $00 R1(I), $04 R2(B), $02 R3(B), 
+L0: <= D-1: (1)  
+0000		CALLN		<-	V60+0	{}
+0001		LOADG1	R0(C)[0..128]	<-	V53+0	{}
+0002		CONV31	R1(I)[0..128]	<-	R0(CF)[0..128]	{}
+0003		BINOP9	R1(I)[0..127]	<-	R1(IF)[0..128], CI:127	{}
+0004		LEAG	R1(P)	<-	V57+0, R1(IF)[0..127]	{}
+0005		LOADI1	R0(C)[-128..157]	<-	R1(PF)+0	{}
+0006		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:27	{}
+0007		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 7
+L1: <= D-1: (5)  
+0000		RETV		<-	CC:1	{}
+L7: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:91	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 6
+L6: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:13	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 5
+L5: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:145	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 4
+L4: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:17	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  
+0000		RELOP19	R2(B)	<-	R0(C)[-128..157], CC:61	{}
+0001		BRANCH		<-	R2(BF)	{}
+		==> 9
+		==> 10
+L9: <= D-1: (1)  
+0000		CALLN		<-	V110+0	{}
+0001		RETV		<-	CC:0	{}
+L10: <= D-1: (1)  
+0000		MOVE	R2(C)[-128..157]	<-	R0(C)[-128..157]	{}
+0001		RELOP25	R3(B)	<-	R0(C)[-128..157], CC:97	{}
+0002		BRANCH		<-	R3(BF)	{}
+		==> 15
+		==> 13
+L15: <= D-1: (1)  
+0000		RELOP26	R3(B)	<-	R0(C)[97..157], CC:122	{}
+0001		BRANCH		<-	R3(BF)	{}
+		==> 12
+		==> 13
+L12: <= D-1: (1)  
+0000		CONV31	R1(I)[97..122]	<-	R0(CF)[97..122]	{}
+0001		BINOP2	R1(I)[1..26]	<-	R1(IF)[97..122], CI:96	{}
+0002		STOREZ1		<-	V0+0, R1(CF)[1..26]	{}
+0003		CALLN		<-	V111+0	{}
+0004		RETV		<-	CC:0	{}
+L13: <= D-1: (2)  
+0000		CONST	R0(C)[0..0]	<-	CI:0	{}
+0001		JUMP		<-		{}
+		==> 17
+L17: <= D-1: (2) Head 
+0000		CONV31	R1(I)[0..23]	<-	R0(C)[0..23]	{}
+0001		LEAG	R1(P)	<-	V116+0, R1(IF)[0..23]	{}
+0002		LOADI1	R3(C)	<-	R1(PF)+0	{}
+0003		RELOP19	R3(B)	<-	R2(C)[0..157], R3(CF)	{}
+0004		BRANCH		<-	R3(BF)	{}
+		==> 20
+		==> 30
+L20: <= D-1: (1)  
+0000		STOREZ1		<-	V0+0, R2(C)[0..157]	{}
+0001		CALLN		<-	V111+0	{}
+0002		JUMP		<-		{}
+		==> 30
+L30: <= D-1: (2)  
+0000		BINOP1	R0(C)[1..24]	<-	R0(CF)[0..23], CI:1	{}
+0001		RELOP28	R3(B)	<-	R0(C)[1..24], CC:24	{}
+0002		BRANCH		<-	R3(BF)	{}
+		==> 17
+		==> 3
+L3: <= D-1: (1)  
+0000		RETV		<-	CC:0	{}
+--------------------------------------------------------------------
+label_backspace: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_label_window/view.c:16
+$00 R0(C), $00 R1(C), $01 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V111+0	{}
+0001		LOADG1	R1(C)	<-	V109+0	{}
+0002		RELOP27	R1(B)	<-	R0(C), R1(CF)	{}
+0003		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		RELOP28	R1(B)	<-	R0(C)[1..?], CC:40	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		BINOP1	R0(C)[0..38]	<-	R0(CF)[1..39], CI:-1	{}
+0001		STOREG1		<-	V111+0, R0(C)[0..38]	{}
+0002		CONV31	R2(I)[0..38]	<-	R0(CF)[0..38]	{}
+0003		LOADG2	R3(I)	<-	V112+0	{}
+0004		LEAA	R3(P)	<-	V-1+1024, R3(IF)	{}
+0005		LEAI	R2(P)	<-	R3(PF)+0, R2(IF)[0..38]	{}
+0006		STOREI1		<-	R2(PF)+0, CC:32	{}
+0007		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		RET		<-		{}
+--------------------------------------------------------------------
+label_add_char: /home/marioc/apps/c64/ansic-oscar/sfxeditor/sfx_tool/edit_label_window/view.c:8
+$00 R0(C), $00 R1(C), $00 R2(I), $00 R3(I), 
+L0: <= D-1: (1)  
+0000		LOADG1	R0(C)	<-	V111+0	{}
+0001		LOADG1	R1(C)	<-	V110+0	{}
+0002		RELOP28	R1(B)	<-	R0(C), R1(CF)	{}
+0003		BRANCH		<-	R1(BF)	{}
+		==> 4
+		==> 3
+L4: <= D-1: (1)  
+0000		RELOP28	R1(B)	<-	R0(C), CC:39	{}
+0001		BRANCH		<-	R1(BF)	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  
+0000		CONV31	R2(I)[0..38]	<-	R0(C)[0..38]	{}
+0001		LOADG2	R3(I)	<-	V112+0	{}
+0002		LEAA	R3(P)	<-	V-1+1024, R3(IF)	{}
+0003		LEAI	R2(P)	<-	R3(PF)+0, R2(IF)[0..38]	{}
+0004		LOADZ1	R1(C)	<-	V0+0	{S}
+0005		STOREI1		<-	R2(PF)+0, R1(CF)	{}
+0006		BINOP1	R0(C)[1..39]	<-	R0(CF)[0..38], CI:1	{}
+0007		STOREG1		<-	V111+0, R0(CF)[1..39]	{}
+0008		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (3)  
+0000		RET		<-		{}

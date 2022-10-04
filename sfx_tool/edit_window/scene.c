@@ -32,6 +32,8 @@ void edit_window_show(void) {
 // called directly after edit_window_show
 void edit_window_mainloop(void) {
 
+    edit_window_show();
+
     for(;;) {
 
         // process input events
@@ -49,7 +51,7 @@ void edit_window_mainloop(void) {
 
     // as well can be done in keyboard events loop
     // set next scene
-    change_main_scene_to( SOUNDS_WINDOW );
+    change_main_scene_to( SOUND_BANK_WINDOW );
 
 }
 

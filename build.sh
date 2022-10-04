@@ -1,2 +1,2 @@
-make && mv sfx_tool/*.prg ../../../prg/ && make clean
+make clean && make && cp sfx_tool/*.prg ../../../c64/prg/ #&& make clean
 

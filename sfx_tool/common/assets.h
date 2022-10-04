@@ -3,11 +3,12 @@
 #define COLOR_RAM ((byte *)0xd800)
 
 // SCENES ID
-#define EDIT_WINDOW     0
-#define INFO_WINDOW     1
-#define SOUNDS_WINDOW   2
-#define LOADER_WINDOW   3
-#define SCENES_COUNT    4
+#define EDIT_WINDOW         0
+#define INFO_WINDOW         1
+#define SOUND_BANK_WINDOW  2
+#define LOADER_WINDOW       3
+#define EDIT_LABEL_WINDOW   4
+#define SCENES_COUNT        5
 
 // HELPERS
 #define FALSE   0
@@ -56,9 +57,21 @@ struct SOUND_BANK {
 
 extern struct SOUND_BANK sound_bank;
 
+struct ARGV {
+    char cp0;
+    char cp1;
+    char cp2;
+};
+
+extern struct ARGV argv;
+
 // "0123456789abcdef"
 char int2hexpetscii[] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 1, 2, 3, 4, 5, 6};
-char int2hexascii[]   = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
+char int2hexascii  [] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102};
+
+
+char screen_char_backup [1000];
+char screen_color_backup[1000];
 
 
 

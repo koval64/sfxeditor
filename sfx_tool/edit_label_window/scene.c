@@ -1,12 +1,13 @@
 
-void loader_window_mainloop(void) {
+// scene mainloop called every frame
+void edit_label_window_mainloop(void) {
 
-    loader_show_view();
+    edit_label_window_process_input_arguments();
 
     for(;;) {
 
         // process input events
-        char done = loader_process_keyboard_events();
+        char done = edit_label_window_process_keyboard_events();
         if(done)
           break;
 
@@ -16,8 +17,5 @@ void loader_window_mainloop(void) {
         // Wait for one frame iteration
         vic_waitFrame();
     }
-
-    loader_hide_view();
-
 }
 

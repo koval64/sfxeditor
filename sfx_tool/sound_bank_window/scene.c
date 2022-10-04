@@ -1,34 +1,33 @@
 
-
-void sounds_window_init( void ) {
-
+void sound_bank_window_init(void) {
     sound_bank_init();
-
 }
 
-void sounds_window_show( void ) {
+void sound_bank_window_show(void) {
 
     // clear chars and set color
     clear_screen(VCOL_DARK_GREY);
 
-    // import data from petscii editor ( whole screen )
-    copy_to_screen(sounds_view);
+    // copy buffor data (view) to screen
+    copy_to_screen(sound_bank_view_data);
 
     // copy edit_menu sound into sound bank actual instrument
     byte index = column * 16 + row;
-    store_sfx( index );
+    sound_bank_window_store_sfx( index );
 
     // select default menu option
-    sounds_select_option();
+    sound_bank_window_select_option();
 
 }
 
-void sounds_window_mainloop(void) {
+void sound_bank_window_mainloop(void) {
+
+    sound_bank_window_show();
 
     for(;;) {
 
         // process input events
-        char done = sounds_process_keyboard_events();
+        char done = sound_bank_window_process_keyboard_events();
         if(done)
             break;
 

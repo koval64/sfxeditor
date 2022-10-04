@@ -9,7 +9,7 @@
 
 #include "inits.c"
 #include "events.c"
-#include "show.c"
+#include "view.c"
 
 #include "scene.c"
 

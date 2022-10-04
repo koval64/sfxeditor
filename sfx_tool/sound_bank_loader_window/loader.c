@@ -9,7 +9,7 @@ void loader_save_file(void) {
         // FILL THE FILE WITH THE ARRAY
         for( byte i=0; i<48; i++ ) {
 
-            strcpy( ins_template, "12 name 12 n" );
+            view_buffor_get_sound_name( ins_template, i );
             ins_template[12] = sound_bank.sfx[i].note;
             ins_template[13] = (sound_bank.sfx[i].pwm >> 8) & 0xff;
             ins_template[14] = (sound_bank.sfx[i].pwm & 0xff);
@@ -24,13 +24,10 @@ void loader_save_file(void) {
             ins_template[23] = sound_bank.sfx[i].time0;
 
             krnio_write(2, (char*)ins_template, sizeof(ins_template));
-
         }
-
         // CLOSE THE FILE
         krnio_close(2);
     }
-
 }
 
 void loader_load_file(void) {
@@ -43,7 +40,7 @@ void loader_load_file(void) {
         for( byte i=0; i<48; i++ ) {
             krnio_read(2, (char*)ins_template, sizeof(ins_template));
 
-            /* strcpy( ins_template, "12 name 12 n" ); */
+            view_buffor_set_sound_name( ins_template, i );
             sound_bank.sfx[i].note = ins_template[12];
             sound_bank.sfx[i].pwm  = (ins_template[13] << 8) + ins_template[14];
             sound_bank.sfx[i].wave = ins_template[15];
@@ -53,12 +50,9 @@ void loader_load_file(void) {
             sound_bank.sfx[i].dpwm  = (ins_template[20] << 8) + ins_template[21];
             sound_bank.sfx[i].time1 = ins_template[22];
             sound_bank.sfx[i].time0 = ins_template[23];
-
         }
-
       // CLOSE THE FILE
       krnio_close(2);
     }
-
 }
 
