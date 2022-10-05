@@ -5,7 +5,7 @@ char edit_label_window_process_keyboard_events( void ) {
     keyb_poll();
     byte _key = keyb_codes[keyb_key & 0x7f];
 
-    if ( _key == KEY_ESCAPE || _key == KEY_GRAVE || _key == KEY_RETURN || \
+    if ( _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT || _key == KEY_RETURN || \
             _key == KEY_UP || _key == KEY_DOWN ) {
         return TRUE;      // exit main menu
     } else if ( _key == KEY_RESTORE ) {      // restore key as backspace
