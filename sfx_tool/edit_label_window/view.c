@@ -15,7 +15,11 @@ void label_add_char( byte key ) {
 
 void label_backspace(void) {
     if ( edit_label_x_pos > edit_label_x_min && edit_label_x_pos < 40 ) {
-        // screen char pos put space and go back 1 char
+        int pos = edit_label_y_pos + edit_label_x_pos;
+        if ( CHAR_RAM[ pos ] > 127 ) {
+            CHAR_RAM[ pos ] -= 128;
+        }
+        // screen char pos go back 1 char and put space
         edit_label_x_pos--;
         CHAR_RAM[ edit_label_y_pos + edit_label_x_pos ] = KEY_SPACE;
     }

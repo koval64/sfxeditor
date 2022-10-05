@@ -13,6 +13,7 @@ char loader_process_keyboard_events(void) {
         return TRUE;
     } else if ( _key == 'l' ) {
         loader_load_file();
+        argv.cp0 = TRUE;
         return TRUE;
     } else
         return FALSE;

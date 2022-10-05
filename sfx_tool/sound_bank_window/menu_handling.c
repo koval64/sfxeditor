@@ -1,17 +1,36 @@
 
+void sound_bank_window_option_normal_text( void ) {
+
+    unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
+    for(int i=0; i<12; i++) {
+        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] - 128;
+    }
+}
+
+void sound_bank_window_option_invert_text( void ) {
+
+    unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
+    for(int i=0; i<12; i++) {
+        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] + 128;
+    }
+}
+
 void sound_bank_window_deselect_option( void ) {
 
     unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
-    for(int i=0; i<12; i++)
+    for(int i=0; i<12; i++) {
         COLOR_RAM[ pos + i ] = OPTION_ON_COLOR;
-
+        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] - 128;
+    }
 }
 
 void sound_bank_window_select_option( void ) {
 
     unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
-    for(int i=0; i<12; i++)
+    for(int i=0; i<12; i++) {
         COLOR_RAM[ pos + i ] = OPTION_ON_SELECTED_COLOR;
+        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] + 128;
+    }
 
     byte index = column * 16 + row;
     sound_bank_window_restore_sfx( index );
