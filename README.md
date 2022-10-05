@@ -51,7 +51,7 @@ q2w3er5t... - piano ( set frequency for sound )
 
 ### Label edit widget
 
-![Screenshot](screenshots/rename_.png)
+![Screenshot](screenshots/rename_view.png)
 
 ```
 In name you can use:
