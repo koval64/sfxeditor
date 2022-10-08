@@ -1,5 +1,5 @@
 
-// scene mainloop called every frame
+// scene mainloop
 void edit_label_window_mainloop(void) {
 
     edit_label_window_process_input_arguments();
@@ -29,12 +29,10 @@ void edit_label_window_mainloop(void) {
         vic_waitFrame();
     }
 
-    /* if ( edit_label_x_pos >= edit_label_x_max ) { */
     int pos = edit_label_y_pos + edit_label_x_pos;
     if ( CHAR_RAM[ pos ] > 127 ) {
         CHAR_RAM[ pos ] -= 128;
     }
-    /* } */
 
 }
 

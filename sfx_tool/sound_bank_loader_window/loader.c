@@ -9,7 +9,11 @@ void loader_save_file(void) {
         // FILL THE FILE WITH THE ARRAY
         for( byte i=0; i<48; i++ ) {
 
-            view_buffor_get_sound_name( ins_template, i );
+            // function dependant
+            // definition is in 'sound_bank_window' module
+            // so this module has to be imported after above
+            view_buffer_get_sound_name( ins_template, i );
+
             ins_template[12] = sound_bank.sfx[i].note;
             ins_template[13] = (sound_bank.sfx[i].pwm >> 8) & 0xff;
             ins_template[14] = (sound_bank.sfx[i].pwm & 0xff);
@@ -40,7 +44,11 @@ void loader_load_file(void) {
         for( byte i=0; i<48; i++ ) {
             krnio_read(2, (char*)ins_template, sizeof(ins_template));
 
-            view_buffor_set_sound_name( ins_template, i );
+            // function dependant - view_buffer_set_sound_name
+            // definition is in 'sound_bank_window' module
+            // so this module has to be imported after above
+            view_buffer_set_sound_name( ins_template, i );
+
             sound_bank.sfx[i].note = ins_template[12];
             sound_bank.sfx[i].pwm  = (ins_template[13] << 8) + ins_template[14];
             sound_bank.sfx[i].wave = ins_template[15];

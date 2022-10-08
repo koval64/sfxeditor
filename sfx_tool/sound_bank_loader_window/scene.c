@@ -4,7 +4,7 @@ void loader_window_mainloop(void) {
     loader_show_view();
     argv.cp0 = FALSE;   // pass to the parent
                         // if new file is loaded
-                        // it is set to TRUE
+                        // it is set to TRUE \
                         // inside loader_process_keyboard_events() function
 
     for(;;) {

@@ -2,10 +2,12 @@
 #define CHAR_RAM  ((byte *)0x0400)
 #define COLOR_RAM ((byte *)0xd800)
 
+#define SCREEN_CHAR_WIDTH   40
+
 // SCENES ID
 #define EDIT_WINDOW         0
 #define INFO_WINDOW         1
-#define SOUND_BANK_WINDOW  2
+#define SOUND_BANK_WINDOW   2
 #define LOADER_WINDOW       3
 #define EDIT_LABEL_WINDOW   4
 #define SCENES_COUNT        5

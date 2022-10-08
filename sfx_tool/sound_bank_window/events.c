@@ -29,10 +29,10 @@ char sound_bank_window_process_keyboard_events( void ) {
 
         run_as_child( LOADER_WINDOW );
 
-        if ( argv.cp0 == TRUE ) {   // loaded new file; frefresh screen
+        if ( argv.cp0 == TRUE ) {   // loaded new file; refresh screen
                                     //
-            // copy buffor data (view) to screen
-            copy_to_screen(sound_bank_view_data);
+            // copy buffer data (view) to screen
+            copy_to_screen(sound_bank_view_buffer);
 
             // select default menu option
             sound_bank_window_select_option();
@@ -42,6 +42,7 @@ char sound_bank_window_process_keyboard_events( void ) {
 
         // RENAME LABEL
 
+        // prepare label for edition
         sound_bank_window_option_normal_text();
 
         // send arguments to child
@@ -52,9 +53,10 @@ char sound_bank_window_process_keyboard_events( void ) {
         // run child
         run_as_child( EDIT_LABEL_WINDOW );
 
-        // save new sound name to buffor
-        copy_screen_name_to_view_buffor();
+        // save new sound name to buffer
+        copy_screen_name_to_view_buffer();
 
+        // edition done, invert label
         sound_bank_window_option_invert_text();
     }
 

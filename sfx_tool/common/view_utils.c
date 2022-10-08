@@ -10,6 +10,16 @@ void copy_to_screen(byte * petscii_char_array) {
     }
 }
 
+// clear buffer
+void clear_buffer(char * buffer) {
+
+    // clear char and color RAM
+    #pragma unroll (page)
+    for(int i=0; i<1000; i++) {
+        buffer[i] = ' ';
+    }
+
+}
 // clear screen
 void clear_screen(byte color) {
 
@@ -18,6 +28,24 @@ void clear_screen(byte color) {
     for(int i=0; i<1000; i++) {
         CHAR_RAM [i] = ' ';
         COLOR_RAM[i] = color;
+    }
+
+}
+
+// copy window with given (width,height) to (x,y) coordinates on destination buffer
+void win_put_at_buffer(byte * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height, byte * destination) {
+
+    // put char array data on screen on specified coordinates
+    // with given width and height
+    int i=0;
+    int cpos=40*pos_y+pos_x;
+    for(int y=0; y<height; y++) {
+        for(int x=0; x<width; x++) {
+            destination[cpos] = petscii_char_array[i];
+            i++;
+            cpos++;
+        }
+        cpos += 40-width;
     }
 
 }

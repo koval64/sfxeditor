@@ -1,6 +1,6 @@
 
 //
-// load/save buffor
+// load/save buffer
 //
 //
 //
