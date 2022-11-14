@@ -1,5 +1,5 @@
 
-void init_view_buffer(void) {
+void one_track_init_view_buffer(void) {
 
     int pos = 0;
     char empty[] = " -           ";
@@ -15,19 +15,22 @@ void init_view_buffer(void) {
     }
 }
 
-void copy_screen_name_to_view_buffer(void) {
-    char x = SOUND_BANK_ALIGN_X + column * SOUND_BANK_FIELD_SIZE;
-    char y = row;
+void one_track_copy_screen_name_to_view_buffer(void) {
+    char x = SOUND_BANK_ALIGN_X + one_track_column * SOUND_BANK_FIELD_SIZE;
+    char y = one_track_row;
     char length = SOUND_BANK_FIELD_SIZE-1;
 
     int pos = 40*y + x;
+    char index = one_track_column * 16 + one_track_row;
 
     for (int i=0; i<length; i++ ) {
-        char_ram_buffer[pos+i] = CHAR_RAM[pos+i];
+        char tmp = CHAR_RAM[pos+i];
+        char_ram_buffer[pos+i]  = tmp;
+        sound_bank.sfx[index].name[i] = tmp;
     }
 }
 
-void view_buffer_set_sound_name(char * name, char nr) {
+void one_track_view_buffer_set_sound_name(char * name, char nr) {
     char x = SOUND_BANK_ALIGN_X + (nr/SOUND_BANK_VIEW_ROWS) * SOUND_BANK_FIELD_SIZE;
     char y = nr%SOUND_BANK_VIEW_ROWS;
     char length = SOUND_BANK_FIELD_SIZE-1;
@@ -39,7 +42,7 @@ void view_buffer_set_sound_name(char * name, char nr) {
     }
 }
 
-void view_buffer_get_sound_name(char * name, char nr) {
+void one_track_view_buffer_get_sound_name(char * name, char nr) {
     char x = SOUND_BANK_ALIGN_X + (nr/SOUND_BANK_VIEW_ROWS) * SOUND_BANK_FIELD_SIZE;
     char y = nr%SOUND_BANK_VIEW_ROWS;
     char length = SOUND_BANK_FIELD_SIZE-1;

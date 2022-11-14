@@ -23,9 +23,9 @@ void edit_window_show(void) {
     edit_window_select_default_menu_options();
 
     // put windows on screen ( char data in one dimensional array )
-    win_put_at(edit_window_sfx_properties, 11, 0, 16, 10);
-    win_put_at(edit_window_info_bar, 0, 23, 40, 1);
-    win_put_at(edit_window_piano, 8, 12, 25, 8);
+    win_put_at( (char *)edit_window_sfx_properties, 11, 0, 16, 10);
+    win_put_at( (char *)edit_window_info_bar, 0, 23, 40, 1);
+    win_put_at( (char *)edit_window_piano, 8, 12, 25, 8);
 
 }
 
@@ -51,7 +51,7 @@ void edit_window_mainloop(void) {
 
     // as well can be done in keyboard events loop
     // set next scene
-    change_main_scene_to( SOUND_BANK_WINDOW );
+    change_main_scene_to( ONE_TRACK_WINDOW );
 
 }
 

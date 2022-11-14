@@ -19,6 +19,6 @@
 //
 // we are using 24 bytes per instrument
 // ( 12 name and 12 parameters )
-char ins_template[24] = "1234567890ab1234567890ab";
+char ins_template[24] = "1234567890ab1234567890a";
 
 

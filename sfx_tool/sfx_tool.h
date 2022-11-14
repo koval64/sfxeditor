@@ -1,8 +1,10 @@
 
 // OSCAR INCLUDES
+#include <c64/types.h>
 #include <c64/memmap.h>
 #include <c64/cia.h>
 #include <c64/vic.h>
+#include <c64/sid.h>
 #include <c64/joystick.h>
 #include <c64/keyboard.h>
 #include <c64/kernalio.h>
@@ -25,6 +27,7 @@
 #include "info_window/scene.h"
 #include "edit_window/scene.h"
 #include "sound_bank_window/scene.h"
+#include "one_track_window/scene.h"
 #include "sound_bank_loader_window/scene.h"
 #include "edit_label_window/scene.h"
 

@@ -309,7 +309,7 @@ void time1_menu_change_value(byte value) {
         menu.option[TIME1_INDEX].value -= menu.option[TIME1_INDEX].step;
     else if(value == OPTION_NEXT)
         menu.option[TIME1_INDEX].value += menu.option[TIME1_INDEX].step;
-    char value = menu.option[TIME1_INDEX].value;
+    value = menu.option[TIME1_INDEX].value;
     CHAR_RAM[TIME1_DIGITS_POS+0] = int2hexpetscii[ value >> 4 ];
     CHAR_RAM[TIME1_DIGITS_POS+1] = int2hexpetscii[ value & 0x0f];
 }
@@ -338,7 +338,7 @@ void time0_menu_change_value(byte value) {
         menu.option[TIME0_INDEX].value -= menu.option[TIME0_INDEX].step;
     else if(value == OPTION_NEXT)
         menu.option[TIME0_INDEX].value += menu.option[TIME0_INDEX].step;
-    char value = menu.option[TIME0_INDEX].value;
+    value = menu.option[TIME0_INDEX].value;
     CHAR_RAM[TIME0_DIGITS_POS+0] = int2hexpetscii[ value >> 4 ];
     CHAR_RAM[TIME0_DIGITS_POS+1] = int2hexpetscii[ value & 0x0f];
 }

@@ -1,5 +1,5 @@
 
-char sound_bank_window_process_keyboard_events( void ) {
+char one_track_window_process_keyboard_events( void ) {
 
     byte play = FALSE;
 
@@ -10,16 +10,16 @@ char sound_bank_window_process_keyboard_events( void ) {
     if ( _key == 'e' || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT) {
         return TRUE;      // exit main menu
     } else if( _key == KEY_UP || _key == 'k' ) {    // cursor up
-        sound_bank_window_go_up();
+        one_track_window_go_up();
         play = TRUE;
     } else if( _key == KEY_DOWN || _key == 'j' )  {    // cursor down
-        sound_bank_window_go_down();
+        one_track_window_go_down();
         play = TRUE;
     } else if( _key == KEY_LEFT || _key == 'h' ) {    // cursor left
-        sound_bank_window_go_left();
+        one_track_window_go_left();
         play = TRUE;
     } else if( _key == KEY_RIGHT || _key == 'l' )  {    // cursor right
-        sound_bank_window_go_right();
+        one_track_window_go_right();
         play = TRUE;
     } else if( _key == KEY_RETURN || _key == KEY_SPACE )  {    // return
         play = TRUE;
@@ -31,11 +31,14 @@ char sound_bank_window_process_keyboard_events( void ) {
 
         if ( argv.cp0 == TRUE ) {   // loaded new file; refresh screen
                                     //
+            for (char i=0; i<SFX_COUNT; i++) {
+                one_track_view_buffer_set_sound_name( (char *) sound_bank.sfx[i].name, i );
+            }
             // copy buffer data (view) to screen
             swap_buffer();
 
             // select default menu option
-            sound_bank_window_select_option();
+            one_track_window_select_option();
         }
 
     } else if( _key == 'r' ) {
@@ -43,21 +46,24 @@ char sound_bank_window_process_keyboard_events( void ) {
         // RENAME LABEL
 
         // prepare label for edition
-        sound_bank_window_option_normal_text();
+        one_track_window_option_normal_text();
 
         // send arguments to child
-        argv.cp0 = 1 + column * SOUND_BANK_FIELD_SIZE;
-        argv.cp1 = row;
+        // cp0      label xpos
+        // cp1      label ypos
+        // cp2      label length
+        argv.cp0 = 1 + one_track_column * SOUND_BANK_FIELD_SIZE;
+        argv.cp1 = one_track_row;
         argv.cp2 = SOUND_BANK_FIELD_SIZE-1;
 
         // run child
         run_as_child( EDIT_LABEL_WINDOW );
 
         // save new sound name to buffer
-        copy_screen_name_to_view_buffer();
+        one_track_copy_screen_name_to_view_buffer();
 
         // edition done, invert label
-        sound_bank_window_option_invert_text();
+        one_track_window_option_invert_text();
     }
 
     if ( play )

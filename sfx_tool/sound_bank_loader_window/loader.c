@@ -7,13 +7,14 @@ void loader_save_file(void) {
     if (krnio_open(2, 8, 2)) {
 
         // FILL THE FILE WITH THE ARRAY
-        for( byte i=0; i<48; i++ ) {
+        for( byte i=0; i<SFX_COUNT; i++ ) {
 
-            // function dependant
-            // definition is in 'sound_bank_window' module
-            // so this module has to be imported after above
-            view_buffer_get_sound_name( ins_template, i );
-
+            //
+            // convert sound bank data structure into template
+            //
+            for (char j=0; j<SFX_NAME_LEN; j++) {
+                ins_template[j] = sound_bank.sfx[i].name[j];
+            }
             ins_template[12] = sound_bank.sfx[i].note;
             ins_template[13] = (sound_bank.sfx[i].pwm >> 8) & 0xff;
             ins_template[14] = (sound_bank.sfx[i].pwm & 0xff);
@@ -27,6 +28,9 @@ void loader_save_file(void) {
             ins_template[22] = sound_bank.sfx[i].time1;
             ins_template[23] = sound_bank.sfx[i].time0;
 
+            //
+            // save template
+            //
             krnio_write(2, (char*)ins_template, sizeof(ins_template));
         }
         // CLOSE THE FILE
@@ -41,14 +45,19 @@ void loader_load_file(void) {
 
     if (krnio_open(2, 8, 2)) {
 
-        for( byte i=0; i<48; i++ ) {
+        for( byte i=0; i<SFX_COUNT; i++ ) {
+
+            //
+            // read instrument data into template
+            //
             krnio_read(2, (char*)ins_template, sizeof(ins_template));
 
-            // function dependant - view_buffer_set_sound_name
-            // definition is in 'sound_bank_window' module
-            // so this module has to be imported after above
-            view_buffer_set_sound_name( ins_template, i );
-
+            //
+            // convert sound data from template into sound bank structure
+            //
+            for (char j=0; j<SFX_NAME_LEN; j++) {
+                sound_bank.sfx[i].name[j] = ins_template[j];
+            }
             sound_bank.sfx[i].note = ins_template[12];
             sound_bank.sfx[i].pwm  = (ins_template[13] << 8) + ins_template[14];
             sound_bank.sfx[i].wave = ins_template[15];

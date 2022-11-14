@@ -10,7 +10,8 @@
 #define SOUND_BANK_WINDOW   2
 #define LOADER_WINDOW       3
 #define EDIT_LABEL_WINDOW   4
-#define SCENES_COUNT        5
+#define ONE_TRACK_WINDOW    5
+#define SCENES_COUNT        6
 
 // HELPERS
 #define FALSE   0
@@ -31,6 +32,8 @@
 /* }; */
 
 // main sound effect structure to play sound by oscar64
+/* sidfx_play(1, const SIDFX *fx, 1); */
+
 struct SIDFX SIDFXExplosion[1] = {{
     0x0685, 0x100,
     SID_CTRL_GATE | SID_CTRL_RECT,
@@ -40,8 +43,13 @@ struct SIDFX SIDFXExplosion[1] = {{
     8, 8
 }};
 
+#define SFX_NAME_LEN        12
+#define SFX_COUNT           48
+#define SFX_TRACK_SINGLE    15
+#define SFX_TRACK_MULTI     5
+
 struct SFX {
-    /* char name[12]; */
+    char name[SFX_NAME_LEN];
     char note;
     unsigned pwm;
     char wave;
@@ -54,7 +62,7 @@ struct SFX {
 };
 
 struct SOUND_BANK {
-    struct SFX sfx[ 48 ];
+    struct SFX sfx[ SFX_COUNT ];
 };
 
 extern struct SOUND_BANK sound_bank;
@@ -75,6 +83,7 @@ char int2hexascii  [] = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100
 char screen_char_backup [1000];
 char screen_color_backup[1000];
 
+char char_ram_buffer[1000];
 
 
 

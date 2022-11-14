@@ -37,14 +37,20 @@ void scene_tree_assign_pointers(void) {
             null,  
             sound_effect_info_window_mainloop );
     set_scene_pointers( SOUND_BANK_WINDOW,
-            sound_bank_window_init,
-            sound_bank_window_mainloop );
+            null,
+            null );
+    /* set_scene_pointers( SOUND_BANK_WINDOW, */
+    /*         sound_bank_window_init, */
+    /*         sound_bank_window_mainloop ); */
     set_scene_pointers( LOADER_WINDOW,
             null,
             loader_window_mainloop );
     set_scene_pointers( EDIT_LABEL_WINDOW,
             null,
             edit_label_window_mainloop );
+    set_scene_pointers( ONE_TRACK_WINDOW,
+            one_track_window_init,
+            one_track_window_mainloop );
 }
 
 void project_init( void ) {
@@ -57,7 +63,7 @@ void project_init( void ) {
 
     // since active_scene pointers are initialized with null function
     // it works as main scene initial activation
-    change_main_scene_to( SOUND_BANK_WINDOW );
+    change_main_scene_to( ONE_TRACK_WINDOW );
     
 }
 

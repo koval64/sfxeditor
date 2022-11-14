@@ -1,27 +1,27 @@
 
-// copy given data to screen
-void copy_to_screen(byte * petscii_char_array) {
+// copy buffer data to screen
+void swap_buffer(void) {
 
     // put char data on screen
     #pragma unroll (page)
     for(int i=0; i<1000; i++) {
-        CHAR_RAM [i] = petscii_char_array[i];
+        CHAR_RAM [i] = char_ram_buffer[i];
         COLOR_RAM[i] = VCOL_DARK_GREY;
     }
 }
 
-// clear buffer
-void clear_buffer(char * buffer) {
+// clear buffer data
+void clear_buffer(void) {
 
     // clear char and color RAM
     #pragma unroll (page)
     for(int i=0; i<1000; i++) {
-        buffer[i] = ' ';
+        char_ram_buffer[i] = ' ';
     }
 
 }
 // clear screen
-void clear_screen(byte color) {
+void clear_screen(char color) {
 
     // clear char and color RAM
     #pragma unroll (page)
@@ -33,7 +33,7 @@ void clear_screen(byte color) {
 }
 
 // copy window with given (width,height) to (x,y) coordinates on destination buffer
-void win_put_at_buffer(byte * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height, byte * destination) {
+void win_put_at_buffer(char * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height) {
 
     // put char array data on screen on specified coordinates
     // with given width and height
@@ -41,7 +41,7 @@ void win_put_at_buffer(byte * petscii_char_array, byte pos_x, byte pos_y, byte w
     int cpos=40*pos_y+pos_x;
     for(int y=0; y<height; y++) {
         for(int x=0; x<width; x++) {
-            destination[cpos] = petscii_char_array[i];
+            char_ram_buffer[cpos] = petscii_char_array[i];
             i++;
             cpos++;
         }
@@ -51,7 +51,7 @@ void win_put_at_buffer(byte * petscii_char_array, byte pos_x, byte pos_y, byte w
 }
 
 // copy window with given (width,height) to (x,y) coordinates on to the screen
-void win_put_at(byte * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height) {
+void win_put_at(char * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height) {
 
     // put char array data on screen on specified coordinates
     // with given width and height

@@ -5,16 +5,16 @@ void sound_bank_window_init(void) {
     // FILL BUFFER
 
     // clear buffer
-    clear_buffer( sound_bank_view_buffer );
+    clear_buffer();
 
     // sounds names
     init_view_buffer();
 
     // horizontal rule
-    win_put_at_buffer(sound_bank_view_hr, 0, 17, 40, 1, sound_bank_view_buffer);
+    win_put_at_buffer( (char *)sound_bank_view_hr, 0, 17, 40, 1 );
 
     // options
-    win_put_at_buffer(sound_bank_view_menu_options, 11, 19, 18, 4, sound_bank_view_buffer);
+    win_put_at_buffer( (char *)sound_bank_view_menu_options, 11, 19, 18, 4 );
 
 }
 
@@ -24,7 +24,7 @@ void sound_bank_window_show(void) {
     clear_screen(VCOL_DARK_GREY);
 
     // copy buffer data (view) to screen
-    copy_to_screen(sound_bank_view_buffer);
+    swap_buffer();
 
     // copy edit_menu sound into sound bank actual instrument
     byte index = column * SOUND_BANK_VIEW_ROWS + row;
