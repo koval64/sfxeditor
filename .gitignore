@@ -1,4 +1,10 @@
 .vim
 .vscode
-sfx_tool/.vscode
+!arc-configs/*
+
+*.asm
+*.int
+*.lbl
+*.map
+
 

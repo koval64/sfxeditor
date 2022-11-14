@@ -1,0 +1,21 @@
+{
+    "clangd.fallbackFlags":
+    [
+        "-nolibc",
+        "-nodefaultlibs",
+        "-nostdinc",
+        "-nostdinc++",
+        "-nostdlibinc",
+        "-nostdlib++",
+        "-nobuiltininc",
+        "-index-header-map",
+        "-I/absolute/path/to/oscar64/include",
+        "-include/absolute/path/to/sfxeditor/sfx_tool/sfx_tool.h",
+        "-xc++",
+        "-std=gnu++17",
+        "-background-index",
+        "-Wno-constant-conversion",
+        "-D page"
+    ]
+}
+
