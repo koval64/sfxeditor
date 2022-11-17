@@ -55,6 +55,7 @@ void scene_tree_assign_pointers(void) {
 
 void project_init( void ) {
 
+    sound_bank_init();
     scene_tree_assign_pointers();
 
     // necessary one time inits

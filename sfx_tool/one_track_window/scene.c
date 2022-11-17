@@ -1,6 +1,5 @@
 
 void one_track_window_init(void) {
-    sound_bank_init();
 
     // FILL BUFFER
 

@@ -1,87 +1,86 @@
 
-void sound_bank_window_option_normal_text( void ) {
-
-    unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
-    for(int i=0; i<SFX_NAME_LEN; i++) {
-        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] - 128;
-    }
+unsigned sound_bank_window_calculate_pos_48(void) {
+  return (SOUND_BANK_ALIGN_Y + row) * 40 + (column * SOUND_BANK_FIELD_SIZE) +
+         SOUND_BANK_ALIGN_X;
 }
 
-void sound_bank_window_option_invert_text( void ) {
+void sound_bank_window_option_normal_text(void) {
 
-    unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
-    for(int i=0; i<SFX_NAME_LEN; i++) {
-        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] + 128;
-    }
+  unsigned pos = sound_bank_window_calculate_pos_48();
+  for (int i = 0; i < SFX_NAME_LEN; i++) {
+    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] - 128;
+  }
 }
 
-void sound_bank_window_deselect_option( void ) {
+void sound_bank_window_option_invert_text(void) {
 
-    unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
-    for(int i=0; i<SFX_NAME_LEN; i++) {
-        COLOR_RAM[ pos + i ] = OPTION_ON_COLOR;
-        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] - 128;
-    }
+  unsigned pos = sound_bank_window_calculate_pos_48();
+  for (int i = 0; i < SFX_NAME_LEN; i++) {
+    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] + 128;
+  }
 }
 
-void sound_bank_window_select_option( void ) {
+void sound_bank_window_deselect_option(void) {
 
-    unsigned pos = ( SOUND_BANK_ALIGN_Y + row ) * 40 + ( column * SOUND_BANK_FIELD_SIZE ) + SOUND_BANK_ALIGN_X;
-    for(int i=0; i<SFX_NAME_LEN; i++) {
-        COLOR_RAM[ pos + i ] = OPTION_ON_SELECTED_COLOR;
-        CHAR_RAM[ pos + i ] = CHAR_RAM[ pos + i ] + 128;
-    }
-
-    byte index = column * 16 + row;
-    copy_sfx_from_sound_bank_into_first_sfx_slot( index );
-
+  unsigned pos = sound_bank_window_calculate_pos_48();
+  for (int i = 0; i < SFX_NAME_LEN; i++) {
+    COLOR_RAM[pos + i] = OPTION_ON_COLOR;
+    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] - 128;
+  }
 }
 
-void sound_bank_window_go_left( void ) {
+void sound_bank_window_select_option(void) {
 
-    sound_bank_window_deselect_option();
+  unsigned pos = sound_bank_window_calculate_pos_48();
+  for (int i = 0; i < SFX_NAME_LEN; i++) {
+    COLOR_RAM[pos + i] = OPTION_ON_SELECTED_COLOR;
+    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] + 128;
+  }
 
-    column -= 1;
-    if( column > 3 )
-        column = 2;
-
-    sound_bank_window_select_option();
-
+  byte index = column * 16 + row;
+  copy_sfx_from_sound_bank_into_first_sfx_slot(index);
 }
 
-void sound_bank_window_go_right( void ) {
+void sound_bank_window_go_left(void) {
 
-    sound_bank_window_deselect_option();
+  sound_bank_window_deselect_option();
 
-    column += 1;
-    if( column == 3 )
-        column = 0;
+  column -= 1;
+  if (column > 3)
+    column = 2;
 
-    sound_bank_window_select_option();
-
+  sound_bank_window_select_option();
 }
 
-void sound_bank_window_go_up( void ) {
+void sound_bank_window_go_right(void) {
 
-    sound_bank_window_deselect_option();
+  sound_bank_window_deselect_option();
 
-    row -= 1;
-    if( row > 16 )
-        row = 15;
+  column += 1;
+  if (column == 3)
+    column = 0;
 
-    sound_bank_window_select_option();
-
+  sound_bank_window_select_option();
 }
 
-void sound_bank_window_go_down( void ) {
+void sound_bank_window_go_up(void) {
 
-    sound_bank_window_deselect_option();
+  sound_bank_window_deselect_option();
 
-    row += 1;
-    if( row == 16 )
-        row = 0;
+  row -= 1;
+  if (row > 16)
+    row = 15;
 
-    sound_bank_window_select_option();
-
+  sound_bank_window_select_option();
 }
 
+void sound_bank_window_go_down(void) {
+
+  sound_bank_window_deselect_option();
+
+  row += 1;
+  if (row == 16)
+    row = 0;
+
+  sound_bank_window_select_option();
+}
