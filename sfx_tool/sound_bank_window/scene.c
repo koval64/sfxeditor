@@ -28,7 +28,7 @@ void sound_bank_window_show(void) {
 
     // copy edit_menu sound into sound bank actual instrument
     byte index = column * SOUND_BANK_VIEW_ROWS + row;
-    sound_bank_window_store_sfx( index );
+    copy_sfx_from_first_sfx_slot_into_sound_bank( index );
 
     // select default menu option
     sound_bank_window_select_option();

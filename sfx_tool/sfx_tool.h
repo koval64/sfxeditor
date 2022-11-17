@@ -24,6 +24,8 @@
 #include "common/utils.c"
 #include "common/view_utils.c"
 #include "common/scene_utils.c"
+#include "common/audio.c"
+#include "common/sound_bank.c"
 #include "info_window/scene.h"
 #include "edit_window/scene.h"
 #include "sound_bank_window/scene.h"

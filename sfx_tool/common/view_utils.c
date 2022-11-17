@@ -32,7 +32,7 @@ void clear_screen(char color) {
 
 }
 
-// copy window with given (width,height) to (x,y) coordinates on destination buffer
+// copy window with given (width,height) to (x,y) coordinates on buffer
 void win_put_at_buffer(char * petscii_char_array, byte pos_x, byte pos_y, byte width, byte height) {
 
     // put char array data on screen on specified coordinates

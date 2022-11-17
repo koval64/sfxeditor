@@ -33,7 +33,7 @@ void sound_bank_window_select_option( void ) {
     }
 
     byte index = column * 16 + row;
-    sound_bank_window_restore_sfx( index );
+    copy_sfx_from_sound_bank_into_first_sfx_slot( index );
 
 }
 

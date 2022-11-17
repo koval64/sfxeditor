@@ -1,6 +1,6 @@
 
 void one_track_window_init(void) {
-    one_track_sound_init();
+    sound_bank_init();
 
     // FILL BUFFER
 
@@ -25,7 +25,7 @@ void one_track_window_show(void) {
 
     // copy edit_menu sound into sound bank actual instrument
     byte index = one_track_column * SOUND_BANK_VIEW_ROWS + one_track_row;
-    one_track_window_store_sfx( index );
+    copy_sfx_from_first_sfx_slot_into_sound_bank( index );
 
     // copy buffer data (view) to screen
     swap_buffer();

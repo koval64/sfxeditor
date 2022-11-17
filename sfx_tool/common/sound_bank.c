@@ -1,6 +1,7 @@
 
-// copy active sound_bank instrument into edit window sound structure
-void one_track_window_restore_sfx( byte index ) {
+// copy active sound_bank instrument into first sfx slot
+// restore sfx
+void copy_sfx_from_sound_bank_into_first_sfx_slot( byte index ) {
 
     unsigned hex_freq = notes_pal_table[ sound_bank.sfx[ index ].note ];
 
@@ -16,8 +17,9 @@ void one_track_window_restore_sfx( byte index ) {
 
 }
 
-// copy edit_window sound structure into active sound_bank instrument
-void one_track_window_store_sfx( byte index ) {
+// copy first sfx slot into active sound_bank instrument
+// store sfx
+void copy_sfx_from_first_sfx_slot_into_sound_bank( byte index ) {
     
     byte note_index = find_note( SIDFXExplosion[0].freq );
 
@@ -33,7 +35,7 @@ void one_track_window_store_sfx( byte index ) {
 
 }
 
-void one_track_sound_init( void ) {
+void sound_bank_init( void ) {
     
     byte counter = sizeof( sound_bank ) / sizeof( struct SFX );
 
