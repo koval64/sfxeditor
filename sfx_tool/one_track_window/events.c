@@ -43,8 +43,8 @@ char one_track_window_process_keyboard_events(void) {
     // cp0      label xpos
     // cp1      label ypos
     // cp2      label length
-    argv.cp0 = 1 + one_track_column * ONE_TRACK_FIELD_SIZE;
-    argv.cp1 = one_track_row;
+    argv.cp0 = ONE_TRACK_ALIGN_X + one_track_column * ONE_TRACK_FIELD_SIZE;
+    argv.cp1 = ONE_TRACK_ALIGN_Y + one_track_row;
     argv.cp2 = SOUND_BANK_FIELD_SIZE - 1;
 
     // run child

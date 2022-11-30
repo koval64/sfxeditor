@@ -9,8 +9,10 @@ void one_track_window_init(void) {
     // sounds names
     one_track_init_view_buffer();
 
-    // options
-    win_put_at_buffer( (char *) one_track_view_menu_options, 0, 19, 13, 5 );
+    vertical_line();
+
+    // options help
+    win_put_at_buffer( (char *) one_track_view_menu_options, 0, 19, 14, 5 );
 
 }
 

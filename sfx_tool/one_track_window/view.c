@@ -1,4 +1,12 @@
 
+void vertical_line(void) {
+    int pos = 13;
+    for (char i=0; i<24; i++) {
+        char_ram_buffer[pos] = 0x5d;
+        pos += 40;
+    }
+}
+
 void one_track_init_view_buffer(void) {
 
   char empty[] = " -           ";

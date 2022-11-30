@@ -1,5 +1,5 @@
 
-#define ONE_TRACK_ALIGN_X      14
+#define ONE_TRACK_ALIGN_X      15
 #define ONE_TRACK_ALIGN_Y       0
 #define ONE_TRACK_FIELD_SIZE   13
 #define ONE_TRACK_VIEW_ROWS    24
