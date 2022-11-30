@@ -9,13 +9,13 @@ char one_track_window_process_keyboard_events(void) {
 
   if (_key == 'e' || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT) {
     return TRUE;                              // exit main menu
-  } else if (_key == KEY_UP || _key == 'k') { // cursor up
+  } else if (_key == KEY_UP || _key == 'i') { // cursor up
     one_track_window_go_up();
     play = TRUE;
-  } else if (_key == KEY_DOWN || _key == 'j') { // cursor down
+  } else if (_key == KEY_DOWN || _key == 'k') { // cursor down
     one_track_window_go_down();
     play = TRUE;
-  } else if (_key == KEY_LEFT || _key == 'h') { // cursor left
+  } else if (_key == KEY_LEFT || _key == 'j') { // cursor left
     one_track_window_go_left();
     play = TRUE;
   } else if (_key == KEY_RIGHT || _key == 'l') { // cursor right
@@ -23,9 +23,9 @@ char one_track_window_process_keyboard_events(void) {
     play = TRUE;
   } else if (_key == KEY_RETURN || _key == KEY_SPACE) { // return
     play = TRUE;
-  } else if (_key == 'i') {
+  } else if (_key == 'a') {
     run_as_child(INFO_WINDOW);
-  } else if (_key == 'b') {
+  } else if (_key == 'f') {
 
     run_as_child(LOADER_WINDOW);
     if (argv.cp0 == TRUE) { // success loading file; refresh screen
@@ -43,7 +43,7 @@ char one_track_window_process_keyboard_events(void) {
     // cp0      label xpos
     // cp1      label ypos
     // cp2      label length
-    argv.cp0 = 1 + one_track_column * SOUND_BANK_FIELD_SIZE;
+    argv.cp0 = 1 + one_track_column * ONE_TRACK_FIELD_SIZE;
     argv.cp1 = one_track_row;
     argv.cp2 = SOUND_BANK_FIELD_SIZE - 1;
 

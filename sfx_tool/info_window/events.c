@@ -5,7 +5,7 @@ char sound_effect_info_process_keyboard_events(void) {
     keyb_poll();
     byte _key = keyb_codes[keyb_key & 0x7f];
 
-    if ( _key == 'i' || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT ) {
+    if ( _key == 's' || _key == 'i' || _key == 'a' || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT ) {
         return TRUE;      // exit main menu
     } else if ( _key == 'd' ) {
         // dump sound info into text file

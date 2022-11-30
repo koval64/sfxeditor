@@ -1,27 +1,27 @@
 
 void one_track_init_view_buffer(void) {
 
-  int pos = 0;
   char empty[] = " -           ";
-  for (char y = SOUND_BANK_ALIGN_Y; y < SOUND_BANK_VIEW_ROWS; y++) {
-    for (char a = 0; a < SOUND_BANK_VIEW_COLUMNS; a++) {
-      for (char x = 0; x < SOUND_BANK_FIELD_SIZE; x++) {
-        char_ram_buffer[pos] = empty[x];
+  int pos = ONE_TRACK_ALIGN_X;
+  for (char i=0; i<ONE_TRACK_VIEW_SOUND_COUNT; i++) {
+      for (char j = 0; j < ONE_TRACK_FIELD_SIZE; j++) {
+        char_ram_buffer[pos] = empty[j];
         pos++;
       }
-    }
-    char_ram_buffer[pos] = ' ';
-    pos++;
+      pos +=  40 - ONE_TRACK_FIELD_SIZE ;
+      if ( (i % ONE_TRACK_VIEW_ROWS) == (ONE_TRACK_VIEW_ROWS-1) ) {
+          pos = ONE_TRACK_ALIGN_X + ( i / (ONE_TRACK_VIEW_ROWS-1) ) * ONE_TRACK_FIELD_SIZE;
+      }
   }
 }
 
 void one_track_copy_screen_name_to_view_buffer(void) {
-  char x = SOUND_BANK_ALIGN_X + one_track_column * SOUND_BANK_FIELD_SIZE;
+  char x = ONE_TRACK_ALIGN_X + one_track_column * ONE_TRACK_FIELD_SIZE;
   char y = one_track_row;
-  char length = SOUND_BANK_FIELD_SIZE - 1;
+  char length = ONE_TRACK_FIELD_SIZE - 1;
 
   int pos = 40 * y + x;
-  char index = one_track_column * 16 + one_track_row;
+  char index = one_track_column * ONE_TRACK_VIEW_ROWS + one_track_row;
 
   for (int i = 0; i < length; i++) {
     char tmp = CHAR_RAM[pos + i];
@@ -31,9 +31,9 @@ void one_track_copy_screen_name_to_view_buffer(void) {
 }
 
 void one_track_view_buffer_set_sound_name(char *name, char nr) {
-  char x = SOUND_BANK_ALIGN_X + (nr / SOUND_BANK_VIEW_ROWS) * SOUND_BANK_FIELD_SIZE;
-  char y = nr % SOUND_BANK_VIEW_ROWS;
-  char length = SOUND_BANK_FIELD_SIZE - 1;
+  char x = ONE_TRACK_ALIGN_X + (nr / ONE_TRACK_VIEW_ROWS) * ONE_TRACK_FIELD_SIZE;
+  char y = nr % ONE_TRACK_VIEW_ROWS;
+  char length = ONE_TRACK_FIELD_SIZE - 1;
 
   int pos = 40 * y + x;
 
@@ -44,9 +44,9 @@ void one_track_view_buffer_set_sound_name(char *name, char nr) {
 
 void one_track_view_buffer_get_sound_name(char *name, char nr) {
   char x =
-      SOUND_BANK_ALIGN_X + (nr / SOUND_BANK_VIEW_ROWS) * SOUND_BANK_FIELD_SIZE;
-  char y = nr % SOUND_BANK_VIEW_ROWS;
-  char length = SOUND_BANK_FIELD_SIZE - 1;
+      ONE_TRACK_ALIGN_X + (nr / ONE_TRACK_VIEW_ROWS) * ONE_TRACK_FIELD_SIZE;
+  char y = nr % ONE_TRACK_VIEW_ROWS;
+  char length = ONE_TRACK_FIELD_SIZE - 1;
 
   int pos = 40 * y + x;
 
