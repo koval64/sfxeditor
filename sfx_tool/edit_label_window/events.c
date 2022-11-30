@@ -8,6 +8,10 @@ char edit_label_window_process_keyboard_events( void ) {
     if ( _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT || _key == KEY_RETURN || \
             _key == KEY_UP || _key == KEY_DOWN ) {
         return TRUE;      // exit main menu
+    } else if ( _key == KEY_RIGHT ) {
+        label_go_right();
+    } else if ( _key == KEY_LEFT ) {
+        label_go_left();
     } else if ( _key == KEY_RESTORE ) {      // restore key as backspace
         label_backspace();
     } else if ( _key >= KEY_A && _key <= KEY_Z ) {   // small letters

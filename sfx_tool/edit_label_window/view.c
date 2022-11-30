@@ -5,6 +5,31 @@ char edit_label_x_min = 0;
 char edit_label_x_max = 0;
 int edit_label_y_pos = 0;
 
+void screen_char_set_normal(void) {
+    int pos = edit_label_y_pos + edit_label_x_pos;
+    if ( CHAR_RAM[ pos ] > 127 ) {
+        CHAR_RAM[ pos ] -= 128;
+    }
+}
+
+void label_go_left(void) {
+    screen_char_set_normal();
+    if (edit_label_x_pos > edit_label_x_min) {
+        edit_label_x_pos--;
+    }
+    if (edit_label_x_pos == (edit_label_x_max-1) ) {
+        screen_char_set_normal();   // fix: set last character to normal
+        edit_label_x_pos--;
+    }
+}
+
+void label_go_right(void) {
+    screen_char_set_normal();
+    if (edit_label_x_pos < edit_label_x_max) {
+        edit_label_x_pos++;
+    }
+}
+
 void label_add_char( byte key ) {
     if ( edit_label_x_pos < edit_label_x_max && edit_label_x_pos < 40 ) {
         // screen char pos put[ key ];
