@@ -41,38 +41,38 @@ void edit_window_fill_buffers_with_values(void) {
 
     // pwm
     unsigned pwm = SIDFXExplosion[0].pwm;
-    edit_window_sfx_properties[16*1+13] = int2hexpetscii[ (pwm >>  8) & 0xf ];
-    edit_window_sfx_properties[16*1+14] = int2hexpetscii[ (pwm >>  4) & 0xf ];
-    edit_window_sfx_properties[16*1+15] = int2hexpetscii[  pwm        & 0x0f];
+    edit_window_sfx_properties[16*1+13] = byte2hexpetscii[ (pwm >>  8) & 0xf ];
+    edit_window_sfx_properties[16*1+14] = byte2hexpetscii[ (pwm >>  4) & 0xf ];
+    edit_window_sfx_properties[16*1+15] = byte2hexpetscii[  pwm        & 0x0f];
 
     // a/d/s/r
-    edit_window_sfx_properties[16*2+15] = int2hexpetscii[ (menu.option[ATTACK_INDEX].value & 0x0f) ];
-    edit_window_sfx_properties[16*3+15] = int2hexpetscii[ (menu.option[DECAY_INDEX ].value & 0x0f) ];
-    edit_window_sfx_properties[16*4+15] = int2hexpetscii[ (menu.option[SUSTAIN_INDEX].value & 0x0f) ];
-    edit_window_sfx_properties[16*5+15] = int2hexpetscii[ (menu.option[RELEASE_INDEX].value & 0x0f) ];
+    edit_window_sfx_properties[16*2+15] = byte2hexpetscii[ (menu.option[ATTACK_INDEX].value & 0x0f) ];
+    edit_window_sfx_properties[16*3+15] = byte2hexpetscii[ (menu.option[DECAY_INDEX ].value & 0x0f) ];
+    edit_window_sfx_properties[16*4+15] = byte2hexpetscii[ (menu.option[SUSTAIN_INDEX].value & 0x0f) ];
+    edit_window_sfx_properties[16*5+15] = byte2hexpetscii[ (menu.option[RELEASE_INDEX].value & 0x0f) ];
 
     // dfreq
     int dfreq = menu.option[DFREQ_INDEX].value;
-    edit_window_sfx_properties[16*6+12] = int2hexpetscii[(dfreq >> 12) & 0x0f];
-    edit_window_sfx_properties[16*6+13] = int2hexpetscii[(dfreq >> 8) & 0x0f];
-    edit_window_sfx_properties[16*6+14] = int2hexpetscii[(dfreq >> 4) & 0x0f];
-    edit_window_sfx_properties[16*6+15] = int2hexpetscii[(dfreq) & 0x0f];
+    edit_window_sfx_properties[16*6+12] = byte2hexpetscii[(dfreq >> 12) & 0x0f];
+    edit_window_sfx_properties[16*6+13] = byte2hexpetscii[(dfreq >> 8) & 0x0f];
+    edit_window_sfx_properties[16*6+14] = byte2hexpetscii[(dfreq >> 4) & 0x0f];
+    edit_window_sfx_properties[16*6+15] = byte2hexpetscii[(dfreq) & 0x0f];
 
     // dpwm
     int dpwm = menu.option[DPWM_INDEX].value;
-    edit_window_sfx_properties[16*7+13] = int2hexpetscii[(dpwm >> 8) & 0x0f];
-    edit_window_sfx_properties[16*7+14] = int2hexpetscii[(dpwm >> 4) & 0x0f];
-    edit_window_sfx_properties[16*7+15] = int2hexpetscii[(dpwm) & 0x0f];
+    edit_window_sfx_properties[16*7+13] = byte2hexpetscii[(dpwm >> 8) & 0x0f];
+    edit_window_sfx_properties[16*7+14] = byte2hexpetscii[(dpwm >> 4) & 0x0f];
+    edit_window_sfx_properties[16*7+15] = byte2hexpetscii[(dpwm) & 0x0f];
 
     // time 1
     char time1 = menu.option[TIME1_INDEX].value;
-    edit_window_sfx_properties[16*8+14] = int2hexpetscii[ time1 >> 4 ];
-    edit_window_sfx_properties[16*8+15] = int2hexpetscii[ time1 & 0x0f];
+    edit_window_sfx_properties[16*8+14] = byte2hexpetscii[ time1 >> 4 ];
+    edit_window_sfx_properties[16*8+15] = byte2hexpetscii[ time1 & 0x0f];
 
     // time 0
     char time0 = menu.option[TIME0_INDEX].value;
-    edit_window_sfx_properties[16*9+14] = int2hexpetscii[ time0 >> 4 ];
-    edit_window_sfx_properties[16*9+15] = int2hexpetscii[ time0 & 0x0f];
+    edit_window_sfx_properties[16*9+14] = byte2hexpetscii[ time0 >> 4 ];
+    edit_window_sfx_properties[16*9+15] = byte2hexpetscii[ time0 & 0x0f];
 
 }
 
@@ -112,7 +112,7 @@ void edit_window_select_default_menu_options() {
     note   = note_index % 12;
 
     // print default octave number
-    edit_window_piano[7] = int2hexpetscii[ octave ];
+    edit_window_piano[7] = byte2hexpetscii[ octave ];
 
     // global variables from "menu_handling.c" file
     prev_octave_position = octaves_color_positions[ octave ];

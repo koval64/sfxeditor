@@ -19,12 +19,13 @@
     // strcpy
 
 // PROJECT INCLUDES
-#include "common/keys.h"
+#include "common/keys.h"                //  key definitions
 #include "common/assets.h"
-#include "common/utils.c"
-#include "common/view_utils.c"
-#include "common/scene_utils.c"
-#include "common/audio.c"
+#include "common/utils.c"               //  null / debug functions
+#include "common/view_utils.c"          //  screen / buffer generic functions
+#include "common/scene_utils.c"         //  scene declaration and managment
+#include "common/audio.h"
+#include "common/audio.c"               //  music notes array and find_note function
 #include "common/sound_bank.c"
 #include "info_window/scene.h"
 #include "edit_window/scene.h"

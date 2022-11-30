@@ -29,9 +29,9 @@ void pwm_menu_change_value(byte direction) {
         else if(direction == OPTION_NEXT)
             menu.option[PWM_INDEX].value += menu.option[PWM_INDEX].step;
         unsigned value = menu.option[PWM_INDEX].value;
-        CHAR_RAM[PWM_DIGITS_POS+0] = int2hexpetscii[ (value >>  8) & 0xf ];
-        CHAR_RAM[PWM_DIGITS_POS+1] = int2hexpetscii[ (value >>  4) & 0xf];
-        CHAR_RAM[PWM_DIGITS_POS+2] = int2hexpetscii[ value & 0x0f];
+        CHAR_RAM[PWM_DIGITS_POS+0] = byte2hexpetscii[ (value >>  8) & 0xf ];
+        CHAR_RAM[PWM_DIGITS_POS+1] = byte2hexpetscii[ (value >>  4) & 0xf];
+        CHAR_RAM[PWM_DIGITS_POS+2] = byte2hexpetscii[ value & 0x0f];
     }
 }
 
@@ -124,7 +124,7 @@ void attack_menu_cycle_step(void) {
     else if(value == 0x02)
       menu.option[ATTACK_INDEX].step = 0x01;
     value = menu.option[ATTACK_INDEX].step;
-    CHAR_RAM[ATTACK_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
+    CHAR_RAM[ATTACK_DIGITS_POS+11] = byte2hexpetscii[ value & 0x0f];
 }
 
 void attack_menu_change_color(byte color) {
@@ -138,7 +138,7 @@ void attack_menu_change_value(byte value) {
         menu.option[ATTACK_INDEX].value += menu.option[ATTACK_INDEX].step;
     }
     menu.option[ATTACK_INDEX].value &= 0xf;
-    CHAR_RAM[ATTACK_DIGITS_POS] = int2hexpetscii[menu.option[ATTACK_INDEX].value];
+    CHAR_RAM[ATTACK_DIGITS_POS] = byte2hexpetscii[menu.option[ATTACK_INDEX].value];
 }
 
 // DECAY MENU
@@ -149,7 +149,7 @@ void decay_menu_cycle_step(void) {
     else if(value == 0x02)
       menu.option[DECAY_INDEX].step = 0x01;
     value = menu.option[DECAY_INDEX].step;
-    CHAR_RAM[DECAY_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
+    CHAR_RAM[DECAY_DIGITS_POS+11] = byte2hexpetscii[ value & 0x0f];
 }
 
 void decay_menu_change_color(byte color) {
@@ -163,7 +163,7 @@ void decay_menu_change_value(byte value) {
         menu.option[DECAY_INDEX].value += menu.option[DECAY_INDEX].step;
     }
     menu.option[DECAY_INDEX].value &= 0xf;
-    CHAR_RAM[DECAY_DIGITS_POS] = int2hexpetscii[menu.option[DECAY_INDEX].value];
+    CHAR_RAM[DECAY_DIGITS_POS] = byte2hexpetscii[menu.option[DECAY_INDEX].value];
 }
 
 // SUSTAIN MENU
@@ -174,7 +174,7 @@ void sustain_menu_cycle_step(void) {
     else if(value == 0x02)
       menu.option[SUSTAIN_INDEX].step = 0x01;
     value = menu.option[SUSTAIN_INDEX].step;
-    CHAR_RAM[SUSTAIN_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
+    CHAR_RAM[SUSTAIN_DIGITS_POS+11] = byte2hexpetscii[ value & 0x0f];
 }
 
 void sustain_menu_change_color(byte color) {
@@ -188,7 +188,7 @@ void sustain_menu_change_value(byte value) {
         menu.option[SUSTAIN_INDEX].value += menu.option[SUSTAIN_INDEX].step;
     }
     menu.option[SUSTAIN_INDEX].value &= 0xf;
-    CHAR_RAM[SUSTAIN_DIGITS_POS] = int2hexpetscii[menu.option[SUSTAIN_INDEX].value];
+    CHAR_RAM[SUSTAIN_DIGITS_POS] = byte2hexpetscii[menu.option[SUSTAIN_INDEX].value];
 }
 
 // RELEASE MENU
@@ -199,7 +199,7 @@ void release_menu_cycle_step(void) {
     else if(value == 0x02)
       menu.option[RELEASE_INDEX].step = 0x01;
     value = menu.option[RELEASE_INDEX].step;
-    CHAR_RAM[RELEASE_DIGITS_POS+11] = int2hexpetscii[ value & 0x0f];
+    CHAR_RAM[RELEASE_DIGITS_POS+11] = byte2hexpetscii[ value & 0x0f];
 }
 
 void release_menu_change_color(byte color) {
@@ -213,7 +213,7 @@ void release_menu_change_value(byte value) {
         menu.option[RELEASE_INDEX].value += menu.option[RELEASE_INDEX].step;
     }
     menu.option[RELEASE_INDEX].value &= 0xf;
-    CHAR_RAM[RELEASE_DIGITS_POS] = int2hexpetscii[menu.option[RELEASE_INDEX].value];
+    CHAR_RAM[RELEASE_DIGITS_POS] = byte2hexpetscii[menu.option[RELEASE_INDEX].value];
 }
 
 // DFREQ MENU
@@ -245,10 +245,10 @@ void dfreq_menu_change_value(byte diff) {
     else if(diff == OPTION_NEXT)
         menu.option[DFREQ_INDEX].value += menu.option[DFREQ_INDEX].step;
     int value = menu.option[DFREQ_INDEX].value;
-    CHAR_RAM[DFREQ_DIGITS_POS+0] = int2hexpetscii[(value >> 12) & 0x0f];
-    CHAR_RAM[DFREQ_DIGITS_POS+1] = int2hexpetscii[(value >> 8) & 0x0f];
-    CHAR_RAM[DFREQ_DIGITS_POS+2] = int2hexpetscii[(value >> 4) & 0x0f];
-    CHAR_RAM[DFREQ_DIGITS_POS+3] = int2hexpetscii[(value) & 0x0f];
+    CHAR_RAM[DFREQ_DIGITS_POS+0] = byte2hexpetscii[(value >> 12) & 0x0f];
+    CHAR_RAM[DFREQ_DIGITS_POS+1] = byte2hexpetscii[(value >> 8) & 0x0f];
+    CHAR_RAM[DFREQ_DIGITS_POS+2] = byte2hexpetscii[(value >> 4) & 0x0f];
+    CHAR_RAM[DFREQ_DIGITS_POS+3] = byte2hexpetscii[(value) & 0x0f];
 }
 
 // DPWM MENU
@@ -279,9 +279,9 @@ void dpwm_menu_change_value(byte diff) {
     else if(diff == OPTION_NEXT)
         menu.option[DPWM_INDEX].value += menu.option[DPWM_INDEX].step;
     int value = menu.option[DPWM_INDEX].value;
-    CHAR_RAM[DPWM_DIGITS_POS+0] = int2hexpetscii[(value >> 8) & 0x0f];
-    CHAR_RAM[DPWM_DIGITS_POS+1] = int2hexpetscii[(value >> 4) & 0x0f];
-    CHAR_RAM[DPWM_DIGITS_POS+2] = int2hexpetscii[(value) & 0x0f];
+    CHAR_RAM[DPWM_DIGITS_POS+0] = byte2hexpetscii[(value >> 8) & 0x0f];
+    CHAR_RAM[DPWM_DIGITS_POS+1] = byte2hexpetscii[(value >> 4) & 0x0f];
+    CHAR_RAM[DPWM_DIGITS_POS+2] = byte2hexpetscii[(value) & 0x0f];
 }
 
 // TIME 1 MENU
@@ -310,8 +310,8 @@ void time1_menu_change_value(byte value) {
     else if(value == OPTION_NEXT)
         menu.option[TIME1_INDEX].value += menu.option[TIME1_INDEX].step;
     value = menu.option[TIME1_INDEX].value;
-    CHAR_RAM[TIME1_DIGITS_POS+0] = int2hexpetscii[ value >> 4 ];
-    CHAR_RAM[TIME1_DIGITS_POS+1] = int2hexpetscii[ value & 0x0f];
+    CHAR_RAM[TIME1_DIGITS_POS+0] = byte2hexpetscii[ value >> 4 ];
+    CHAR_RAM[TIME1_DIGITS_POS+1] = byte2hexpetscii[ value & 0x0f];
 }
 
 // TIME 0 MENU
@@ -339,7 +339,7 @@ void time0_menu_change_value(byte value) {
     else if(value == OPTION_NEXT)
         menu.option[TIME0_INDEX].value += menu.option[TIME0_INDEX].step;
     value = menu.option[TIME0_INDEX].value;
-    CHAR_RAM[TIME0_DIGITS_POS+0] = int2hexpetscii[ value >> 4 ];
-    CHAR_RAM[TIME0_DIGITS_POS+1] = int2hexpetscii[ value & 0x0f];
+    CHAR_RAM[TIME0_DIGITS_POS+0] = byte2hexpetscii[ value >> 4 ];
+    CHAR_RAM[TIME0_DIGITS_POS+1] = byte2hexpetscii[ value & 0x0f];
 }
 

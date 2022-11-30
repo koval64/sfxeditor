@@ -3,46 +3,46 @@
 void sound_effect_info_fill_buffer(void) {
 
     int freq = SIDFXExplosion[0].freq;
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+8] = int2hexpetscii[ (freq >> 12) & 0x0f];
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+9] = int2hexpetscii[ (freq >>  8) & 0x0f];
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+10] = int2hexpetscii[ (freq >>  4) & 0x0f];
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+11] = int2hexpetscii[ freq & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (freq >> 12) & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ (freq >>  8) & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+10] = byte2hexpetscii[ (freq >>  4) & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+11] = byte2hexpetscii[ freq & 0x0f];
 
     unsigned pwm = SIDFXExplosion[0].pwm;
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+17] = int2hexpetscii[ (pwm >>  8) & 0x0f];
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+18] = int2hexpetscii[ (pwm >>  4) & 0x0f];
-    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+19] = int2hexpetscii[ pwm & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+17] = byte2hexpetscii[ (pwm >>  8) & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+18] = byte2hexpetscii[ (pwm >>  4) & 0x0f];
+    sound_effect_info_ascii[3*SOUND_EFFECT_INFO_WIDTH+19] = byte2hexpetscii[ pwm & 0x0f];
 
     int ctrl = SIDFXExplosion[0].ctrl;
-    sound_effect_info_ascii[4*SOUND_EFFECT_INFO_WIDTH+8] = int2hexpetscii[ (ctrl >>  4) & 0x0f];
-    sound_effect_info_ascii[4*SOUND_EFFECT_INFO_WIDTH+9] = int2hexpetscii[ ctrl & 0x0f];
+    sound_effect_info_ascii[4*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (ctrl >>  4) & 0x0f];
+    sound_effect_info_ascii[4*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ ctrl & 0x0f];
 
     char ad = SIDFXExplosion[0].attdec;
     char sr = SIDFXExplosion[0].susrel;
-    sound_effect_info_ascii[5*SOUND_EFFECT_INFO_WIDTH+8] = int2hexpetscii[ (ad >> 4) & 0x0f ];
-    sound_effect_info_ascii[5*SOUND_EFFECT_INFO_WIDTH+9] = int2hexpetscii[ ad & 0x0f ];
-    sound_effect_info_ascii[6*SOUND_EFFECT_INFO_WIDTH+8] = int2hexpetscii[ (sr >> 4) & 0x0f ];
-    sound_effect_info_ascii[6*SOUND_EFFECT_INFO_WIDTH+9] = int2hexpetscii[ sr & 0x0f ];
+    sound_effect_info_ascii[5*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (ad >> 4) & 0x0f ];
+    sound_effect_info_ascii[5*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ ad & 0x0f ];
+    sound_effect_info_ascii[6*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (sr >> 4) & 0x0f ];
+    sound_effect_info_ascii[6*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ sr & 0x0f ];
 
     int dfreq = SIDFXExplosion[0].dfreq;
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+8] = int2hexpetscii[ (dfreq >> 12) & 0x0f];
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+9] = int2hexpetscii[ (dfreq >>  8) & 0x0f];
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+10] = int2hexpetscii[ (dfreq >>  4) & 0x0f];
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+11] = int2hexpetscii[ dfreq & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (dfreq >> 12) & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ (dfreq >>  8) & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+10] = byte2hexpetscii[ (dfreq >>  4) & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+11] = byte2hexpetscii[ dfreq & 0x0f];
 
     int dpwm = SIDFXExplosion[0].dpwm;
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+16] = int2hexpetscii[ (dpwm >> 12) & 0x0f];
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+17] = int2hexpetscii[ (dpwm >>  8) & 0x0f];
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+18] = int2hexpetscii[ (dpwm >>  4) & 0x0f];
-    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+19] = int2hexpetscii[ dpwm & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+16] = byte2hexpetscii[ (dpwm >> 12) & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+17] = byte2hexpetscii[ (dpwm >>  8) & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+18] = byte2hexpetscii[ (dpwm >>  4) & 0x0f];
+    sound_effect_info_ascii[7*SOUND_EFFECT_INFO_WIDTH+19] = byte2hexpetscii[ dpwm & 0x0f];
 
     char time1 = SIDFXExplosion[0].time1;
-    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+8] = int2hexpetscii[ (time1 >>  4) & 0x0f];
-    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+9] = int2hexpetscii[ time1 & 0x0f];
+    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (time1 >>  4) & 0x0f];
+    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ time1 & 0x0f];
 
     char time0 = SIDFXExplosion[0].time0;
-    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+16] = int2hexpetscii[ (time0 >>  4) & 0x0f];
-    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+17] = int2hexpetscii[ time0 & 0x0f];
+    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+16] = byte2hexpetscii[ (time0 >>  4) & 0x0f];
+    sound_effect_info_ascii[8*SOUND_EFFECT_INFO_WIDTH+17] = byte2hexpetscii[ time0 & 0x0f];
 }
 
 void sound_effect_info_show(void) {
