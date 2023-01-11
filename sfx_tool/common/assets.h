@@ -1,32 +1,42 @@
 
+// RETURN STATUSES
+#define NO_OPERATION        0
+#define SWITCH_WINDOW       1
+#define REFRESH_SCENE       2
+
 // HELPERS
+#define TRUE                 1
+#define FALSE                0
+#define SCREEN_CHAR_WIDTH   40
 #define CHAR_RAM            ((byte *)0x0400)
 #define COLOR_RAM           ((byte *)0xd800)
-#define SCREEN_CHAR_WIDTH   40
-#define FALSE                0
-#define TRUE                 1
 
-// SCENES ID
+// SCENE ID'S
 #define EDIT_WINDOW         0
 #define INFO_WINDOW         1
 #define SOUND_BANK_WINDOW   2
 #define LOADER_WINDOW       3
 #define EDIT_LABEL_WINDOW   4
 #define ONE_TRACK_WINDOW    5
-#define SCENES_COUNT        6
+#define TWO_COLUMNS_WINDOW  6
+#define ONE_TRACK_ULTIMATE  7
+#define SCENES_COUNT        8
 
 // MENU COLOR SETTINGS
 #define OPTION_ON_COLOR             VCOL_DARK_GREY
 #define OPTION_ON_SELECTED_COLOR    VCOL_LT_GREY
 #define OPTION_OFF_COLOR            VCOL_BLACK
 
-#define SFX_NAME_LEN        12
-#define SFX_COUNT           48
+#define SOUND_BANK_FIELD_SIZE   13
+#define SOUND_NAME_LENGTH       12
+#define TRACK_LENGTH            16
+#define MULTITRACK_LENGTH        0
+#define SFX_COUNT               48
 
 struct ARGV {
-    char cp0;
-    char cp1;
-    char cp2;
+    char cp0;       // char parameter 0
+    char cp1;       // char parameter 1
+    char cp2;       // char parameter 2
 };
 
 extern struct ARGV argv;

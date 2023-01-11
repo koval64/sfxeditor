@@ -45,7 +45,7 @@ void update_vertical_menu( char direction ) {
 void update_horizontal_menu( char direction ) {
     menu.option[menu.index].change_value (direction);     // direction = 1 - left, 3 - right
     update_sidfx_struct();
-    sidfx_play(1, SIDFXExplosion, 1);
+    sidfx_play(1, SIDFXClipboard, 1);
 }
 
 void horizontal_menu_cycle_step(void) {

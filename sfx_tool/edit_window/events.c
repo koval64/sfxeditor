@@ -1,5 +1,6 @@
 
 // menu helpers - global variables used only here
+#include "c64/keyboard.h"
 int prevx = 0;
 int prevy = 0;
 int prevb = 0;
@@ -113,19 +114,19 @@ char edit_window_process_keyboard_events() {
         octave = 84;
         OCTAVE_MENU_DIGIT_ADDR[0] = '7';
         select_new_octave(OCTAVE_7_X_COLOR_POSITION);
-    } else if(_key == 145 ) {   // cursor up
+    } else if(_key == KEY_UP ) {        // cursor up
         update_vertical_menu( MENU_UP );
         play = FALSE;
-    } else if(_key == 17 ) {    // cursor down
+    } else if(_key == KEY_DOWN ) {      // cursor down
         update_vertical_menu( MENU_DOWN );
         play = FALSE;
-    } else if(_key == 157 ) {   // cursor left
+    } else if(_key == KEY_LEFT ) {      // cursor left
         update_horizontal_menu( OPTION_PREVIOUS );
         play = FALSE;
-    } else if(_key == 29 ) {    // cursor right
+    } else if(_key == KEY_RIGHT ) {     // cursor right
         update_horizontal_menu( OPTION_NEXT );
         play = FALSE;
-    } else if(_key == 13 ) {    // enter
+    } else if(_key == KEY_RETURN ) {
         menu.option[menu.index].change_step ();     // 1 - left, 3 - right
         play = FALSE;
     } else
@@ -135,8 +136,8 @@ char edit_window_process_keyboard_events() {
         int sum = octave + note;
         if( sum < 96) {
             int freq = notes_pal_table[ sum ];
-            SIDFXExplosion[0].freq = freq;
-            sidfx_play(2, SIDFXExplosion, 1);
+            SIDFXClipboard[0].freq = freq;
+            sidfx_play(2, SIDFXClipboard, 1);
         }
     }
     return FALSE;
@@ -161,7 +162,7 @@ void edit_window_process_joystick_events( void ) {
 
     if ( joyb[0] != prevb ) {
         if( joyb[0] == 1 )
-          sidfx_play(0, SIDFXExplosion, 1);
+          sidfx_play(0, SIDFXClipboard, 1);
         prevb = joyb[0];
     }
 }

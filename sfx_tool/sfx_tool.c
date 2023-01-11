@@ -1,5 +1,6 @@
 
 #include "sfx_tool.h"
+#include "audio/sidfx.h"
 
 // maybe create struct VAULT ???
 
@@ -49,22 +50,38 @@ void scene_tree_assign_pointers(void) {
             null,
             edit_label_window_mainloop );
     set_scene_pointers( ONE_TRACK_WINDOW,
-            one_track_window_init,
-            one_track_window_mainloop );
+            null,
+            null );
+    set_scene_pointers( TWO_COLUMNS_WINDOW,
+            null,
+            null );
+    set_scene_pointers( ONE_TRACK_ULTIMATE,
+            one_track_ultimate_window_init,
+            one_track_ultimate_window_mainloop );
 }
 
 void project_init( void ) {
 
-    sound_bank_init();
+    init_sfx_structure(sound_bank, SFX_COUNT);
+    init_sfx_structure(one_track, TRACK_LENGTH);
     scene_tree_assign_pointers();
 
+    //
+    // to rethink - refactor needed
+    //
     // necessary one time inits
-    for( int i=0; i<SCENES_COUNT; i++ )
-        scene_tree.scene[ i ].init();
+    /* for( int i=0; i<SCENES_COUNT; i++ ) */
+    /*     scene_tree.scene[ i ].init(); */
+    edit_window_init();
 
     // since active_scene pointers are initialized with null function
     // it works as main scene initial activation
-    change_main_scene_to( ONE_TRACK_WINDOW );
+    change_main_scene_to( ONE_TRACK_ULTIMATE );
+    // change_main_scene_to( TWO_COLUMNS_WINDOW );
+
+    // init scene
+    scene_tree.scene[ scene_tree.active_scene_id ].init();
+    /* sound_bank_window_init(); */
     
 }
 

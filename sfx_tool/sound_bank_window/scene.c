@@ -7,13 +7,13 @@ void sound_bank_window_init(void) {
     clear_buffer();
 
     // sounds names
-    init_view_buffer();
+    sound_bank_window_init_view_buffer();
 
     // horizontal rule
-    win_put_at_buffer( (char *)sound_bank_view_hr, 0, 17, 40, 1 );
+    win_put_at_buffer( (char *)sound_bank_window_view_hr, 0, 17, 40, 1 );
 
     // options
-    win_put_at_buffer( (char *)sound_bank_view_menu_options, 11, 19, 18, 4 );
+    win_put_at_buffer( (char *)sound_bank_window_view_menu_options, 11, 19, 18, 4 );
 
 }
 

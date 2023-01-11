@@ -19,7 +19,7 @@
     // strcpy
 
 // PROJECT INCLUDES
-#include "common/keys.h"                //  key definitions
+#include "common/keys.h"                //  keys definitions
 #include "common/assets.h"
 #include "common/utils.c"               //  null / debug functions
 #include "common/view_utils.c"          //  screen / buffer generic functions
@@ -29,8 +29,10 @@
 #include "common/sound_bank.c"
 #include "info_window/scene.h"
 #include "edit_window/scene.h"
-#include "sound_bank_window/scene.h"
+/* #include "sound_bank_window/scene.h" */
+#include "two_columns_window/scene.h"
 #include "one_track_window/scene.h"
+#include "one_track_ultimate/scene.h"   // merges "two_columns_window" and "one_track_window" scenes
 #include "sound_bank_loader_window/scene.h"
 #include "edit_label_window/scene.h"
 

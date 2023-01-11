@@ -1,5 +1,5 @@
 
-#include "view_data.h"
+#include "view_data.c"
 #include "assets.h"
 #include "audio.c"
 

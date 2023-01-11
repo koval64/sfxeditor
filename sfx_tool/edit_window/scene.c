@@ -49,9 +49,5 @@ void edit_window_mainloop(void) {
         vic_waitFrame();
     }
 
-    // as well can be done in keyboard events loop
-    // set next scene
-    change_main_scene_to( ONE_TRACK_WINDOW );
-
 }
 

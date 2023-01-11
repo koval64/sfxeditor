@@ -40,7 +40,7 @@ void edit_window_fill_buffers_with_values(void) {
     edit_window_update_buffer_wave_name();
 
     // pwm
-    unsigned pwm = SIDFXExplosion[0].pwm;
+    unsigned pwm = SIDFXClipboard[0].pwm;
     edit_window_sfx_properties[16*1+13] = byte2hexpetscii[ (pwm >>  8) & 0xf ];
     edit_window_sfx_properties[16*1+14] = byte2hexpetscii[ (pwm >>  4) & 0xf ];
     edit_window_sfx_properties[16*1+15] = byte2hexpetscii[  pwm        & 0x0f];
@@ -105,7 +105,7 @@ void edit_window_select_default_menu_options() {
     menu.option[menu.index].change_color (OPTION_ON_SELECTED_COLOR);
 
     // find note index
-    byte note_index = find_note( SIDFXExplosion[0].freq );
+    byte note_index = find_note( SIDFXClipboard[0].freq );
 
     // global variables from "events.c" file
     octave = note_index / 12;

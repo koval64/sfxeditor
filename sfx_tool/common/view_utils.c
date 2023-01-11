@@ -1,4 +1,11 @@
 
+void vertical_line(int pos) {
+    for (char i=0; i<24; i++) {
+        char_ram_buffer[pos] = 0x5d;
+        pos += 40;
+    }
+}
+
 // copy buffer data to screen
 void swap_buffer(void) {
 
@@ -20,7 +27,8 @@ void clear_buffer(void) {
     }
 
 }
-// clear screen
+
+// clear screen data and color
 void clear_screen(char color) {
 
     // clear char and color RAM

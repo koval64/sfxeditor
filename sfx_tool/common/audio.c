@@ -25,3 +25,15 @@ char find_note( unsigned hex_freq ) {
 
 }
 
+void hello_world_fill_sfx_struct_generic( struct SIDFX * sidfx ) {
+    sidfx->freq   = 0x0685;
+    sidfx->pwm    = 0x100;
+    sidfx->ctrl   = SID_CTRL_GATE | SID_CTRL_RECT;
+    sidfx->attdec = SID_ATK_2 | SID_DKY_1500;
+    sidfx->susrel = 0xf0 | SID_DKY_1500;
+    sidfx->dfreq  = 0;
+    sidfx->dpwm   = 0;
+    sidfx->time1  = 8;
+    sidfx->time0  = 8;
+}
+

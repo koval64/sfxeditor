@@ -9,13 +9,13 @@ char sound_bank_window_process_keyboard_events( void ) {
 
     if ( _key == 'e' || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT) {
         return TRUE;      // exit main menu
-    } else if( _key == KEY_UP || _key == 'k' ) {    // cursor up
+    } else if( _key == KEY_UP || _key == 'i' ) {    // cursor up
         sound_bank_window_go_up();
         play = TRUE;
-    } else if( _key == KEY_DOWN || _key == 'j' )  {    // cursor down
+    } else if( _key == KEY_DOWN || _key == 'k' )  {    // cursor down
         sound_bank_window_go_down();
         play = TRUE;
-    } else if( _key == KEY_LEFT || _key == 'h' ) {    // cursor left
+    } else if( _key == KEY_LEFT || _key == 'j' ) {    // cursor left
         sound_bank_window_go_left();
         play = TRUE;
     } else if( _key == KEY_RIGHT || _key == 'l' )  {    // cursor right
@@ -23,19 +23,13 @@ char sound_bank_window_process_keyboard_events( void ) {
         play = TRUE;
     } else if( _key == KEY_RETURN || _key == KEY_SPACE )  {    // return
         play = TRUE;
-    } else if( _key == 'i' ) {
+    } else if( _key == 's' ) {
         run_as_child( INFO_WINDOW );
     } else if( _key == 'b' ) {
 
         run_as_child( LOADER_WINDOW );
-
-        if ( argv.cp0 == TRUE ) {   // loaded new file; refresh screen
-                                    //
-            // copy buffer data (view) to screen
-            swap_buffer();
-
-            // select default menu option
-            sound_bank_window_select_option();
+        if (argv.cp0 == TRUE) {   // loaded new file; refresh screen
+            sound_bank_window_refresh_screen();
         }
 
     } else if( _key == 'r' ) {
@@ -54,14 +48,14 @@ char sound_bank_window_process_keyboard_events( void ) {
         run_as_child( EDIT_LABEL_WINDOW );
 
         // save new sound name to buffer
-        copy_screen_name_to_view_buffer();
+        sound_bank_window_copy_screen_name_to_view_buffer();
 
         // edition done, invert label
         sound_bank_window_option_invert_text();
     }
 
     if ( play )
-        sidfx_play(2, SIDFXExplosion, 1);
+        sidfx_play(2, SIDFXClipboard, 1);
 
     return FALSE;
 }
