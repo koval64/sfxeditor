@@ -2,45 +2,45 @@
 
 void exporter_fill_txt_template(void) {
 
-    int freq = SIDFXClipboard[0].freq;
+    int freq = SIDFXFocus[0].freq;
     exporter_txt_template[30] = byte2hexascii[ (freq >> 12) & 0x0f];
     exporter_txt_template[31] = byte2hexascii[ (freq >>  8) & 0x0f];
     exporter_txt_template[32] = byte2hexascii[ (freq >>  4) & 0x0f];
     exporter_txt_template[33] = byte2hexascii[ freq & 0x0f];
 
-    unsigned pwm = SIDFXClipboard[0].pwm;
+    unsigned pwm = SIDFXFocus[0].pwm;
     exporter_txt_template[39] = byte2hexascii[ (pwm >>  8) & 0x0f];
     exporter_txt_template[40] = byte2hexascii[ (pwm >>  4) & 0x0f];
     exporter_txt_template[41] = byte2hexascii[ pwm & 0x0f];
 
-    int ctrl = SIDFXClipboard[0].ctrl;
+    int ctrl = SIDFXFocus[0].ctrl;
     exporter_txt_template[50] = byte2hexascii[ (ctrl >>  4) & 0x0f];
     exporter_txt_template[51] = byte2hexascii[ ctrl & 0x0f];
 
-    char ad = SIDFXClipboard[0].attdec;
-    char sr = SIDFXClipboard[0].susrel;
+    char ad = SIDFXFocus[0].attdec;
+    char sr = SIDFXFocus[0].susrel;
     exporter_txt_template[60] = byte2hexascii[ (ad >> 4) & 0x0f ];
     exporter_txt_template[61] = byte2hexascii[ ad & 0x0f ];
     exporter_txt_template[70] = byte2hexascii[ (sr >> 4) & 0x0f ];
     exporter_txt_template[71] = byte2hexascii[ sr & 0x0f ];
 
-    int dfreq = SIDFXClipboard[0].dfreq;
+    int dfreq = SIDFXFocus[0].dfreq;
     exporter_txt_template[80] = byte2hexascii[ (dfreq >> 12) & 0x0f];
     exporter_txt_template[81] = byte2hexascii[ (dfreq >>  8) & 0x0f];
     exporter_txt_template[82] = byte2hexascii[ (dfreq >>  4) & 0x0f];
     exporter_txt_template[83] = byte2hexascii[ dfreq & 0x0f];
 
-    int dpwm = SIDFXClipboard[0].dpwm;
+    int dpwm = SIDFXFocus[0].dpwm;
     exporter_txt_template[88] = byte2hexascii[ (dpwm >> 12) & 0x0f];
     exporter_txt_template[89] = byte2hexascii[ (dpwm >>  8) & 0x0f];
     exporter_txt_template[90] = byte2hexascii[ (dpwm >>  4) & 0x0f];
     exporter_txt_template[91] = byte2hexascii[ dpwm & 0x0f];
 
-    char time1 = SIDFXClipboard[0].time1;
+    char time1 = SIDFXFocus[0].time1;
     exporter_txt_template[100] = byte2hexascii[ (time1 >>  4) & 0x0f];
     exporter_txt_template[101] = byte2hexascii[ time1 & 0x0f];
 
-    char time0 = SIDFXClipboard[0].time0;
+    char time0 = SIDFXFocus[0].time0;
     exporter_txt_template[106] = byte2hexascii[ (time0 >>  4) & 0x0f];
     exporter_txt_template[107] = byte2hexascii[ time0 & 0x0f];
 

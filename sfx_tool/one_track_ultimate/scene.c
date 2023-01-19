@@ -6,10 +6,11 @@ void one_track_ultimate_window_init(void) {
     // clear buffer
     clear_buffer();
 
-    // sounds names
-    one_track_window_init_view_buffer();
-    two_columns_window_init_view_buffer();
+    // fill screen buffer with sounds names
+    // from scenes "one track window" and "two_columns_window"
+    one_track_ultimate_window_refresh_screen();
 
+    // decorate
     vertical_line(13);
 
     // options help
@@ -26,7 +27,7 @@ void one_track_ultimate_window_show(void) {
     swap_buffer();
 
     // select default menu options
-    refresh_scene(DEFAULT_SUBSCENE_INDEX);
+    focus_window(DEFAULT_SUBSCENE_INDEX);
 }
 
 void one_track_ultimate_window_mainloop(void) {
@@ -49,10 +50,13 @@ void one_track_ultimate_window_mainloop(void) {
                 index++;
                 if (index > 1)
                     index = 0;
+                focus_window(index);
             } else if (status == REFRESH_SCENE) {
                 one_track_ultimate_window_refresh_screen();
+                focus_window(index);
+            } else if (status == COPY_SOUND_FROM_TWO_COLUMNS_TO_ONE_TRACK) {
+                copy_sfx_to_sfx( one_track_window_get_sound_pointer(), two_columns_window_get_sound_pointer() );
             }
-            refresh_scene(index);
         }
 
         // Update sound effects

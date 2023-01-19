@@ -1,69 +1,66 @@
 
-unsigned two_columns_window_calculate_pos_48(void) {
-  return (TWO_COLUMNS_ALIGN_Y + two_columns_row) * 40 +
-         (two_columns_column * TWO_COLUMNS_FIELD_SIZE) + TWO_COLUMNS_ALIGN_X;
+byte two_columns_window_get_current_sound_index(void) {
+  return two_columns_column * TWO_COLUMNS_VIEW_ROWS + two_columns_row;
 }
 
-void two_columns_window_option_normal_text(void) {
-  unsigned pos = two_columns_window_calculate_pos_48();
-  for (int i = 0; i < SOUND_NAME_LENGTH; i++) {
-    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] & 127;
+struct SFX * two_columns_window_get_sound_pointer(void) {
+  return & sound_bank[ two_columns_window_get_current_sound_index() ];
+}
+
+void two_columns_window_option(byte decorator)
+{
+  unsigned pos = (TWO_COLUMNS_ALIGN_Y + two_columns_row) * 40 + (two_columns_column * TWO_COLUMNS_FIELD_SIZE) + TWO_COLUMNS_ALIGN_X;
+
+  if (decorator == NORMAL)
+  {
+    normal_text(pos);
+  }
+  else if (decorator == INVERT)
+  {
+    invert_text(pos);
+  }
+  else if (decorator == SELECT)
+  {
+    select_invert_text(pos);
+    sound_focus_load_sound_from( two_columns_window_get_sound_pointer() );
+  }
+  else if (decorator == DESELECT)
+  {
+    deselect_normal_text(pos);
   }
 }
 
-void two_columns_window_option_invert_text(void) {
-  unsigned pos = two_columns_window_calculate_pos_48();
-  for (int i = 0; i < SOUND_NAME_LENGTH; i++) {
-    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] | 128;
+void two_columns_window_go(byte direction)
+{
+
+  // deselect previous option
+  two_columns_window_option(DESELECT);
+
+  if (direction == LEFT)
+  {
+    two_columns_column -= 1;
+    if (two_columns_column > TWO_COLUMNS_VIEW_COLUMNS)
+      two_columns_column = TWO_COLUMNS_VIEW_COLUMNS - 1;
   }
-}
-
-void two_columns_window_deselect_option(void) {
-  unsigned pos = two_columns_window_calculate_pos_48();
-  for (int i = 0; i < SOUND_NAME_LENGTH; i++) {
-    COLOR_RAM[pos + i] = OPTION_ON_COLOR;
-    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] & 127;
+  else if (direction == RIGHT)
+  {
+    two_columns_column += 1;
+    if (two_columns_column == TWO_COLUMNS_VIEW_COLUMNS)
+      two_columns_column = 0;
   }
-}
-
-void two_columns_window_select_option(void) {
-  unsigned pos = two_columns_window_calculate_pos_48();
-  for (int i = 0; i < SOUND_NAME_LENGTH; i++) {
-    COLOR_RAM[pos + i] = OPTION_ON_SELECTED_COLOR;
-    CHAR_RAM[pos + i] = CHAR_RAM[pos + i] | 128;
+  else if (direction == UP)
+  {
+    two_columns_row -= 1;
+    if (two_columns_row > TWO_COLUMNS_VIEW_ROWS)
+      two_columns_row = TWO_COLUMNS_VIEW_ROWS - 1;
   }
-  byte index = two_columns_column * TWO_COLUMNS_VIEW_ROWS + two_columns_row;
-  store_sfx_to_clipboard( & sound_bank[index] );
-}
+  else if (direction == DOWN)
+  {
+    two_columns_row += 1;
+    if (two_columns_row == TWO_COLUMNS_VIEW_ROWS)
+      two_columns_row = 0;
+  }
 
-void two_columns_window_go_left(void) {
-  two_columns_window_deselect_option();
-  two_columns_column -= 1;
-  if (two_columns_column > TWO_COLUMNS_VIEW_COLUMNS)
-    two_columns_column = TWO_COLUMNS_VIEW_COLUMNS-1;
-  two_columns_window_select_option();
-}
-
-void two_columns_window_go_right(void) {
-  two_columns_window_deselect_option();
-  two_columns_column += 1;
-  if (two_columns_column == TWO_COLUMNS_VIEW_COLUMNS)
-    two_columns_column = 0;
-  two_columns_window_select_option();
-}
-
-void two_columns_window_go_up(void) {
-  two_columns_window_deselect_option();
-  two_columns_row -= 1;
-  if (two_columns_row > TWO_COLUMNS_VIEW_ROWS)
-    two_columns_row = TWO_COLUMNS_VIEW_ROWS-1;
-  two_columns_window_select_option();
-}
-
-void two_columns_window_go_down(void) {
-  two_columns_window_deselect_option();
-  two_columns_row += 1;
-  if (two_columns_row == TWO_COLUMNS_VIEW_ROWS)
-    two_columns_row = 0;
-  two_columns_window_select_option();
+  // select new option
+  two_columns_window_option(SELECT);
 }

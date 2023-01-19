@@ -1,13 +1,13 @@
 
-void refresh_scene(byte index) {
+void focus_window(byte index) {
     if (index == 0) {
-        one_track_window_deselect_option();
-        one_track_window_option_invert_text();
-        two_columns_window_select_option();
+        one_track_window_option(DESELECT);
+        one_track_window_option(INVERT);
+        two_columns_window_option(SELECT);
     } else if (index == 1) {
-        two_columns_window_deselect_option();
-        two_columns_window_option_invert_text();
-        one_track_window_select_option();
+        two_columns_window_option(DESELECT);
+        two_columns_window_option(INVERT);
+        one_track_window_option(SELECT);
     }
 }
 

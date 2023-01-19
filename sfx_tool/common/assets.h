@@ -1,8 +1,21 @@
 
-// RETURN STATUSES
-#define NO_OPERATION        0
-#define SWITCH_WINDOW       1
-#define REFRESH_SCENE       2
+// RETURN STATUSES ( ACTIONS )
+#define NO_OPERATION                                0
+#define SWITCH_WINDOW                               1
+#define REFRESH_SCENE                               2
+#define COPY_SOUND_FROM_TWO_COLUMNS_TO_ONE_TRACK    3
+
+// DIRECTIONS
+#define LEFT                1
+#define RIGHT               2
+#define UP                  4
+#define DOWN                8
+
+// TEXT DECORATORS
+#define NORMAL              1
+#define INVERT              2
+#define SELECT              4
+#define DESELECT            8
 
 // HELPERS
 #define TRUE                 1
@@ -20,7 +33,8 @@
 #define ONE_TRACK_WINDOW    5
 #define TWO_COLUMNS_WINDOW  6
 #define ONE_TRACK_ULTIMATE  7
-#define SCENES_COUNT        8
+#define OPTIONS_WINDOW      8
+#define SCENES_COUNT        9
 
 // MENU COLOR SETTINGS
 #define OPTION_ON_COLOR             VCOL_DARK_GREY
@@ -34,9 +48,10 @@
 #define SFX_COUNT               48
 
 struct ARGV {
-    char cp0;       // char parameter 0
-    char cp1;       // char parameter 1
-    char cp2;       // char parameter 2
+    char xpos;
+    char ypos;
+    char length;
+    char * output_text_save_pointer;
 };
 
 extern struct ARGV argv;

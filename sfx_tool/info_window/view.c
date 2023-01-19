@@ -2,45 +2,45 @@
 // fill view buffer
 void sound_effect_info_window_fill_buffer(void) {
 
-    int freq = SIDFXClipboard[0].freq;
+    int freq = SIDFXFocus[0].freq;
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (freq >> 12) & 0x0f];
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ (freq >>  8) & 0x0f];
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+10] = byte2hexpetscii[ (freq >>  4) & 0x0f];
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+11] = byte2hexpetscii[ freq & 0x0f];
 
-    unsigned pwm = SIDFXClipboard[0].pwm;
+    unsigned pwm = SIDFXFocus[0].pwm;
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+17] = byte2hexpetscii[ (pwm >>  8) & 0x0f];
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+18] = byte2hexpetscii[ (pwm >>  4) & 0x0f];
     sound_effect_info_window_view[3*SOUND_EFFECT_INFO_WIDTH+19] = byte2hexpetscii[ pwm & 0x0f];
 
-    int ctrl = SIDFXClipboard[0].ctrl;
+    int ctrl = SIDFXFocus[0].ctrl;
     sound_effect_info_window_view[4*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (ctrl >>  4) & 0x0f];
     sound_effect_info_window_view[4*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ ctrl & 0x0f];
 
-    char ad = SIDFXClipboard[0].attdec;
-    char sr = SIDFXClipboard[0].susrel;
+    char ad = SIDFXFocus[0].attdec;
+    char sr = SIDFXFocus[0].susrel;
     sound_effect_info_window_view[5*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (ad >> 4) & 0x0f ];
     sound_effect_info_window_view[5*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ ad & 0x0f ];
     sound_effect_info_window_view[6*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (sr >> 4) & 0x0f ];
     sound_effect_info_window_view[6*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ sr & 0x0f ];
 
-    int dfreq = SIDFXClipboard[0].dfreq;
+    int dfreq = SIDFXFocus[0].dfreq;
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (dfreq >> 12) & 0x0f];
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ (dfreq >>  8) & 0x0f];
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+10] = byte2hexpetscii[ (dfreq >>  4) & 0x0f];
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+11] = byte2hexpetscii[ dfreq & 0x0f];
 
-    int dpwm = SIDFXClipboard[0].dpwm;
+    int dpwm = SIDFXFocus[0].dpwm;
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+16] = byte2hexpetscii[ (dpwm >> 12) & 0x0f];
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+17] = byte2hexpetscii[ (dpwm >>  8) & 0x0f];
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+18] = byte2hexpetscii[ (dpwm >>  4) & 0x0f];
     sound_effect_info_window_view[7*SOUND_EFFECT_INFO_WIDTH+19] = byte2hexpetscii[ dpwm & 0x0f];
 
-    char time1 = SIDFXClipboard[0].time1;
+    char time1 = SIDFXFocus[0].time1;
     sound_effect_info_window_view[8*SOUND_EFFECT_INFO_WIDTH+8] = byte2hexpetscii[ (time1 >>  4) & 0x0f];
     sound_effect_info_window_view[8*SOUND_EFFECT_INFO_WIDTH+9] = byte2hexpetscii[ time1 & 0x0f];
 
-    char time0 = SIDFXClipboard[0].time0;
+    char time0 = SIDFXFocus[0].time0;
     sound_effect_info_window_view[8*SOUND_EFFECT_INFO_WIDTH+16] = byte2hexpetscii[ (time0 >>  4) & 0x0f];
     sound_effect_info_window_view[8*SOUND_EFFECT_INFO_WIDTH+17] = byte2hexpetscii[ time0 & 0x0f];
 }

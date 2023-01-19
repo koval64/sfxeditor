@@ -11,7 +11,8 @@
 /* }; */
 
 // main sound effect structure to play sound by oscar64
-struct SIDFX SIDFXClipboard[1];
+struct SIDFX SIDFXFocus[1];
+// struct SIDFX SIDFXClipboard[1];
 
 struct SFX {
     char name[SOUND_NAME_LENGTH];

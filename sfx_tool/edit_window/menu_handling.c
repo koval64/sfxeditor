@@ -2,8 +2,8 @@
 // DESELECT PREVIOUS MENU OPTION AND SELECT NEW ONE
 void select_option(char new_opt) {
 
-    unsigned ypos_off = MENU_START_POS+(40*menu.index);
-    unsigned ypos_on  = MENU_START_POS+(40*new_opt);
+    unsigned ypos_off = MENU_START_POS + (40 * menu.index);
+    unsigned ypos_on  = MENU_START_POS + (40 * new_opt);
 
     for(int i = 0; i<9; i++) {
         // DESELECT PREVIOUS OPTION
@@ -45,7 +45,7 @@ void update_vertical_menu( char direction ) {
 void update_horizontal_menu( char direction ) {
     menu.option[menu.index].change_value (direction);     // direction = 1 - left, 3 - right
     update_sidfx_struct();
-    sidfx_play(1, SIDFXClipboard, 1);
+    sidfx_play(1, SIDFXFocus, 1);
 }
 
 void horizontal_menu_cycle_step(void) {

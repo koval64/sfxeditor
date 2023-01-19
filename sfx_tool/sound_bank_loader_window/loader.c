@@ -12,9 +12,8 @@ void loader_save_file(void) {
             //
             // convert sound bank data structure into template
             //
-            for (char j=0; j<SOUND_NAME_LENGTH; j++) {
-                ins_template[j] = sound_bank[i].name[j];
-            }
+            memcpy(ins_template, sound_bank[i].name, SOUND_NAME_LENGTH);
+
             ins_template[12] = sound_bank[i].note;
             ins_template[13] = (sound_bank[i].pwm >> 8) & 0xff;
             ins_template[14] = (sound_bank[i].pwm & 0xff);
@@ -55,9 +54,8 @@ void loader_load_file(void) {
             //
             // convert sound data from template into sound bank structure
             //
-            for (char j=0; j<SOUND_NAME_LENGTH; j++) {
-                sound_bank[i].name[j] = ins_template[j];
-            }
+            memcpy( sound_bank[i].name, ins_template, SOUND_NAME_LENGTH);
+
             sound_bank[i].note = ins_template[12];
             sound_bank[i].pwm  = (ins_template[13] << 8) + ins_template[14];
             sound_bank[i].wave = ins_template[15];

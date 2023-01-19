@@ -10,9 +10,11 @@ void vertical_line(int pos) {
 void swap_buffer(void) {
 
     // put char data on screen
+    memcpy(CHAR_RAM, char_ram_buffer, 1000);
+
     #pragma unroll (page)
     for(int i=0; i<1000; i++) {
-        CHAR_RAM [i] = char_ram_buffer[i];
+        // CHAR_RAM [i] = char_ram_buffer[i];
         COLOR_RAM[i] = VCOL_DARK_GREY;
     }
 }

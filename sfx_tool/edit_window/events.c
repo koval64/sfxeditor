@@ -1,6 +1,5 @@
 
 // menu helpers - global variables used only here
-#include "c64/keyboard.h"
 int prevx = 0;
 int prevy = 0;
 int prevb = 0;
@@ -16,7 +15,7 @@ char edit_window_process_keyboard_events() {
     byte _key = keyb_codes[keyb_key & 0x7f];
     byte play = TRUE;
 
-    if ( _key == KEY_SPACE || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT ) {
+    if (_key == 'z' || _key == 'b' || _key == KEY_SPACE || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT ) {
         return TRUE;
         /* play = FALSE; */
     } else if (_key == 'q') {
@@ -136,8 +135,8 @@ char edit_window_process_keyboard_events() {
         int sum = octave + note;
         if( sum < 96) {
             int freq = notes_pal_table[ sum ];
-            SIDFXClipboard[0].freq = freq;
-            sidfx_play(2, SIDFXClipboard, 1);
+            SIDFXFocus[0].freq = freq;
+            sidfx_play(2, SIDFXFocus, 1);
         }
     }
     return FALSE;
@@ -162,7 +161,7 @@ void edit_window_process_joystick_events( void ) {
 
     if ( joyb[0] != prevb ) {
         if( joyb[0] == 1 )
-          sidfx_play(0, SIDFXClipboard, 1);
+          sidfx_play(0, SIDFXFocus, 1);
         prevb = joyb[0];
     }
 }

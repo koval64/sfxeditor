@@ -24,6 +24,7 @@
 #include "common/utils.c"               //  null / debug functions
 #include "common/view_utils.c"          //  screen / buffer generic functions
 #include "common/scene_utils.c"         //  scene declaration and managment
+#include "common/menu_utils.c"          //  invert text, normal text, select text
 #include "common/audio.h"
 #include "common/audio.c"               //  music notes array and find_note function
 #include "common/sound_bank.c"
@@ -32,7 +33,8 @@
 /* #include "sound_bank_window/scene.h" */
 #include "two_columns_window/scene.h"
 #include "one_track_window/scene.h"
-#include "one_track_ultimate/scene.h"   // merges "two_columns_window" and "one_track_window" scenes
+#include "one_track_ultimate/scene.h"   // require "two_columns_window" and "one_track_window" scenes ( must be included after them )
 #include "sound_bank_loader_window/scene.h"
 #include "edit_label_window/scene.h"
+#include "options_window/scene.h"
 

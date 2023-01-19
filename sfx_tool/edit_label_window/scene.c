@@ -42,5 +42,10 @@ void edit_label_window_mainloop(void) {
         CHAR_RAM[ pos ] -= 128;
     }
 
+    // save text to array
+    pos = edit_label_y_pos + edit_label_x_min;
+    for (int i = 0; i < argv.length; i++) {
+        argv.output_text_save_pointer[i] = CHAR_RAM[pos + i];
+    }
 }
 
