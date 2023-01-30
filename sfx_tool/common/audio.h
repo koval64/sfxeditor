@@ -14,7 +14,8 @@
 struct SIDFX SIDFXFocus[1];
 // struct SIDFX SIDFXClipboard[1];
 
-struct SFX {
+struct SFX
+{
     char name[SOUND_NAME_LENGTH];
     char note;
     unsigned pwm;
@@ -32,5 +33,5 @@ struct SFX {
 // };
 // extern struct SOUND_BANK sound_bank;
 
-extern struct SFX sound_bank[ SFX_COUNT ];
-extern struct SFX one_track[ TRACK_LENGTH ];
+extern struct SFX sound_bank[SFX_COUNT];
+extern struct SFX one_track[TRACK_LENGTH];

@@ -1,5 +1,5 @@
 
-#define ONE_TRACK_ALIGN_X       1 
+#define ONE_TRACK_ALIGN_X       0 
 #define ONE_TRACK_ALIGN_Y       0
 #define ONE_TRACK_FIELD_SIZE    SOUND_BANK_FIELD_SIZE
 #define ONE_TRACK_VIEW_ROWS    16

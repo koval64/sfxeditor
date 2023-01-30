@@ -9,36 +9,43 @@ void vertical_line(int pos) {
 // copy buffer data to screen
 void swap_buffer(void) {
 
-    // put char data on screen
+    // copy buffer to char ram screen
     memcpy(CHAR_RAM, char_ram_buffer, 1000);
 
-    #pragma unroll (page)
-    for(int i=0; i<1000; i++) {
-        // CHAR_RAM [i] = char_ram_buffer[i];
-        COLOR_RAM[i] = VCOL_DARK_GREY;
-    }
+    // set color ram color
+    memset(COLOR_RAM, VCOL_DARK_GREY, 1000);
+
+    // #pragma unroll (page)
+    // for(int i=0; i<1000; i++) {
+    //     CHAR_RAM [i] = char_ram_buffer[i];
+    //     COLOR_RAM[i] = VCOL_DARK_GREY;
+    // }
 }
 
 // clear buffer data
 void clear_buffer(void) {
 
     // clear char and color RAM
-    #pragma unroll (page)
-    for(int i=0; i<1000; i++) {
-        char_ram_buffer[i] = ' ';
-    }
+    memset(char_ram_buffer, ' ', 1000);
 
+    // #pragma unroll (page)
+    // for(int i=0; i<1000; i++) {
+    //     char_ram_buffer[i] = ' ';
+    // }
 }
 
 // clear screen data and color
 void clear_screen(char color) {
 
     // clear char and color RAM
-    #pragma unroll (page)
-    for(int i=0; i<1000; i++) {
-        CHAR_RAM [i] = ' ';
-        COLOR_RAM[i] = color;
-    }
+    memset(CHAR_RAM, ' ', 1000);
+    memset(COLOR_RAM, color, 1000);
+
+    // #pragma unroll (page)
+    // for(int i=0; i<1000; i++) {
+    //     CHAR_RAM [i] = ' ';
+    //     COLOR_RAM[i] = color;
+    // }
 
 }
 

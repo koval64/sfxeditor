@@ -8,15 +8,15 @@
 #include <c64/joystick.h>
 #include <c64/keyboard.h>
 #include <c64/kernalio.h>
-    // krnio_setnam("@0:SIDFXEFFECT.TXT,P,W");
-    // krnio_open(2, 8, 2);
-    // krnio_write(2, (char*)exporter_txt_template, sizeof(exporter_txt_template) - 1);
-    // krnio_close(2);
+//      krnio_setnam("@0:SIDFXEFFECT.TXT,P,W");
+//      krnio_open(2, 8, 2);
+//      krnio_write(2, (char*)exporter_txt_template, sizeof(exporter_txt_template) - 1);
+//      krnio_close(2);
 #include <audio/sidfx.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-    // strcpy
+//      strcpy
 
 // PROJECT INCLUDES
 #include "common/keys.h"                //  keys definitions
@@ -37,4 +37,3 @@
 #include "sound_bank_loader_window/scene.h"
 #include "edit_label_window/scene.h"
 #include "options_window/scene.h"
-

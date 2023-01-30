@@ -1,20 +1,4 @@
 
-void copy_sfx_to_sfx(struct SFX * destination, struct SFX * source_data) {
-
-    memcpy(destination->name, source_data->name, sizeof(source_data->name));
-
-    destination->note       = source_data->note;
-    destination->pwm        = source_data->pwm;
-    destination->wave       = source_data->wave;
-    destination->ad         = source_data->ad;
-    destination->sr         = source_data->sr;
-    destination->dfreq      = source_data->dfreq;
-    destination->dpwm       = source_data->dpwm;
-    destination->time1      = source_data->time1;
-    destination->time0      = source_data->time0;
-
-}
-
 // copy active sound_bank_instrument into sound_focus
 void sound_focus_load_sound_from(struct SFX * sound_data) {
 

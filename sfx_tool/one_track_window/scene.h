@@ -1,7 +1,7 @@
 
 #include "assets.h"
-#include "menu_handling.c"
 #include "view.c"
+#include "menu_handling.c"
 #include "events.c"
 
 

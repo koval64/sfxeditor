@@ -12,10 +12,18 @@
 #define DOWN                8
 
 // TEXT DECORATORS
-#define NORMAL              1
-#define INVERT              2
-#define SELECT              4
-#define DESELECT            8
+#define NORMAL              1   // normal char 0-127
+#define INVERT              2   // inverted char 128-255
+
+// OPTION CHANGE STATE TO:
+#define SELECT              1   // color selected -- (inverted + color selected)
+#define GRAY_OUT            2   // color gray_out -- (inverted + color deselected)
+#define DESELECT            3   // color deselected -(normal + color deselected)
+
+// MENU COLOR SETTINGS
+#define OPTION_COLOR_SELECTED       VCOL_LT_GREY
+#define OPTION_COLOR_GRAY_OUT       VCOL_DARK_GREY
+#define OPTION_COLOR_OFF            VCOL_BLACK
 
 // HELPERS
 #define TRUE                 1
@@ -35,11 +43,6 @@
 #define ONE_TRACK_ULTIMATE  7
 #define OPTIONS_WINDOW      8
 #define SCENES_COUNT        9
-
-// MENU COLOR SETTINGS
-#define OPTION_ON_COLOR             VCOL_DARK_GREY
-#define OPTION_ON_SELECTED_COLOR    VCOL_LT_GREY
-#define OPTION_OFF_COLOR            VCOL_BLACK
 
 #define SOUND_BANK_FIELD_SIZE   13
 #define SOUND_NAME_LENGTH       12

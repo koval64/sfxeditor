@@ -7,16 +7,16 @@ void select_option(char new_opt) {
 
     for(int i = 0; i<9; i++) {
         // DESELECT PREVIOUS OPTION
-        COLOR_RAM[ypos_off+i] = OPTION_ON_COLOR;
+        COLOR_RAM[ypos_off+i] = OPTION_COLOR_GRAY_OUT;
         // SELECT NEW OPTION
-        COLOR_RAM[ypos_on +i] = OPTION_ON_SELECTED_COLOR;
+        COLOR_RAM[ypos_on +i] = OPTION_COLOR_SELECTED;
     }
 
     // DESELECT PREVIOUS OPTION VALUE
-    menu.option[menu.index].change_color (OPTION_ON_COLOR);
+    menu.option[menu.index].change_color (OPTION_COLOR_GRAY_OUT);
 
     // SELECT NEW OPTION VALUE
-    menu.option[new_opt].change_color (OPTION_ON_SELECTED_COLOR);
+    menu.option[new_opt].change_color (OPTION_COLOR_SELECTED);
 
 }
 
@@ -57,14 +57,14 @@ unsigned prev_octave_position = OCTAVE_2_X_COLOR_POSITION;
 unsigned prev_note_position   = NOTES_COLOR_KEY_T;
 
 void select_new_octave(char new_position) {
-    OCTAVE_MENU_COLOR_ADDR[prev_octave_position]  = OPTION_ON_COLOR;
-    OCTAVE_MENU_COLOR_ADDR[new_position]          = OPTION_ON_SELECTED_COLOR;
+    OCTAVE_MENU_COLOR_ADDR[prev_octave_position]  = OPTION_COLOR_GRAY_OUT;
+    OCTAVE_MENU_COLOR_ADDR[new_position]          = OPTION_COLOR_SELECTED;
     prev_octave_position = new_position;
 }
 
 void select_note(char new_position) {
-    SEMINOTES_COLOR_POSITIONS[prev_note_position] = OPTION_ON_COLOR;
-    SEMINOTES_COLOR_POSITIONS[new_position]       = OPTION_ON_SELECTED_COLOR;
+    SEMINOTES_COLOR_POSITIONS[prev_note_position] = OPTION_COLOR_GRAY_OUT;
+    SEMINOTES_COLOR_POSITIONS[new_position]       = OPTION_COLOR_SELECTED;
     prev_note_position = new_position;
 }
 

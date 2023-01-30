@@ -81,16 +81,16 @@ void edit_window_select_default_menu_options() {
     // select waveform
     waveform_menu_change_option(OPTION_NOOP);
     if(menu.index == WAVEFORM_INDEX)
-        waveform_menu_change_color(OPTION_ON_SELECTED_COLOR);
+        waveform_menu_change_color(OPTION_COLOR_SELECTED);
 
     // blackout PWM options ( PWM options are active only when PWM waveform is choosen )
     if( menu.option[WAVEFORM_INDEX].value != WAVE_PULSE ) {
 
         for(int i=0; i<28; i++)
-            COLOR_RAM[PWM_POS+i] = OPTION_OFF_COLOR;
+            COLOR_RAM[PWM_POS+i] = OPTION_COLOR_OFF;
 
         for(int i=0; i<28; i++)
-            COLOR_RAM[DPWM_POS+i] = OPTION_OFF_COLOR;
+            COLOR_RAM[DPWM_POS+i] = OPTION_COLOR_OFF;
 
         if( menu.index == PWM_INDEX || menu.index == DPWM_INDEX )
             menu.index++;
@@ -99,10 +99,10 @@ void edit_window_select_default_menu_options() {
 
     // select default option
     for(int i=0; i<9; i++)
-        COLOR_RAM[MENU_START_POS+(40*menu.index)+i] = OPTION_ON_SELECTED_COLOR;
+        COLOR_RAM[MENU_START_POS+(40*menu.index)+i] = OPTION_COLOR_SELECTED;
 
     // select default option value
-    menu.option[menu.index].change_color (OPTION_ON_SELECTED_COLOR);
+    menu.option[menu.index].change_color (OPTION_COLOR_SELECTED);
 
     // find note index
     byte note_index = find_note( SIDFXFocus[0].freq );
@@ -119,10 +119,10 @@ void edit_window_select_default_menu_options() {
     prev_note_position   = piano_notes_color_positions[ note ];
 
     // select default octave key
-    OCTAVE_MENU_COLOR_ADDR[ prev_octave_position ]  = OPTION_ON_SELECTED_COLOR;
+    OCTAVE_MENU_COLOR_ADDR[ prev_octave_position ]  = OPTION_COLOR_SELECTED;
 
     // select default note key
-    SEMINOTES_COLOR_POSITIONS[ prev_note_position ] = OPTION_ON_SELECTED_COLOR;
+    SEMINOTES_COLOR_POSITIONS[ prev_note_position ] = OPTION_COLOR_SELECTED;
 
     // project necessity
     octave *= 12;

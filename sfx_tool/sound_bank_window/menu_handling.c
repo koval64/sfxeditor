@@ -24,7 +24,7 @@ void sound_bank_window_deselect_option(void) {
 
   unsigned pos = sound_bank_window_calculate_pos_48();
   for (int i = 0; i < SOUND_NAME_LENGTH; i++) {
-    COLOR_RAM[pos + i] = OPTION_ON_COLOR;
+    COLOR_RAM[pos + i] = OPTION_COLOR_SELECTED;
     CHAR_RAM[pos + i] = CHAR_RAM[pos + i] - 128;
   }
 }
@@ -33,7 +33,7 @@ void sound_bank_window_select_option(void) {
 
   unsigned pos = sound_bank_window_calculate_pos_48();
   for (int i = 0; i < SOUND_NAME_LENGTH; i++) {
-    COLOR_RAM[pos + i] = OPTION_ON_SELECTED_COLOR;
+    COLOR_RAM[pos + i] = OPTION_COLOR_GRAY_OUT;
     CHAR_RAM[pos + i] = CHAR_RAM[pos + i] + 128;
   }
 
