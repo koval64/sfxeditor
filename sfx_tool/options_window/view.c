@@ -1,6 +1,7 @@
 
-void add_option(byte OPTION_INDEX, byte x, byte y, void (*pressed)(void))
+void add_option(byte OPTION_INDEX, byte flags, byte x, byte y, void (*pressed)(void))
 {
+    options.option[OPTION_INDEX].close_menu_flag = flags;
     options.option[OPTION_INDEX].x = x;
     options.option[OPTION_INDEX].y = y;
     options.option[OPTION_INDEX].pressed = pressed;

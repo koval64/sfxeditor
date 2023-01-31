@@ -22,15 +22,15 @@ void two_columns_window_option(byte decorator)
     switch (decorator)
     {
     case SELECT:
-        select_invert_text(pos);
+        select_invert_text(pos, SOUND_NAME_LENGTH);
         sound_focus_load_sound_from(two_columns_window_get_sound_pointer());
         break;
     case DESELECT:
-        deselect_normal_text(pos);
+        deselect_normal_text(pos, SOUND_NAME_LENGTH);
         break;
     case GRAY_OUT:
-        deselect_normal_text(pos);
-        invert_text(pos);
+        deselect_normal_text(pos, SOUND_NAME_LENGTH);
+        invert_text(pos, SOUND_NAME_LENGTH);
         break;
     }
 }

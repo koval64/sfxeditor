@@ -59,6 +59,11 @@ void one_track_ultimate_window_mainloop(void)
             else if (status == COPY_SOUND_FROM_TWO_COLUMNS_TO_ONE_TRACK)
             {
                 one_track[one_track_window_get_current_sound_index()] = sound_bank[two_columns_window_get_current_sound_index()];
+                one_track_window_go(DOWN);
+                one_track_ultimate_window_refresh_one_track_window();
+                swap_buffer();
+                focus_window(1);
+                focus_window(0);
             }
         }
 

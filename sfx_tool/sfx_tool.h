@@ -31,8 +31,8 @@
 #include "info_window/scene.h"
 #include "edit_window/scene.h"
 /* #include "sound_bank_window/scene.h" */
-#include "two_columns_window/scene.h"
 #include "one_track_window/scene.h"
+#include "two_columns_window/scene.h"
 #include "one_track_ultimate/scene.h"   // require "two_columns_window" and "one_track_window" scenes ( must be included after them )
 #include "sound_bank_loader_window/scene.h"
 #include "edit_label_window/scene.h"

@@ -9,9 +9,7 @@ char two_columns_window_process_keyboard_events(void)
     byte _key = keyb_codes[keyb_key & 0x7f];
 
     if (_key == 'b' || _key == 's' || _key == 'J' || _key == 'L' || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT)
-    {
-        return SWITCH_WINDOW; // exit main menu
-    }
+        return SWITCH_WINDOW;               // exit main menu
     else if (_key == KEY_UP || _key == 'i') // cursor up
     {
         two_columns_window_go(UP);
@@ -33,19 +31,27 @@ char two_columns_window_process_keyboard_events(void)
         play = TRUE;
     }
     else if (_key == KEY_RETURN || _key == KEY_SPACE) // return
-    {
         play = TRUE;
-    }
-    else if (_key == KEY_F1 || _key == 'm')
+    else if (_key == KEY_F1 || _key == 'f')
     {
         run_as_child(OPTIONS_WINDOW);
         return REFRESH_SCENE;
     }
-    else if (_key == 'a')
-    {
+    else if (_key == 'r')
         return COPY_SOUND_FROM_TWO_COLUMNS_TO_ONE_TRACK;
-    }
     else if (_key == 'e')
+    {
+        one_track_window_go(UP);
+        one_track_window_option(GRAY_OUT);
+        play = TRUE;
+    }
+    else if (_key == 'd')
+    {
+        one_track_window_go(DOWN);
+        one_track_window_option(GRAY_OUT);
+        play = TRUE;
+    }
+    else if (_key == 'E')
     {
         run_as_child(EDIT_WINDOW);
 
@@ -54,13 +60,13 @@ char two_columns_window_process_keyboard_events(void)
 
         return REFRESH_SCENE;
     }
-    else if (_key == 'r')
+    else if (_key == 'R')
     {
 
         // RENAME LABEL
 
         // prepare label for edition
-        normal_text(two_columns_window_get_cursor_screen_position());
+        normal_text(two_columns_window_get_cursor_screen_position(), SOUND_NAME_LENGTH);
 
         // helper - pointer is used twice
         char *return_pointer = two_columns_window_get_sound_pointer()->name;
@@ -79,7 +85,7 @@ char two_columns_window_process_keyboard_events(void)
         two_columns_window_view_buffer_set_sound_name(return_pointer, two_columns_window_get_current_sound_index());
 
         // edition done, invert label
-        invert_text(two_columns_window_get_cursor_screen_position());
+        invert_text(two_columns_window_get_cursor_screen_position(), SOUND_NAME_LENGTH);
     }
 
     if (play)

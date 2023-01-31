@@ -5,7 +5,7 @@ char sound_effect_info_window_process_keyboard_events(void)
     keyb_poll();
     byte _key = keyb_codes[keyb_key & 0x7f];
 
-    if (_key == 'a' || _key == 'q' || _key == 's' || _key == KEY_SPACE || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT)
+    if ( _key == 'q' || _key == 'f' || _key == KEY_SPACE || _key == KEY_ESCAPE || _key == KEY_ARROW_LEFT || _key == KEY_RETURN)
     {
         return TRUE; // exit main menu
     }

@@ -12,12 +12,12 @@ char one_track_window_process_keyboard_events(void)
     {
         return SWITCH_WINDOW; // exit main menu
     }
-    else if (_key == KEY_UP || _key == 'i') // cursor up
+    else if (_key == KEY_UP || _key == 'i' || _key == 'e') // cursor up
     {
         one_track_window_go(UP);
         play = TRUE;
     }
-    else if (_key == KEY_DOWN || _key == 'k') // cursor down
+    else if (_key == KEY_DOWN || _key == 'k' || _key == 'd') // cursor down
     {
         one_track_window_go(DOWN);
         play = TRUE;
@@ -36,12 +36,12 @@ char one_track_window_process_keyboard_events(void)
     {
         play = TRUE;
     }
-    else if (_key == KEY_F1 || _key == 'm')
+    else if (_key == KEY_F1 || _key == 'f')
     {
         run_as_child(OPTIONS_WINDOW);
         return REFRESH_SCENE;
     }
-    else if (_key == 'e')
+    else if (_key == 'E')
     {
         run_as_child(EDIT_WINDOW);
 
@@ -50,13 +50,13 @@ char one_track_window_process_keyboard_events(void)
 
         return REFRESH_SCENE;
     }
-    else if (_key == 'r')
+    else if (_key == 'R')
     {
 
         // RENAME LABEL
 
         // prepare RENAME LABEL
-        normal_text(one_track_window_get_cursor_screen_position());
+        normal_text(one_track_window_get_cursor_screen_position(), SOUND_NAME_LENGTH);
 
         // helper - pointer used twice
         char *return_pointer = one_track_window_get_sound_pointer()->name;
@@ -75,7 +75,7 @@ char one_track_window_process_keyboard_events(void)
         one_track_window_view_buffer_set_sound_name(return_pointer, one_track_window_get_current_sound_index());
 
         // RENAME LABEL edition done, invert label
-        invert_text(one_track_window_get_cursor_screen_position());
+        invert_text(one_track_window_get_cursor_screen_position(), SOUND_NAME_LENGTH);
     }
 
     if (play)
