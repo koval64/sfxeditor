@@ -12,7 +12,8 @@
 
 // main sound effect structure to play sound by oscar64
 struct SIDFX SIDFXFocus[1];
-// struct SIDFX SIDFXClipboard[1];
+struct SIDFX SIDFXFocusOneTrack[1];
+struct SIDFX SIDFXOneTrack[TRACK_LENGTH];
 
 struct SFX
 {
@@ -35,3 +36,4 @@ struct SFX
 
 extern struct SFX sound_bank[SFX_COUNT];
 extern struct SFX one_track[TRACK_LENGTH];
+struct SFX SFXClipboard[1];

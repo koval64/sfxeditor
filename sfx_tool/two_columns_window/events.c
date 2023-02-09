@@ -31,28 +31,47 @@ char two_columns_window_process_keyboard_events(void)
         play = TRUE;
     }
     else if (_key == KEY_RETURN || _key == KEY_SPACE) // return
+    {
         play = TRUE;
+    }
     else if (_key == KEY_F1 || _key == 'f')
     {
         run_as_child(OPTIONS_WINDOW);
         return REFRESH_SCENE;
     }
-    else if (_key == 'r')
+    else if (_key == 'c')
+    {
+        // copy sfx to sfx clipboard
+        SFXClipboard[0] = sound_bank[two_columns_window_get_current_sound_index()];
+    }
+    else if (_key == 'v')
+    {
+        // paste sfx from sfx clipboard
+        sound_bank[two_columns_window_get_current_sound_index()] = SFXClipboard[0];
+
+        unsigned pos = two_columns_window_get_cursor_screen_position();
+        memcpy(&CHAR_RAM[pos], SFXClipboard[0].name, SOUND_NAME_LENGTH);
+        invert_text(pos, SOUND_NAME_LENGTH);
+    }
+    else if (_key == 'a')
         return COPY_SOUND_FROM_TWO_COLUMNS_TO_ONE_TRACK;
-    else if (_key == 'e')
-    {
-        one_track_window_go(UP);
-        one_track_window_option(GRAY_OUT);
-        play = TRUE;
-    }
-    else if (_key == 'd')
-    {
-        one_track_window_go(DOWN);
-        one_track_window_option(GRAY_OUT);
-        play = TRUE;
-    }
     else if (_key == 'E')
     {
+        // use "one track window" as secondary window
+        one_track_window_go(UP);
+        one_track_window_option(GRAY_OUT); // don't have focus so gray out active option
+        sidfx_play(1, SIDFXFocusOneTrack, 1);
+    }
+    else if (_key == 'D')
+    {
+        // use "one track window" as secondary window
+        one_track_window_go(DOWN);
+        one_track_window_option(GRAY_OUT); // don't have focus so gray out active option
+        sidfx_play(1, SIDFXFocusOneTrack, 1);
+    }
+    else if (_key == 'e')
+    {
+        // edit sound stored in "SIDFXFocus" clipboard
         run_as_child(EDIT_WINDOW);
 
         // copy edit_menu sound into sound bank actual instrument
@@ -60,7 +79,7 @@ char two_columns_window_process_keyboard_events(void)
 
         return REFRESH_SCENE;
     }
-    else if (_key == 'R')
+    else if (_key == 'r')
     {
 
         // RENAME LABEL

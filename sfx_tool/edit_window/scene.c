@@ -37,7 +37,7 @@ void edit_window_mainloop(void) {
     for(;;) {
 
         // process input events
-        edit_window_process_joystick_events();
+        // edit_window_process_joystick_events();
         char done = edit_window_process_keyboard_events();
         if(done)
             break;

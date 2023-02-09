@@ -12,12 +12,12 @@ char one_track_window_process_keyboard_events(void)
     {
         return SWITCH_WINDOW; // exit main menu
     }
-    else if (_key == KEY_UP || _key == 'i' || _key == 'e') // cursor up
+    else if (_key == KEY_UP || _key == 'i' || _key == 'E') // cursor up
     {
         one_track_window_go(UP);
         play = TRUE;
     }
-    else if (_key == KEY_DOWN || _key == 'k' || _key == 'd') // cursor down
+    else if (_key == KEY_DOWN || _key == 'k' || _key == 'D') // cursor down
     {
         one_track_window_go(DOWN);
         play = TRUE;
@@ -41,16 +41,40 @@ char one_track_window_process_keyboard_events(void)
         run_as_child(OPTIONS_WINDOW);
         return REFRESH_SCENE;
     }
-    else if (_key == 'E')
+    else if (_key == 'c')
     {
+        // copy sfx to sfx clipboard
+        SFXClipboard[0] = one_track[one_track_window_get_current_sound_index()];
+    }
+    else if (_key == 'v')
+    {
+        // paste sfx from sfx clipboard
+        one_track[one_track_window_get_current_sound_index()] = SFXClipboard[0];
+
+        unsigned pos = one_track_window_get_cursor_screen_position();
+        memcpy(&CHAR_RAM[pos], SFXClipboard[0].name, SOUND_NAME_LENGTH);
+        invert_text(pos, SOUND_NAME_LENGTH);
+    }
+    else if (_key == 'g')
+    {
+        fill_one_track_play_structure();
+        sidfx_play(0, SIDFXOneTrack, TRACK_LENGTH);
+    }
+    else if (_key == 'e')
+    {
+        // copy sound to edit into main "sound focus" clipboard
+        sound_focus_load_sound_from(one_track_window_get_sound_pointer());
+
+        // edit sound stored in "SIDFXFocus" clipboard
         run_as_child(EDIT_WINDOW);
 
         // copy edit_menu sound into sound bank actual instrument
-        sound_focus_save_sound_to(one_track_window_get_sound_pointer());
+        one_track_save_sound_focus_to_sound(one_track_window_get_sound_pointer());
+        // one_track_sound_focus_load_sound_from(one_track_window_get_sound_pointer());
 
         return REFRESH_SCENE;
     }
-    else if (_key == 'R')
+    else if (_key == 'r')
     {
 
         // RENAME LABEL
@@ -80,7 +104,7 @@ char one_track_window_process_keyboard_events(void)
 
     if (play)
     {
-        sidfx_play(2, SIDFXFocus, 1);
+        sidfx_play(2, SIDFXFocusOneTrack, 1);
         /* sidfx_play(2, SIDFXTrack, 10); */
     }
 

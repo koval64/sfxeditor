@@ -23,7 +23,8 @@ void one_track_window_option(byte decorator)
     {
     case SELECT:
         select_invert_text(pos, SOUND_NAME_LENGTH);
-        sound_focus_load_sound_from(one_track_window_get_sound_pointer()); // play sound effect
+        // sound_focus_load_sound_from(one_track_window_get_sound_pointer()); // play sound effect
+        one_track_sound_focus_load_sound_from(one_track_window_get_sound_pointer()); // play sound effect
         break;
     case DESELECT:
         deselect_normal_text(pos, SOUND_NAME_LENGTH);
